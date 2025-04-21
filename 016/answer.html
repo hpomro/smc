@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta name="robots" content="noindex">
+        <meta charset="utf-8">
+        <style>
+            body{
+                position: relative;
+                width: 70%;
+                left: 15%;
+                background-color: rgb(247, 255, 240);
+            }
+            .shorthr{
+                width: 70%;
+                color: #000;
+            }
+            h3{
+                font-size: xx-large;
+            }
+            h1{
+                font-size: 250%;
+            }
+            table{
+                border: solid 2px #000;
+                text-align: center;
+            }
+            table th{
+                padding: 5px;
+                border: solid 2px #000;
+            }
+            table td{
+                padding: 1px 1px;
+                border: solid 1px #000;
+            }
+            body{
+                font-family: 'Times New Roman', Times, serif;
+            }
+        </style>
+        <title>SMC 016 Answer</title>        
+    </head>
+    <body>
+        <h1 style="text-align: center;" id="top">Suken Math Contest 016</h1>
+        <h2 style="text-align: center;">解説</h2>
+        
+        <hr>
+
+        <div id="index">
+            <p><a href="#Q1">Q1 FACTORIZATION</a></p>
+            <p><a href="#Q2">Q2 RANDOM SEGMENT</a></p>
+            <p><a href="#Q3">Q3 COLLATZ</a></p>
+            <p><a href="#Q4">Q4 HELICPOT</a></p>
+        </div>
+
+        <hr>
+
+        <p>[x]でx以下で最大の整数を表すものとする。</p>
+
+        <hr><hr>
+
+        <div id="Q1_div">
+            <h3 id="Q1">[1] FACTORIZATION</h3>
+            <p>p,qは0&lt;q-p&leq;100を満たす素数である。pq=376289のとき,pの値を求めよ。</p>
+            <hr class="shorthr">
+            <p>
+                今後使うので[<math><msqrt><mi>pq</mi></msqrt></math>]を求めておく。条件から[<math><msqrt><mi>pq</mi></msqrt></math>]&lt;<math><msqrt><mi>pq</mi></msqrt></math>
+                <br>pqは6桁であるので,[<math><msqrt><mi>pq</mi></msqrt></math>]は3桁である。(∵10<sup>5</sup> ≦ pq &lt; 10<sup>6</sup> から 10<sup>2</sup> &lt; 10<sup>2</sup><math><msqrt><mn>10</mn></msqrt></math> ≦  <math><msqrt><mi>pq</mi></msqrt></math> &lt; 10<sup>3</sup>)
+                <br>600<sup>2</sup> &lt; pq &lt; 700<sup>2</sup> より 600 &lt; <math><msqrt><mi>pq</mi></msqrt></math> &lt; 700
+                <br>このあとは,今回は二分探索( 上限と下限の平均と比較する , &nbsp;計算量
+                <math><mi>O</mi><mo>(</mo><mi>log</mi><mi>N</mi><mo>)</mo></math>
+                 )で求めてみる。ただし,今回は手計算のため比較する対象は最も上限と下限の平均値に近い10の倍数や整数を選ぶとよい。
+                <br>650<sup>2</sup> = 422500 &gt; pq
+                <br>620<sup>2</sup> = 384400 &gt; pq
+                <br>610<sup>2</sup> = 372100 &lt; pq
+                <br>よって 610 &lt; <math><msqrt><mi>pq</mi></msqrt></math> &lt; 620
+                <br>615<sup>2</sup> = 378225 &gt; pq
+                <br>613<sup>2</sup> = 375769 &lt;pq
+                <br>614<sup>2</sup> = 376996 &gt; pq
+                <br>よって, 613&lt; <math><msqrt><mi>pq</mi></msqrt></math> &lt; 614
+                <br>ゆえに, [<math><msqrt><mi>pq</mi></msqrt></math>] = 613
+            </p>
+
+            <p>
+                376289は平方数でない正の奇数であるため,n,mを正の整数として,<math><mn>376289</mn><mo>=</mo><mi>(n-m)(n+m)</mi></math>
+                と表される。条件から376289は2つの素数の積として表されるため,m-n&ne;1であるとき,n-m=p,n+m=qである。
+                よって,pの値を求めるにはn,mの値を求めればよい。
+            </p>
+            <p>
+                <math><mn>376289</mn><mo>=</mo><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><msup><mi>m</mi><mn>2</mn></msup></math>から, 
+                <math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><msup><mi>m</mi><mn>2</mn></msup></math>・・・①
+                <br>また, <math><msup><mi>m</mi><mn>2</mn></msup><mo>&gt;</mo><mn>0</mn></math>であるため,
+                <math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>&gt;</mo><mn>0</mn></math> から <math><msup><mi>n</mi><mn>2</mn></msup><mo>&gt;</mo><mn>376289</mn></math>
+                <br>両辺は正だから, <math><mi>n</mi><mo>&gt;</mo><msqrt><mn>376289</mn></msqrt><mo>&gt;</mo><mn>613</mn></math>
+                <br>よって, <math><mi>n</mi><mo>&gt;</mo><mn>613</mn></math>
+                <br><math><mi>q</mi><mo>-</mo><mi>p</mi><mo>=</mo><mn>2</mn><mi>m</mi></math> で,nが大きくなるとmも大きくなり,したがってq-pも大きくなるので,今回はq-pが比較的小さいことから,nを小さいほうから順に調べていく。
+            </p>
+            <p>
+                ここで,  m<sup>2</sup>を12で割った余りは,0,1,4,9のいずれかであるため,①から<math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn></math>を12で割った余りも0,1,4,9のいずれかである。
+                <br>また,376289を12で割った余りは5であり,n<sup>2</sup>を12で割った余りは0,1,4,9のいずれかである。
+                <br>よって,両辺を12で割った余りを比較したときに矛盾が生じないのは,n<sup>2</sup>を12で割った余りが9のときのみで,このとき,nを12で割った余りは,3,9のいずれかである。ゆえに,このときnを6で割った余りは3である。
+            </p>
+            <p>
+                よって, n &gt; 613より, n = 615 , 621 , 627 , …を調べればよい。
+            </p>
+            <p>
+                n = 615のとき, <math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><msup><mn>615</mn><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><mn>1936</mn></math>
+                <br><math><mn>2025</mn><mo>=</mo><msup><mn>45</mn><mn>2</mn></msup></math>であるため,
+                <math><msup><mn>44</mn><mn>2</mn></msup><mo>=</mo><msup><mfenced><mo>(</mo><mn>45</mn><mo>-</mo><mn>1</mn><mo>)</mo></mfenced><mn>2</mn></msup>
+                <mo>=</mo><mn>2025</mn><mo>-</mo><mn>90</mn><mo>+</mo><mn>1</mn>
+                <mo>=</mo><mn>1936</mn></math>
+                <br>よって,<math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><msup><mn>44</mn><mn>2</mn></msup><mo>=</mo><msup><mi>m</mi><mn>2</mn></msup></math>
+                <br>ゆえに,n=615,m=44
+                <br>したがって, p = n-m = 615-44 = 571
+                <br><math><mi>q</mi><mo>=</mo><mfrac><mn>376289</mn><mi>p</mi></mfrac><mo>=</mo><mn>659</mn></math>
+                であり,p,qは素数でpq=376289を満たすためこれらは問題に適している。
+                <br>また,n,mの値の組はただ1つであるため,これ以外にpの値として適するものは存在しない。
+            </p>
+            <p style="font-size: x-large;">(答) <b>p = 571</b></p>
+            <p>
+                376289でない自然数でも,q-pが十分小さければこの方法は使える。    
+            </p>
+        </div>
+
+        <hr><hr>
+
+        <div id="Q2_div">
+            <h3 id="Q2">[2] RANDOM SEGMENT</h3>
+            <p>Integer君は,1から16までの整数の乱数がでる乱数生成器を開発した。ボタンを押すと1以上16以下の整数のうち,どの数も等確率で,1つを選んで出す。
+                <br>この乱数生成器を2回使って,出た数を順にa,bとして,xy平面上に点P(a,b)をとった。このとき,原点をOとして,線分OP上に点O,P以外に格子点がない確率を求めよ。
+            </p>
+            <hr class="shorthr">
+            <p>線分OP上に点O,P以外に格子点がない ⇔ a,bが互いに素(最大公約数が1)</p>
+            <p>全事象の起こり方は16<sup>2</sup>=256(通り)。</p>
+            <p>以下の3つの場合に分けて考える。
+                <br>(i) a=bのとき
+                <br>(ii) a&gt;bのとき
+                <br>(iii) a&lt;bのとき
+            </p>
+            <h4>(i) a=bのとき</h4>
+            <p>
+                (a,b)=(1,1)の1通り。
+            </p>
+            <h4>(ii) a&gt;bのとき</h4>
+            <p>
+                b≧1からa≧2
+                <br>bとしてありうる値の個数,すなわちa未満でaと互いに素である正の整数の個数は,a≧2のときa以下でaと互いに素である正の整数の個数と等しく,
+                <br>
+                <math><mi>a</mi><mo>=</mo><msup><mi>p</mi><mi>x</mi></msup>
+                    <mo>(</mo><mi>p</mi><mi>は素数,</mi><mi>x</mi><mi>は正の整数</mi><mo>)</mo>
+                </math>
+                であるとき,
+                <br>
+                <math>
+                    <mo></mo><mi>a</mi><mo>-</mo><mo>(</mo><mi>1以上</mi><mi>a</mi><mi>以下の</mi><mi>p</mi><mi>の倍数の個数</mi><mo>)</mo>
+                </math>
+                <br>
+                <math><mo>=</mo><mi>a</mi><mo>-</mo><mfrac><mi>a</mi><mi>p</mi></mfrac></math>
+                (個)
+                <br>
+                であって,
+                <math><mi>a</mi><mo>=</mo><mi>p</mi><mi>q</mi>
+                    <mo>(</mo><mi>p</mi><mi>,</mi><mi>q</mi><mi>は異なる素数</mi><mo>)</mo>
+                </math>
+                であるとき,
+                <br>
+                <math>
+                <mo></mo>
+                <mi>a</mi><mo>-</mo><mo>{</mo><mo>(</mo><mi>1以上</mi><mi>a</mi><mi>以下の</mi><mi>p</mi><mi>の倍数の個数</mi><mo>)</mo><mo>+</mo>
+                <mo>(</mo><mi>1以上</mi><mi>a</mi><mi>以下の</mi><mi>q</mi><mi>の倍数の個数</mi><mo>)</mo><mo>-</mo>
+                <mo>(</mo><mi>1以上</mi><mi>a</mi><mi>以下の</mi><mi>p</mi><mi>q</mi><mi>の倍数の個数</mi><mo>)</mo><mo>}</mo>
+                </math>
+                <br>
+                <math>
+                <mo>=</mo>
+                <mi>a</mi><mo>-</mo><mo>{</mo>
+                <mo>[</mo><mfrac><mi>a</mi><mi>p</mi></mfrac><mo>]</mo><mo>+</mo>
+                <mo>[</mo><mfrac><mi>a</mi><mi>q</mi></mfrac><mo>]</mo><mo>-</mo>
+                <mo>[</mo><mfrac><mi>a</mi><mi>pq</mi></mfrac><mo>]</mo><mo>}</mo>
+                </math>
+                <br>
+                <math><mo>=</mo><mi>a</mi><mo>-</mo><mo>(</mo><mi>q</mi><mo>+</mo><mi>p</mi><mo>-</mo><mn>1</mn><mo>)</mo></math>(個)
+                <br>であることを利用して,
+                <br>※12は例外
+            </p>
+
+            <table>
+                <tr><th>aの値</th><th>bとしてありうる数の個数(個)</th></tr>
+                <tr><td>2</td><td>1</td></tr>
+                <tr><td>3</td><td>2</td></tr>
+                <tr><td>4</td><td>2</td></tr>
+                <tr><td>5</td><td>4</td></tr>
+                <tr><td>6</td><td>2</td></tr>
+                <tr><td>7</td><td>6</td></tr>
+                <tr><td>8</td><td>4</td></tr>
+                <tr><td>9</td><td>6</td></tr>
+                <tr><td>10</td><td>4</td></tr>
+                <tr><td>11</td><td>10</td></tr>
+                <tr><td>12</td><td>4</td></tr>
+                <tr><td>13</td><td>12</td></tr>
+                <tr><td>14</td><td>6</td></tr>
+                <tr><td>15</td><td>8</td></tr>
+                <tr><td>16</td><td>8</td></tr>
+                <tr><td><b>計</b></td><td><b>79</b></td></tr>
+            </table>
+            <p>よって,79通り</p>
+
+            <h4>(iii) a&lt;bのとき</h4>
+            <p>
+                (ii)のa,bを入れ替えて考えると79通り。
+            </p>
+            <p>(i)~(iii)からa,bが互いに素であるa,bの組み合わせは, 1+79+79=159(通り)。</p>
+            <p>よって,求める確率は <span style="font-size: x-large; font-weight: bold;"><math><mfrac><mn>159</mn><mn>256</mn></mfrac></math></span></p>
+        </div>
+
+        <hr><hr>
+
+        <div id="Q3_div">
+            <h3 id="Q3">[3] COLLATZ</h3>
+            <p>正の整数nに対して次の操作を行う。
+                <br>&lt;操作&gt;
+                <br>① 黒板にnを一つ書く。このとき,黒板に書かれている整数の個数は1つ増えるものとする。
+                <br>② もしn=1ならば操作を終了する。
+                <br>③ もしnが奇数ならばnを3n+1で置き換え,層でなければnをn/2で置き換える。新しいnも正の整数である。
+                <br>④ ①に戻る
+                <br>ただし,ここでいう黒板はただ一つ存在し,名言なしに書かれたり消されたりしない。また,操作を始めるときには黒板には何も書かれていない。
+                <br>
+                <br>mを1以上100以下の整数とする。n=mとして操作を開始する。このとき操作は有限回数で終了することが保証されている。
+                操作が終了したとき,黒板に書かれている整数がすべて100以下であって,黒板に書かれている整数の個数が最大になるようなmの値をすべて求めよ。
+            </p>
+            <hr class="shorthr">
+            <p>
+                &lt;使い分け&gt;
+                <br>n・・・変数
+                <br>m・・・初期値
+            </p>
+            <p>
+                まず,1≦m≦100を満たすmの100通りをすべて試せば終わるが,1つあたりにかかる時間は比較的長いので,推奨しない。
+            </p>
+            <p>
+                <math>
+                    <mi>f</mi>
+                    <mi>(n)</mi>
+                    <mo>=</mo>
+                    <mo>&#x7b;</mo>
+                    <mtable>
+                        <mtr><mtd><mn>3</mn><mi>n</mi><mo>+</mo><mn>1</mn><mo></mo><mi>(nが奇数のとき)</mi></mtd></mtr>
+                        <mtr><mtd><mfrac><mi>n</mi><mn>2</mn></mfrac><mo></mo><mi>(nが偶数のとき)</mi></mtd></mtr>
+                    </mtable>
+                </math>
+                (nは2以上の整数)
+                <br>とおく。
+            </p>
+            <p>ここで,nの値が決まるとf(n)の値もただ一つに決まる。</p>
+            <p>また,任意の正の整数kについて,f(n)=kを満たすnは1つまたは2つであるため,
+                <br>f(n)の値が決まるとnの値も1つまたは2つに決まる。
+            </p>
+            <p>そのため, <math><msub><mi>n</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></math>で始めて,
+                <math><mi>f(</mi><msub><mi>n</mi><mn>2</mn></msub><mi>)</mi><mo>=</mo><msub><mi>n</mi><mn>1</mn></msub></math>を満たす<math><msub><mi>n</mi><mn>2</mn></msub></math>を求めて,
+                <math><mi>f(</mi><msub><mi>n</mi><mn>3</mn></msub><mi>)</mi><mo>=</mo><msub><mi>n</mi><mn>2</mn></msub></math>を満たす<math><msub><mi>n</mi><mn>3</mn></msub></math>を求めて,
+                ...という操作を繰り返す。
+            </p>
+            <p>
+                f(n)が奇数のとき,nは2f(n)のみである。
+                <br>f(n)が偶数かつ3で割って1余るならばnは2f(n)と<math><mfrac><mi>f(n) - 1</mi><mn>3</mn></mfrac></math>の2つが考えられる。
+                <br>上記のどちらにも当てはまらないとき,nは2f(n)のみである。
+            </p>
+            <p>
+                次の根のようなグラフをかくと操作回数がわかりやすい。(下にある数ほど操作回数が多い。)
+                途中で100を超える数が出たら,その先はかかなくてよい。
+            </p>
+            <img src="Q3_gragh.png" alt="gragh" width="300px">
+            <p>使用ツール: www.mermaidchart.com</p>
+            <p style="font-size: x-large;">(答) <b>66</b></p>
+        </div>
+
+        <hr><hr>
+
+        <div id="Q4_div">
+            <h3 id="Q4">[4] HELICPOT</h3>
+            <p>
+                一辺がαである立方体の世界がある(αは正の実数)。X国,Y国が図の位置にある。X国,Y国は点として考え,面積は考えない。
+                <br>Dr. Long はX国からヘリコプターでY国へ行く。ヘリコプターの離着陸はX国では面A(図参照),Y国では面Bと垂直に行い,ヘリコプターは点として考え,大きさは考えない。ヘリコプターは離着陸を除いて常に上空β単位を飛行する。(すなわち,ヘリコプターが立方体の外部にあって,ヘリコプターと立方体の面上(辺を含む)との距離としてありうる最小値がβになるように飛行する。)(βは正の実数)
+                立方体の面Bを上にしたとき,ヘリコプターは面Bの上空,面Aの上空,及び面B,Aの斜め上の空間(見取り図の緑で塗られた部分,境界を含む)のみを飛行することができる。
+                <br>(ここで,ヘリコプターがある領域の上空にあるとは,ヘリコプターから立方体のある面を含む平面に垂線をおろしたときにその領域と交わり,その交点とヘリコプターを結ぶ線分が立方体の他の面と交わらないことをい
+                う。)
+                <br>また,ヘリコプターは離陸後,任意の向きを向いてから,着陸を始めるまで2回まで向きを変えることができる。ただし,ヘリコプターは曲面上も平面上と同様に向きを変えたとみなさずに進むことができる。
+                <br>例えば、ヘリコプターは,円柱の底面の円の周上からある向きを向いたあと,一度も向きを変えずにもう一つの底面の円の周上に到達することができる。
+                <br>また,通行可能な領域と通行不可能な領域の境界上は通行できるものとする。
+                <br>
+                <br>以下の場合のそれぞれについて,ヘリコプターの離着陸を含まない移動距離としてありうる最小値
+                を求めよ。(必要に応じてα,βを用いること。ただし(2)はα, βいずれか一方のみ)
+                <br>
+                <br>(1) ヘリコプターがP国の領域の上空を通ることができる場合。
+                <br>(2) &beta;=<math><mfrac><mi>&alpha;</mi><mi>&pi;</mi></mfrac></math>で,ヘリコプターがP国の領域の上空を通ることができない場合。
+            </p>
+            <img src="Q4_question_net.png" alt="geometry net for question" width="600px">
+            <p>使用ツール: Geogebra (www.geogebra.org) など</p>
+            <p>
+                P国の2つの領域はともに長辺が
+                <math><mfrac><mn>3</mn><mn>5</mn></mfrac><mi>&alpha;</mi></math>
+                ,短辺が
+                <math><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>&alpha;</mi></math>
+                の長方形
+                <br>ここに示されていないP国の領域は存在しない
+            </p>
+            <img src="Q4_question_sketch_new_640.png" alt="sketch for question" width="600px">
+            <p>使用ツール: Geogebra など</p>
+            <p>
+                上図で緑色に塗られているのは,図のように座標軸を設定した場合x座標,z座標がそれぞれX国の座標以上で,y座標がX国のy座標以上Y国のy座標以下である範囲と,
+                x座標,z座標がそれぞれY国の座標以上で,y座標がX国のy座標以上Y国のy座標以下である範囲を合わせた範囲である。
+            </p>
+
+            <hr class="shorthr">
+            <h4>(1)</h4>
+                <p>見取り図</p>
+                <img src="Q4_answer_sketch.png" alt="sketch for explanation" width="600px">
+                <p>使用ツール: Geogebra など</p>
+                <p>展開図(上図のオレンジ色の部分)</p>
+                <img src="Q4_answer_net_1.png" alt="geometry net 1 for explanation" width="600px">
+                <p>使用ツール: Google Document</p>
+                <p>求める長さは,上の展開図の線分XYの長さで,
+                    <br>
+                    <math>
+                        <msqrt>
+                            <msup><mi>&alpha;</mi><mn>2</mn></msup>
+                            <mo>+</mo>
+                            <msup>
+                                <mfenced><mo>(</mo>
+                                <mn>2</mn><mi>&alpha;</mi>
+                                <mo>+</mo>
+                                <mfrac><mn>1</mn><mn>2</mn></mfrac>
+                                <mi>&pi;</mi><mi>&beta;</mi>
+                                <mo>)</mo>
+                                </mfenced>
+                                <mn>2</mn>
+                            </msup>
+                        </msqrt>
+                        <mo>=</mo>
+                    </math>
+                    <span style="font-size: x-large;">
+                        <math>
+                            <msqrt>
+                                <mn>5</mn><msup><mi>&alpha;</mi><mn>2</mn></msup>
+                                <mo>+</mo><mn>2</mn><mi>&pi;</mi><mi>&alpha;</mi><mi>&beta;</mi>
+                                <mo>+</mo><mfrac><mn>1</mn><mn>4</mn></mfrac>
+                                <msup><mi>&pi;</mi><mn>2</mn></msup>
+                                <msup><mi>&beta;</mi><mn>2</mn></msup>
+                            </msqrt>
+                        </math>
+                    </span>
+                </p>
+            <hr class="shorthr">
+            <h4>(2)</h4>
+            <p>以下の図はすべて上の見取り図のオレンジ色の部分の展開図</p>
+            <img src="Q4_answer_net_2.png" alt="geometry net 2 for explanation" width="600px">
+            <p>使用ツール: Google Document</p>
+            <p>今回の問題の条件下ではこの経路が最短である。</p>
+            <hr class="shorthr">
+            <p><b>証明</b></p>
+            <img src="Q4_answer_net_3.png" alt="geometry net 3 for explanation" width="600px">
+            <p>使用ツール: Google Document</p>
+            <p>3線分の交点は2つであるので,それらの点を直線AXに近いほうからM,Nとする。
+                線分MX,MYがP国の領域の長方形(辺上を含まない)を通らないためには,点Mは三角形XAX'の内部(辺上を含む)
+                にあって,同様に点Nは三角形YBY'の内部(辺上を含む)にある必要がある。
+                線分MNがP国の領域の長方形(辺上を含まない)を通らないので,点Mは四角形X'X''CAの内部(辺上を含む)内に,
+                点Mは四角形BDY''Y'の内部(辺上を含む)内に,ある必要がある。
+                また,このとき,3線分はP国の領域の長方形(辺上を含まない)を通らない。
+                <br>また,このことから,ヘリコプターは2回向きを変える必要がある。
+            </p>
+            <p>3線分の長さの和が最小となる点M,Nの位置について議論する。
+                四角形X'X''CAの内部(辺上を含む)に点E,
+                四角形DBY'Y''の内部(辺上を含む)に点E'を取り,
+                線分EE'と線分X'X'',線分EE'と線分Y'Y''の交点をそれぞれF,F'とすると,
+                FF'&leq'となるので,点M,Nはそれぞれ線分X'X''上,線分Y'Y''上にある。
+                ここで,線分FF',X''Y''の交点をGとすると,
+                三角不等式により,GX''&leq;X''F+FG(等号成立は点Fが点X''と一致するとき) , GY''&leq;Y''F'+F'G
+                (等号成立は点F'が点Y''と一致するとき)
+                <br>よって,X''Y''=GX''+GY''&leq;X''F+FG+Y''F'+F'G=X''F+FF'+F'Y''
+            </p>
+            <p>以上から点M,Nがそれぞれ点X'',点Y''上にあるとき,3線分の長さの和は最小になる。点X''は三角形XAX'の内部(辺上を含む)に,点Y''は三角形YBY'の内部(辺上を含む)にあるため条件を満たす。</p>
+            <hr class="shorthr">
+            <p>この折れ線の長さを求めたい。
+                <br>条件から
+                <math>
+                    <mi>&beta;</mi><mo>=</mo>
+                    <mfrac><mi>&alpha;</mi><mi>&pi;</mi></mfrac>
+                </math>
+                &nbsp;よって&nbsp;
+                <math>
+                    <mfrac><mi>&pi;&beta;</mi><mn>2</mn></mfrac>
+                    <mo>=</mo>
+                    <mfrac><mi>&alpha;</mi><mn>2</mn></mfrac>
+                </math>
+            </p>
+            <img src="Q4_answer_net_4.png" alt="geometry net 4 for explanation" width="600px">
+            <p>使用ツール: Google Document</p>
+            <p>対称性より線分Bは上の図の全体の長方形の対角線の交点を通る。
+                <br>上の図のように座標軸を導入して考えて,点Kの座標を求める。
+            </p>
+            <p>線分Aを含む直線の方程式は,
+                <math><mi>y</mi><mo>=</mo><mo>-</mo><mfrac><mn>9</mn><mn>5</mn></mfrac><mi>x</mi></math>
+                <br>線分Bを含む直線の方程式は,
+                <math><mi>y</mi><mo>=</mo><mfrac><mn>6</mn><mn>35</mn></mfrac><mi>x</mi><mo>+</mo><mfrac><mn>5</mn><mn>7</mn></mfrac><mi>&alpha;</mi></math>
+            </p>
+            <p>点Kはこれらの交点であるため,方程式を連立して解くと,
+                <br>
+                <math><mi>x</mi><mo>=</mo><mo>-</mo><mfrac><mn>25</mn><mn>69</mn></mfrac><mi>&alpha;</mi></math>
+                &nbsp;(yは省略)
+                <br>よって,点Kのx座標は
+                <math><mo>-</mo><mfrac><mn>25</mn><mn>69</mn></mfrac><mi>&alpha;</mi></math>
+            </p>
+            <img src="Q4_answer_net_5.png" alt="geometry net 5 for explanation" width="600px">
+            <p>使用ツール: Google Document</p>
+            <p>上の図のように比を用いて斜辺の長さを求めると,</p>
+            <p>
+                <math>
+                    <mi>XK</mi><mo>=</mo>
+                    <mfrac>
+                        <mfenced><mn>5</mn><msqrt><mn>106</mn></msqrt></mfenced>
+                        <mn>69</mn>
+                    </mfrac>
+                    <mi>&alpha;</mi>
+                </math>
+                ,
+                <math>
+                    <mi>XL</mi><mo>=</mo>
+                    <mfrac>
+                        <mfenced><mn>7</mn><msqrt><mn>1261</mn></msqrt></mfenced>
+                        <mn>276</mn>
+                    </mfrac>
+                    <mi>&alpha;</mi>
+                </math>
+            </p>
+            <p>よって,求める長さは,
+                <br>
+                <math>
+                    <mn>2</mn><mo>(</mo><mi>XK</mi><mo>+</mo><mi>KL</mi><mo>)</mo>
+                    <mo>=</mo>
+                </math>
+                <span style="font-size: x-large;">
+                    <math>
+                        <mfrac>
+                            <mfenced><mn>10</mn><msqrt><mn>106</mn></msqrt></mfenced>
+                            <mn>69</mn>
+                        </mfrac>
+                        <mi>&alpha;</mi>
+                        <mo>+</mo>
+                        <mfrac>
+                            <mfenced><mn>7</mn><msqrt><mn>1261</mn></msqrt></mfenced>
+                            <mn>138</mn>
+                        </mfrac>
+                        <mi>&alpha;</mi>
+                    </math>
+                </span>
+            </p>
+        </div>
+        
+    </body>
+
+    <footer>
+        <span style="text-align: center;">
+            <hr>
+            <p>-- この文章はアーカイブ用です --</p>
+        </span>
+
+        <div id="fixed_index" style="background-color: hsla(132, 95%, 70%, 0.429); position: fixed; top: 0px; right: 0px;">
+            <p style="text-align: center; font-size: large;"><b>SMC 016</b></p>
+            <p><a href="#Q1">Q1 FACTORIZATION</a></p>
+            <p><a href="#Q2">Q2 RANDOM SEGMENT</a></p>
+            <p><a href="#Q3">Q3 COLLATZ</a></p>
+            <p><a href="#Q4">Q4 HELICPOT</a></p>
+        </div>
+
+        <a href="../archive_home/index.html">
+            <div style="color: #fff; background-color: rgb(56, 111, 252); text-align: center; position: fixed; top: 0px; left: 0px; width: 12%; font-family: 'Times New Roman', Times, serif;">
+                <p style="font-size: xx-large; font-weight: bold;">SMC</p>
+                <p style="font-size: large;">archive</p>
+            </div>
+        </a>
+
+        <a href="#top">
+            <div style="color: #fff; background-color: #000; text-align: center; position: fixed; bottom: 30px; right: 40px; width: 10%;">
+                <p>PAGE TOP</p>
+            </div>
+        </a>
+    </footer>
+</html>
