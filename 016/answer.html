@@ -10,10 +10,6 @@
                 left: 15%;
                 background-color: rgb(247, 255, 240);
             }
-            .shorthr{
-                width: 70%;
-                color: #000;
-            }
             h3{
                 font-size: xx-large;
             }
@@ -38,37 +34,48 @@
             mfrac{
                 font-size: 120%;
             }
+            .border_solid{
+                border: solid 1px #333;
+                padding: 8px;
+            }
+            .border_dashed{
+                border: dashed 2px #333;
+                padding: 8px;
+            }
+            .border_dashed_red{
+                border: dashed 2px #f44;
+                padding: 8px;
+            }
+            hr{
+                border: solid 1px #555;
+            }
         </style>
         <title>SMC 016 Answer</title>        
     </head>
     <body>
         <h1 style="text-align: center;" id="top">Suken Math Contest 016</h1>
         <h2 style="text-align: center;">解説</h2>
-        
-        <hr>
 
-        <div id="index">
+        <div id="index" class="border_solid">
             <p><a href="#Q1">Q1 FACTORIZATION</a></p>
             <p><a href="#Q2">Q2 RANDOM SEGMENT</a></p>
             <p><a href="#Q3">Q3 COLLATZ</a></p>
             <p><a href="#Q4">Q4 HELICPOT</a></p>
         </div>
 
-        <hr>
 
         <p>[x]でx以下で最大の整数を表すものとする。</p>
 
-        <hr><hr>
+        <hr>
 
         <div id="Q1_div">
             <h3 id="Q1">[1] FACTORIZATION</h3>
-            <p>p,qは0&lt;q-p&leq;100を満たす素数である。pq=376289のとき,pの値を求めよ。</p>
-            <hr class="shorthr">
+            <p class="border_dashed">p,qは0&lt;q-p&leq;100を満たす素数である。pq=376289のとき,pの値を求めよ。</p>
             <p>
                 まず,[<math><msqrt><mi>pq</mi></msqrt></math>]を求める。条件から[<math><msqrt><mi>pq</mi></msqrt></math>]&lt;<math><msqrt><mi>pq</mi></msqrt></math>
                 <br>pqは6桁であるので,[<math><msqrt><mi>pq</mi></msqrt></math>]は3桁である。(∵10<sup>5</sup> ≦ pq &lt; 10<sup>6</sup> から 10<sup>2</sup> &lt; 10<sup>2</sup><math><msqrt><mn>10</mn></msqrt></math> ≦  <math><msqrt><mi>pq</mi></msqrt></math> &lt; 10<sup>3</sup>)
                 <br>600<sup>2</sup> &lt; pq &lt; 700<sup>2</sup> より 600 &lt; <math><msqrt><mi>pq</mi></msqrt></math> &lt; 700
-                <br>このあとは,今回は二分探索( 上限と下限の平均と比較する , &nbsp;計算量
+                <br>このあとは,今回は<b>二分探索</b>( 上限と下限の平均と比較する , &nbsp;計算量
                 <math><mi>O</mi><mo>(</mo><mi>log</mi><mi>N</mi><mo>)</mo></math>
                  )で求めてみる。ただし,今回は手計算のため比較する対象は最も上限と下限の平均値に近い10の倍数や整数を選ぶとよい。
                 <br>650<sup>2</sup> = 422500 &gt; pq
@@ -102,7 +109,7 @@
                 <br>よって,両辺を12で割った余りを比較したときに矛盾が生じないのは,n<sup>2</sup>を12で割った余りが9のときのみで,このとき,nを12で割った余りは,3,9のいずれかである。ゆえに,このときnを6で割った余りは3である。
             </p>
             <p>
-                よって, n &gt; 613より, n = 615 , 621 , 627 , …を調べればよい。
+                よって, n &gt; 613より, <b>n = 615 , 621 , 627 , …</b>を調べればよい。
             </p>
             <p>
                 n = 615のとき, <math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><msup><mn>615</mn><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><mn>1936</mn></math>
@@ -125,15 +132,14 @@
             </p>
         </div>
 
-        <hr><hr>
+        <hr>
 
         <div id="Q2_div">
             <h3 id="Q2">[2] RANDOM SEGMENT</h3>
-            <p>Integer君は,1から16までの整数の乱数がでる乱数生成器を開発した。ボタンを押すと1以上16以下の整数のうち,どの数も等確率で,1つを選んで出す。
+            <p class="border_dashed">Integer君は,1から16までの整数の乱数がでる乱数生成器を開発した。ボタンを押すと1以上16以下の整数のうち,どの数も等確率で,1つを選んで出す。
                 <br>この乱数生成器を2回使って,出た数を順にa,bとして,xy平面上に点P(a,b)をとった。このとき,原点をOとして,線分OP上に点O,P以外に格子点がない確率を求めよ。
             </p>
-            <hr class="shorthr">
-            <p>線分OP上に点O,P以外に格子点がない ⇔ a,bが互いに素(最大公約数が1)</p>
+            <p>線分OP上に点O,P以外に格子点がない ⇔ a,bが<b>互いに素</b>(最大公約数が1)</p>
             <p>全事象の起こり方は16<sup>2</sup>=256(通り)。</p>
             <p>以下の3つの場合に分けて考える。
                 <br>(i) a=bのとき
@@ -184,7 +190,8 @@
                 <br>
                 <math><mo>=</mo><mi>a</mi><mo>-</mo><mo>(</mo><mi>q</mi><mo>+</mo><mi>p</mi><mo>-</mo><mn>1</mn><mo>)</mo></math>(個)
                 <br>であることを利用して,
-                <br>※12は例外
+                <br>※12は特別に考察する
+                <br>※諸公式等も利用可
             </p>
 
             <table>
@@ -216,11 +223,11 @@
             <p>よって,求める確率は <span style="font-size: x-large; font-weight: bold;"><math><mfrac><mn>159</mn><mn>256</mn></mfrac></math></span></p>
         </div>
 
-        <hr><hr>
+        <hr>
 
         <div id="Q3_div">
             <h3 id="Q3">[3] COLLATZ</h3>
-            <p>正の整数nに対して次の操作を行う。
+            <p class="border_dashed">正の整数nに対して次の操作を行う。
                 <br>&lt;操作&gt;
                 <br>① 黒板にnを一つ書く。このとき,黒板に書かれている整数の個数は1つ増えるものとする。
                 <br>② もしn=1ならば操作を終了する。
@@ -231,7 +238,6 @@
                 <br>mを1以上100以下の整数とする。n=mとして操作を開始する。このとき操作は有限回数で終了することが保証されている。
                 操作が終了したとき,黒板に書かれている整数がすべて100以下であって,黒板に書かれている整数の個数が最大になるようなmの値をすべて求めよ。
             </p>
-            <hr class="shorthr">
             <p>
                 &lt;使い分け&gt;
                 <br>n・・・変数
@@ -256,7 +262,7 @@
             </p>
             <p>ここで,nの値が決まるとf(n)の値もただ一つに決まる。</p>
             <p>また,任意の正の整数kについて,f(n)=kを満たすnは1つまたは2つであるため,
-                <br>f(n)の値が決まるとnの値も1つまたは2つに決まる。
+                <br>f(n)の値が決まるとnの値も<b>1つまたは2つに決まる</b>。
             </p>
             <p>そのため, <math><msub><mi>n</mi><mn>1</mn></msub><mo>=</mo><mn>1</mn></math>で始めて,
                 <math><mi>f(</mi><msub><mi>n</mi><mn>2</mn></msub><mi>)</mi><mo>=</mo><msub><mi>n</mi><mn>1</mn></msub></math>を満たす<math><msub><mi>n</mi><mn>2</mn></msub></math>を求めて,
@@ -269,7 +275,7 @@
                 <br>上記のどちらにも当てはまらないとき,nは2f(n)のみである。
             </p>
             <p>
-                次の根のようなグラフをかくと操作回数がわかりやすい。(下にある数ほど操作回数が多い。)
+                次の根のようなグラフ(<b>離散グラフ</b>)をかくと操作回数がわかりやすい。(下にある数ほど操作回数が多い。)
                 途中で100を超える数が出たら,その先はかかなくてよい。
             </p>
             <img src="Q3_gragh.png" alt="gragh" width="300px">
@@ -277,49 +283,62 @@
             <p style="font-size: x-large;">(答) <b>66</b></p>
         </div>
 
-        <hr><hr>
+        <hr>
 
         <div id="Q4_div">
             <h3 id="Q4">[4] HELICPOT</h3>
-            <p>
-                一辺がαである立方体の世界がある(αは正の実数)。X国,Y国が図の位置にある。X国,Y国は点として考え,面積は考えない。
-                <br>Dr. Long はX国からヘリコプターでY国へ行く。ヘリコプターの離着陸はX国では面A(図参照),Y国では面Bと垂直に行い,ヘリコプターは点として考え,大きさは考えない。ヘリコプターは離着陸を除いて常に上空β単位を飛行する。(すなわち,ヘリコプターが立方体の外部にあって,ヘリコプターと立方体の面上(辺を含む)との距離としてありうる最小値がβになるように飛行する。)(βは正の実数)
-                立方体の面Bを上にしたとき,ヘリコプターは面Bの上空,面Aの上空,及び面B,Aの斜め上の空間(見取り図の緑で塗られた部分,境界を含む)のみを飛行することができる。
-                <br>(ここで,ヘリコプターがある領域の上空にあるとは,ヘリコプターから立方体のある面を含む平面に垂線をおろしたときにその領域と交わり,その交点とヘリコプターを結ぶ線分が立方体の他の面と交わらないことをい
-                う。)
-                <br>また,ヘリコプターは離陸後,任意の向きを向いてから,着陸を始めるまで2回まで向きを変えることができる。ただし,ヘリコプターは曲面上も平面上と同様に向きを変えたとみなさずに進むことができる。
-                <br>例えば、ヘリコプターは,円柱の底面の円の周上からある向きを向いたあと,一度も向きを変えずにもう一つの底面の円の周上に到達することができる。
-                <br>また,通行可能な領域と通行不可能な領域の境界上は通行できるものとする。
-                <br>
-                <br>以下の場合のそれぞれについて,ヘリコプターの離着陸を含まない移動距離としてありうる最小値
-                を求めよ。(必要に応じてα,βを用いること。ただし(2)はα, βいずれか一方のみ)
-                <br>
-                <br>(1) ヘリコプターがP国の領域の上空を通ることができる場合。
-                <br>(2) &beta;=<math><mfrac><mi>&alpha;</mi><mi>&pi;</mi></mfrac></math>で,ヘリコプターがP国の領域の上空を通ることができない場合。
-            </p>
-            <img src="Q4_question_net.png" alt="geometry net for question" width="600px">
-            <p>使用ツール: Geogebra (www.geogebra.org) など</p>
-            <p>
-                P国の2つの領域はともに長辺が
-                <math><mfrac><mn>3</mn><mn>5</mn></mfrac><mi>&alpha;</mi></math>
-                ,短辺が
-                <math><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>&alpha;</mi></math>
-                の長方形
-                <br>ここに示されていないP国の領域は存在しない
-            </p>
-            <img src="Q4_question_sketch_new_640.png" alt="sketch for question" width="600px">
-            <p>使用ツール: Geogebra など</p>
-            <p>
-                上図で緑色に塗られているのは,図のように座標軸を設定した場合x座標,z座標がそれぞれX国の座標以上で,y座標がX国のy座標以上Y国のy座標以下である範囲と,
-                x座標,z座標がそれぞれY国の座標以上で,y座標がX国のy座標以上Y国のy座標以下である範囲を合わせた範囲である。
-            </p>
+            <div class="border_dashed">
+                <p>一辺がαである立方体の世界がある(αは正の実数)。X国,Y国が図の位置にある。X国,Y国は点として考え,面積は考えない。</p>
+                <p>
+                    Dr. Long はX国からヘリコプターでY国へ行く。ヘリコプターの離着陸はX国では面A(図参照),Y国では面Bと垂直に行い,ヘリコプターは点として考え,大きさは考えない。
+                    ヘリコプターは離着陸を除いて常に上空β単位を飛行する。(すなわち,ヘリコプターが立方体の外部にあって,ヘリコプターと立方体の面上(辺を含む)との距離としてありうる最小値がβになるように飛行する。)(βは正の実数)
+                </p>
+                <p>
+                    また,立方体の面Bを上にしたとき,ヘリコプターは面Bの上空,面Aの上空,及び面B,Aの斜め上の空間(<u>見取り図の</u>緑で塗られた部分,境界を含む)のみを飛行することができる。
+                    <br>(ここで,ヘリコプターがある領域の上空にあるとは,ヘリコプターから立方体のある面を含む平面に垂線をおろしたときにその領域と交わり,その交点とヘリコプターを結ぶ線分が立方体の他の面と交わらないことをい
+                    う。)
+                </p>
+                <p>
+                    また,ヘリコプターは離陸後,任意の向きを向いてから,着陸を始めるまで2回まで向きを変えることができる。
+                    ただし,ヘリコプターは曲面上も平面上と同様に向きを変えたとみなさずに進むことができる。
+                    <br>例えば、ヘリコプターは,円柱の底面の円の周上からある向きを向いたあと,一度も向きを変えずにもう一つの底面の円の周上に到達することができる。
+                </p>
+                <p>
+                    なお,通行可能な領域と通行不可能な領域の境界上は通行できるものとする。
+                </p>
+                <p>
+                    以下の場合のそれぞれについて,ヘリコプターの離着陸を含まない移動距離としてありうる最小値
+                    を求めよ。(必要に応じてα,βを用いること。ただし(2)はα, βいずれか一方のみ)
+                    <br>
+                    <br>(1) ヘリコプターがP国の領域の上空を通ることができる場合。
+                    <br>(2) &beta;=<math><mfrac><mi>&alpha;</mi><mi>&pi;</mi></mfrac></math>で,ヘリコプターがP国の領域の上空を通ることができない場合。
+                </p>
 
-            <hr class="shorthr">
+                <p><b>&lt;展開図&gt;</b></p>
+                <img src="Q4_question_net.png" alt="geometry net for question" width="600px">
+                <p>使用ツール: Geogebra (www.geogebra.org) など</p>
+                <p>
+                    P国の2つの領域はともに長辺が
+                    <math><mfrac><mn>3</mn><mn>5</mn></mfrac><mi>&alpha;</mi></math>
+                    ,短辺が
+                    <math><mfrac><mn>1</mn><mn>3</mn></mfrac><mi>&alpha;</mi></math>
+                    の長方形
+                    <br>ここに示されていないP国の領域は存在しない
+                </p>
+                <p><b>&lt;見取り図&gt;</b></p>
+                <img src="Q4_question_sketch_new_640.png" alt="sketch for question" width="600px">
+                <p>使用ツール: Geogebra など</p>
+                <p>
+                    上図で緑色に塗られているのは,図のように座標軸を設定した場合x座標,z座標がそれぞれX国の座標以上で,y座標がX国のy座標以上Y国のy座標以下である範囲と,
+                    x座標,z座標がそれぞれY国の座標以上で,y座標がX国のy座標以上Y国のy座標以下である範囲を合わせた範囲である。
+                </p>
+            </div>
+
             <h4>(1)</h4>
-                <p>見取り図</p>
+                <p><b>&lt;見取り図&gt;</b></p>
                 <img src="Q4_answer_sketch.png" alt="sketch for explanation" width="600px">
                 <p>使用ツール: Geogebra など</p>
-                <p>展開図(上図のオレンジ色の部分)</p>
+                <p><b>&lt;展開図 (上図のオレンジ色の部分)&gt;</b></p>
                 <img src="Q4_answer_net_1.png" alt="geometry net 1 for explanation" width="600px">
                 <p>使用ツール: Google Document</p>
                 <p>求める長さは,上の展開図の線分XYの長さで,
@@ -354,37 +373,39 @@
                         </math>
                     </span>
                 </p>
-            <hr class="shorthr">
+            <hr>
             <h4>(2)</h4>
             <p>以下の図はすべて上の見取り図のオレンジ色の部分の展開図</p>
             <img src="Q4_answer_net_2.png" alt="geometry net 2 for explanation" width="600px">
             <p>使用ツール: Google Document</p>
-            <p>今回の問題の条件下ではこの経路が最短である。</p>
-            <hr class="shorthr">
-            <p><b>証明</b></p>
-            <img src="Q4_answer_net_3.png" alt="geometry net 3 for explanation" width="600px">
-            <p>使用ツール: Google Document</p>
-            <p>3線分の交点は2つであるので,それらの点を直線AXに近いほうからM,Nとする。
-                線分MX,MYがP国の領域の長方形(辺上を含まない)を通らないためには,点Mは三角形XAX'の内部(辺上を含む)
-                にあって,同様に点Nは三角形YBY'の内部(辺上を含む)にある必要がある。
-                線分MNがP国の領域の長方形(辺上を含まない)を通らないので,点Mは四角形X'X''CAの内部(辺上を含む)内に,
-                点Mは四角形BDY''Y'の内部(辺上を含む)内に,ある必要がある。
-                また,このとき,3線分はP国の領域の長方形(辺上を含まない)を通らない。
-                <br>また,このことから,ヘリコプターは2回向きを変える必要がある。
-            </p>
-            <p>3線分の長さの和が最小となる点M,Nの位置について議論する。
-                四角形X'X''CAの内部(辺上を含む)に点E,
-                四角形DBY'Y''の内部(辺上を含む)に点E'を取り,
-                線分EE'と線分X'X'',線分EE'と線分Y'Y''の交点をそれぞれF,F'とすると,
-                FF'&leq'となるので,点M,Nはそれぞれ線分X'X''上,線分Y'Y''上にある。
-                ここで,線分FF',X''Y''の交点をGとすると,
-                三角不等式により,GX''&leq;X''F+FG(等号成立は点Fが点X''と一致するとき) , GY''&leq;Y''F'+F'G
-                (等号成立は点F'が点Y''と一致するとき)
-                <br>よって,X''Y''=GX''+GY''&leq;X''F+FG+Y''F'+F'G=X''F+FF'+F'Y''
-            </p>
-            <p>以上から点M,Nがそれぞれ点X'',点Y''上にあるとき,3線分の長さの和は最小になる。点X''は三角形XAX'の内部(辺上を含む)に,点Y''は三角形YBY'の内部(辺上を含む)にあるため条件を満たす。</p>
-            <hr class="shorthr">
-            <p>この折れ線の長さを求めたい。
+            <p>今回の問題の条件下ではこの経路(・・・①)が最短である。</p>
+
+            <div class="border_dashed_red">
+                <p style="font-size: large;"><b>[証明]</b></p>
+                <img src="Q4_answer_net_3.png" alt="geometry net 3 for explanation" width="600px">
+                <p>使用ツール: Google Document</p>
+                <p>3線分の交点は2つであるので,それらの点を直線AXに近いほうからM,Nとする。
+                    線分MX,MYがP国の領域の長方形(辺上を含まない)を通らないためには,点Mは三角形XAX'の内部(辺上を含む)
+                    にあって,同様に点Nは三角形YBY'の内部(辺上を含む)にある必要がある。
+                    線分MNがP国の領域の長方形(辺上を含まない)を通らないので,点Mは四角形X'X''CAの内部(辺上を含む)内に,
+                    点Mは四角形BDY''Y'の内部(辺上を含む)内に,ある必要がある。
+                    また,このとき,3線分はP国の領域の長方形(辺上を含まない)を通らない。
+                    <br>また,このことから,ヘリコプターは2回向きを変える必要がある。
+                </p>
+                <p>3線分の長さの和が最小となる点M,Nの位置について議論する。
+                    四角形X'X''CAの内部(辺上を含む)に点E,
+                    四角形DBY'Y''の内部(辺上を含む)に点E'を取り,
+                    線分EE'と線分X'X'',線分EE'と線分Y'Y''の交点をそれぞれF,F'とすると,
+                    FF'&leq'となるので,点M,Nはそれぞれ線分X'X''上,線分Y'Y''上にある。
+                    ここで,線分FF',X''Y''の交点をGとすると,
+                    三角不等式により,GX''&leq;X''F+FG(等号成立は点Fが点X''と一致するとき) , GY''&leq;Y''F'+F'G
+                    (等号成立は点F'が点Y''と一致するとき)
+                    <br>よって,X''Y''=GX''+GY''&leq;X''F+FG+Y''F'+F'G=X''F+FF'+F'Y''
+                </p>
+                <p>以上から点M,Nがそれぞれ点X'',点Y''上にあるとき,3線分の長さの和は最小になる。点X''は三角形XAX'の内部(辺上を含む)に,点Y''は三角形YBY'の内部(辺上を含む)にあるため条件を満たす。</p>
+            </div>
+
+            <p>この折れ線(①)の長さを求めたい。
                 <br>条件から
                 <math>
                     <mi>&beta;</mi><mo>=</mo>
@@ -399,8 +420,8 @@
             </p>
             <img src="Q4_answer_net_4.png" alt="geometry net 4 for explanation" width="600px">
             <p>使用ツール: Google Document</p>
-            <p>対称性より線分Bは上の図の全体の長方形の対角線の交点を通る。
-                <br>上の図のように座標軸を導入して考えて,点Kの座標を求める。
+            <p>対称性より線分Bは上の図の全体の長方形の<b>対角線の交点</b>を通る。
+                <br>上の図のように<b>座標軸</b>を導入して考えて,点Kの座標を求める。
             </p>
             <p>線分Aを含む直線の方程式は,
                 <math><mi>y</mi><mo>=</mo><mo>-</mo><mfrac><mn>9</mn><mn>5</mn></mfrac><mi>x</mi></math>
@@ -416,7 +437,7 @@
             </p>
             <img src="Q4_answer_net_5.png" alt="geometry net 5 for explanation" width="600px">
             <p>使用ツール: Google Document</p>
-            <p>上の図のように比を用いて斜辺の長さを求めると,</p>
+            <p>上の図のように<b>比</b>を用いて斜辺の長さを求めると,</p>
             <p>
                 <math>
                     <mi>XK</mi><mo>=</mo>
