@@ -35,6 +35,9 @@
             body{
                 font-family: 'Times New Roman', Times, serif;
             }
+            mfrac{
+                font-size: 120%;
+            }
         </style>
         <title>SMC 016 Answer</title>        
     </head>
@@ -62,7 +65,7 @@
             <p>p,qは0&lt;q-p&leq;100を満たす素数である。pq=376289のとき,pの値を求めよ。</p>
             <hr class="shorthr">
             <p>
-                今後使うので[<math><msqrt><mi>pq</mi></msqrt></math>]を求めておく。条件から[<math><msqrt><mi>pq</mi></msqrt></math>]&lt;<math><msqrt><mi>pq</mi></msqrt></math>
+                まず,[<math><msqrt><mi>pq</mi></msqrt></math>]を求める。条件から[<math><msqrt><mi>pq</mi></msqrt></math>]&lt;<math><msqrt><mi>pq</mi></msqrt></math>
                 <br>pqは6桁であるので,[<math><msqrt><mi>pq</mi></msqrt></math>]は3桁である。(∵10<sup>5</sup> ≦ pq &lt; 10<sup>6</sup> から 10<sup>2</sup> &lt; 10<sup>2</sup><math><msqrt><mn>10</mn></msqrt></math> ≦  <math><msqrt><mi>pq</mi></msqrt></math> &lt; 10<sup>3</sup>)
                 <br>600<sup>2</sup> &lt; pq &lt; 700<sup>2</sup> より 600 &lt; <math><msqrt><mi>pq</mi></msqrt></math> &lt; 700
                 <br>このあとは,今回は二分探索( 上限と下限の平均と比較する , &nbsp;計算量
@@ -104,7 +107,9 @@
             <p>
                 n = 615のとき, <math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><msup><mn>615</mn><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><mn>1936</mn></math>
                 <br><math><mn>2025</mn><mo>=</mo><msup><mn>45</mn><mn>2</mn></msup></math>であるため,
-                <math><msup><mn>44</mn><mn>2</mn></msup><mo>=</mo><msup><mfenced><mo>(</mo><mn>45</mn><mo>-</mo><mn>1</mn><mo>)</mo></mfenced><mn>2</mn></msup>
+                <math><msup><mn>44</mn><mn>2</mn></msup><mo>=</mo></math>
+                (45-1)<sup>2</sup>
+                <math>
                 <mo>=</mo><mn>2025</mn><mo>-</mo><mn>90</mn><mo>+</mo><mn>1</mn>
                 <mo>=</mo><mn>1936</mn></math>
                 <br>よって,<math><msup><mi>n</mi><mn>2</mn></msup><mo>-</mo><mn>376289</mn><mo>=</mo><msup><mn>44</mn><mn>2</mn></msup><mo>=</mo><msup><mi>m</mi><mn>2</mn></msup></math>
@@ -324,13 +329,14 @@
                             <msup><mi>&alpha;</mi><mn>2</mn></msup>
                             <mo>+</mo>
                             <msup>
-                                <mfenced><mo>(</mo>
+                                <mrow>
+                                <mo>(</mo>
                                 <mn>2</mn><mi>&alpha;</mi>
                                 <mo>+</mo>
                                 <mfrac><mn>1</mn><mn>2</mn></mfrac>
                                 <mi>&pi;</mi><mi>&beta;</mi>
                                 <mo>)</mo>
-                                </mfenced>
+                                </mrow>
                                 <mn>2</mn>
                             </msup>
                         </msqrt>
@@ -415,7 +421,9 @@
                 <math>
                     <mi>XK</mi><mo>=</mo>
                     <mfrac>
-                        <mfenced><mn>5</mn><msqrt><mn>106</mn></msqrt></mfenced>
+                        <mrow>
+                            <mn>5</mn><mo>&InvisibleTimes;</mo><msqrt><mn>106</mn></msqrt>
+                        </mrow>
                         <mn>69</mn>
                     </mfrac>
                     <mi>&alpha;</mi>
@@ -424,7 +432,7 @@
                 <math>
                     <mi>XL</mi><mo>=</mo>
                     <mfrac>
-                        <mfenced><mn>7</mn><msqrt><mn>1261</mn></msqrt></mfenced>
+                        <mrow><mn>7</mn><mo>&InvisibleTimes;</mo><msqrt><mn>1261</mn></msqrt></mrow>
                         <mn>276</mn>
                     </mfrac>
                     <mi>&alpha;</mi>
@@ -439,13 +447,13 @@
                 <span style="font-size: x-large;">
                     <math>
                         <mfrac>
-                            <mfenced><mn>10</mn><msqrt><mn>106</mn></msqrt></mfenced>
+                            <mrow><mn>10</mn><mo>&InvisibleTimes;</mo><msqrt><mn>106</mn></msqrt></mrow>
                             <mn>69</mn>
                         </mfrac>
                         <mi>&alpha;</mi>
                         <mo>+</mo>
                         <mfrac>
-                            <mfenced><mn>7</mn><msqrt><mn>1261</mn></msqrt></mfenced>
+                            <mrow><mn>7</mn><mo>&InvisibleTimes;</mo><msqrt><mn>1261</mn></msqrt></mrow>
                             <mn>138</mn>
                         </mfrac>
                         <mi>&alpha;</mi>
