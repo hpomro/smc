@@ -483,6 +483,21 @@
             </p>
         </div>
         
+        <!-- CLOCK -->
+        <div id="clock">
+            <p id="clock1r"></p>
+            <p id="clock2r"></p>
+        </div>
+
+        <script type="text/javascript">
+            function Clock(){
+                let now = new Date();
+                document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + now.getMonth().toString() + "/" + now.getDate().toString();
+                document.getElementById("clock2r").innerHTML = now.getHours().toString() + ":" + now.getMinutes().toString();
+            }
+            Clock();
+            setInterval('Clock()',5000);
+        </script>
     </body>
 
     <footer>
