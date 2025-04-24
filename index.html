@@ -8,6 +8,13 @@
             h3{
                 font-size: x-large;
             }
+            #clock{
+                text-align: center;
+                position: fixed;
+                right: 30px;
+                top: 10px;
+                font-size: large;
+            }
         </style>
     </head>
 </html>
@@ -19,7 +26,7 @@
 
         <!-- NEWS -->
 
-        <div id="news" style="background-color: rgba(255, 192, 203, 0.86);">
+        <div id="news" style="background-color: rgba(255, 192, 203, 0.9);">
             <h2>-- News --</h2>
             <p><b>SMC017</b> が開催されます</p>
             <p>日時: 2025/5/1 ; 19:30~21:00</p>
@@ -36,4 +43,20 @@
         <p><a href="016/question.html">問題/Question</a></p>
         <p><a href="016/answer.html">解説/Answer</a></p>
     </span>
+
+    <!-- CLOCK -->
+    <div id="clock">
+        <p id="clock1r"></p>
+        <p id="clock2r"></p>
+    </div>
+
+    <script type="text/javascript">
+        function Clock(){
+            let now = new Date();
+            document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + now.getMonth().toString() + "/" + now.getDate().toString();
+            document.getElementById("clock2r").innerHTML = now.getHours().toString() + ":" + now.getMinutes().toString();
+        }
+        Clock();
+        setInterval('Clock()',5000);
+    </script>
 </body>
