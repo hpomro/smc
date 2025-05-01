@@ -15,11 +15,21 @@
                 top: 10px;
                 font-size: large;
             }
+            .smc_n{
+                border: solid 2px #000;
+                width: 200px;
+                position: absolute;
+            }
+            .smc_n_description{
+                text-align: left;
+                position: relative;
+                left: 220px;
+            }
         </style>
     </head>
 </html>
 <body style="background-color: rgb(227, 254, 250);">
-    <span style="text-align: center;">
+    <div style="text-align: center;">
         <h1>2025 SMC</h1>
         <h2>home</h2>
         <hr>
@@ -31,18 +41,37 @@
             <p><b>SMC017</b> が開催されます</p>
             <p>日時: 2025/5/1 ; 19:30~21:00</p>
             <p>開催場所: LINEグループ</p>
+            <u><i><p id="CountDown"></p></i></u>
         </div>
 
         <hr>
 
-        <!-- Archive -->
-         
+        <!-- Archive -->        
         <h2>-- Archive --</h2>
-        <h3>SMC 016</h3>
-        <p>2025/4/16(Wed)</p>
-        <p><a href="016/question.html">問題/Question</a></p>
-        <p><a href="016/answer.html">解説/Answer</a></p>
-    </span>
+        <div style="position: absolute; left: 5%;">
+
+            <div class="smc_n">
+                <h3>SMC 016</h3>
+                <p>2025/4/16(Wed)</p>
+                <p><a href="016/question.html">問題/Question</a></p>
+                <p><a href="016/answer.html">解説/Answer</a></p>
+            </div>
+            <div class="smc_n_description">
+                <br>
+                <li>非典型問題を意識して作った。</li>
+                <li>難易度は高めと思われる。</li>
+            </div>
+            
+
+            <!-- <div class="smc_n" style="top: 220px;">
+                <h3>SMC 017</h3>
+                <p>2025/5/1(Thu)</p>
+                <p></p>
+                <p></p>
+            </div> -->
+
+        </div> 
+    </div>
 
     <!-- CLOCK -->
     <div id="clock">
@@ -51,12 +80,27 @@
     </div>
 
     <script type="text/javascript">
+        const targetDay = new Date(2025, 5-1, 1, 19, 30);
         function Clock(){
             let now = new Date();
             document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
             document.getElementById("clock2r").innerHTML = now.getHours().toString().padStart(2,'0') + ":" + now.getMinutes().toString().padStart(2,'0');
         }
+        function CountDown(){
+            let now = new Date();
+            let diffH = (targetDay - now)/1000 /60 /60;
+            let str;
+            if(diffH>24){
+                str = Math.floor(diffH/24).toString() + "日";
+            }else{
+                let idiffH = Math.floor(diffH);
+                str = idiffH.toString()+"H"+Math.floor((diffH-idiffH)*60).toString()+"M";
+            }
+            document.getElementById("CountDown").innerHTML = "あと "+str;
+        }
         Clock();
+        CountDown();
         setInterval('Clock()',5000);
+        setInterval('CountDown()',5000);
     </script>
 </body>
