@@ -53,8 +53,8 @@
     <script type="text/javascript">
         function Clock(){
             let now = new Date();
-            document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + now.getMonth().toString() + "/" + now.getDate().toString();
-            document.getElementById("clock2r").innerHTML = now.getHours().toString() + ":" + now.getMinutes().toString();
+            document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
+            document.getElementById("clock2r").innerHTML = now.getHours().toString().padStart(2,'0') + ":" + now.getMinutes().toString().padStart(2,'0');
         }
         Clock();
         setInterval('Clock()',5000);

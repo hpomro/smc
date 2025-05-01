@@ -53,8 +53,11 @@
                 text-align: center;
                 position: fixed;
                 right: 30px;
-                top: 40%;
+                top: 30%;
                 font-size: large;
+                border: solid 1px;
+                width: 100px;
+                background-color: rgb(227, 254, 202);
             }
         </style>
         <title>SMC 016 Answer</title>        
@@ -63,7 +66,7 @@
         <h1 style="text-align: center;" id="top">Suken Math Contest 016</h1>
         <h2 style="text-align: center;">解説</h2>
 
-        <div id="index" class="border_solid">
+        <div id="index" class="border_solid" style="background-color: rgb(254, 242, 202);">
             <p><a href="#Q1">Q1 FACTORIZATION</a></p>
             <p><a href="#Q2">Q2 RANDOM SEGMENT</a></p>
             <p><a href="#Q3">Q3 COLLATZ</a></p>
@@ -341,6 +344,7 @@
                 </p>
             </div>
 
+            <p>以下,点X',Y'はX国,Y国の上空&beta;単位の地点を指す。</p>
             <h4>(1)</h4>
                 <p><b>&lt;見取り図&gt;</b></p>
                 <img src="Q4_answer_sketch.png" alt="sketch for explanation" width="600px">
@@ -348,7 +352,7 @@
                 <p><b>&lt;展開図 (上図のオレンジ色の部分)&gt;</b></p>
                 <img src="Q4_answer_net_1.png" alt="geometry net 1 for explanation" width="600px">
                 <p>使用ツール: Google Document</p>
-                <p>求める長さは,上の展開図の線分XYの長さで,
+                <p>求める長さは,上の展開図の線分X'Y'の長さで,
                     <br>
                     <math>
                         <msqrt>
@@ -391,25 +395,25 @@
                 <p style="font-size: large;"><b>[証明]</b></p>
                 <img src="Q4_answer_net_3.png" alt="geometry net 3 for explanation" width="600px">
                 <p>使用ツール: Google Document</p>
-                <p>3線分の交点は2つであるので,それらの点を直線AXに近いほうからM,Nとする。
-                    線分MX,MYがP国の領域の長方形(辺上を含まない)を通らないためには,点Mは三角形XAX'の内部(辺上を含む)
-                    にあって,同様に点Nは三角形YBY'の内部(辺上を含む)にある必要がある。
-                    線分MNがP国の領域の長方形(辺上を含まない)を通らないので,点Mは四角形X'X''CAの内部(辺上を含む)内に,
-                    点Mは四角形BDY''Y'の内部(辺上を含む)内に,ある必要がある。
+                <p>3線分の交点は2つであるので,それらの点を直線AX'に近いほうからM,Nとする。
+                    線分MX',MY'がP国の領域の長方形(辺上を含まない)を通らないためには,点Mは三角形X'AX''の内部(辺上を含む)
+                    にあって,同様に点Nは三角形Y'BY''の内部(辺上を含む)にある必要がある。
+                    線分MNがP国の領域の長方形(辺上を含まない)を通らないので,点Mは四角形X''X'''CAの内部(辺上を含む)内に,
+                    点Mは四角形BDY'''Y''の内部(辺上を含む)内に,ある必要がある。
                     また,このとき,3線分はP国の領域の長方形(辺上を含まない)を通らない。
                     <br>また,このことから,ヘリコプターは2回向きを変える必要がある。
                 </p>
-                <p>3線分の長さの和が最小となる点M,Nの位置について議論する。
-                    四角形X'X''CAの内部(辺上を含む)に点E,
-                    四角形DBY'Y''の内部(辺上を含む)に点E'を取り,
-                    線分EE'と線分X'X'',線分EE'と線分Y'Y''の交点をそれぞれF,F'とすると,
-                    FF'&leq'となるので,点M,Nはそれぞれ線分X'X''上,線分Y'Y''上にある。
-                    ここで,線分FF',X''Y''の交点をGとすると,
-                    三角不等式により,GX''&leq;X''F+FG(等号成立は点Fが点X''と一致するとき) , GY''&leq;Y''F'+F'G
-                    (等号成立は点F'が点Y''と一致するとき)
-                    <br>よって,X''Y''=GX''+GY''&leq;X''F+FG+Y''F'+F'G=X''F+FF'+F'Y''
+                <p>3線分の長さの和が最小となる点M,Nの位置について考える。
+                    四角形X''X'''CAの内部(辺上を含む)に点E,
+                    四角形DBY''Y'''の内部(辺上を含む)に点E'を取り,
+                    線分EE'と線分X''X''',線分EE'と線分Y''Y'''の交点をそれぞれF,F'とすると,
+                    FF'&leq;EE'となるので,点M,Nはそれぞれ線分X''X'''上,線分Y''Y'''上にある。
+                    ここで,線分FF',X'''Y'''の交点をGとすると,
+                    三角不等式により,GX'''&leq;X'''F+FG(等号成立は点Fが点X'''と一致するとき) , GY'''&leq;Y'''F'+F'G
+                    (等号成立は点F'が点Y'''と一致するとき)
+                    <br>よって,X'''Y''' = GX'''+GY''' &leq; X'''F + FG+Y'''F' + F'G = X'''F + FF' + F'Y'''
                 </p>
-                <p>以上から点M,Nがそれぞれ点X'',点Y''上にあるとき,3線分の長さの和は最小になる。点X''は三角形XAX'の内部(辺上を含む)に,点Y''は三角形YBY'の内部(辺上を含む)にあるため条件を満たす。</p>
+                <p>以上から点M,Nがそれぞれ点X''',点Y'''上にあるとき,3線分の長さの和は最小になる。点X'''は三角形X'AX''の内部(辺上を含む)に,点Y'''は三角形Y'BY''の内部(辺上を含む)にあるため条件を満たす。</p>
             </div>
 
             <p>この折れ線(①)の長さを求めたい。
@@ -447,7 +451,7 @@
             <p>上の図のように<b>比</b>を用いて斜辺の長さを求めると,</p>
             <p>
                 <math>
-                    <mi>XK</mi><mo>=</mo>
+                    <mi>X'K</mi><mo>=</mo>
                     <mfrac>
                         <mrow>
                             <mn>5</mn><mo>&InvisibleTimes;</mo><msqrt><mn>106</mn></msqrt>
@@ -458,7 +462,7 @@
                 </math>
                 ,
                 <math>
-                    <mi>XL</mi><mo>=</mo>
+                    <mi>KL</mi><mo>=</mo>
                     <mfrac>
                         <mrow><mn>7</mn><mo>&InvisibleTimes;</mo><msqrt><mn>1261</mn></msqrt></mrow>
                         <mn>276</mn>
@@ -469,7 +473,7 @@
             <p>よって,求める長さは,
                 <br>
                 <math>
-                    <mn>2</mn><mo>(</mo><mi>XK</mi><mo>+</mo><mi>KL</mi><mo>)</mo>
+                    <mn>2</mn><mo>(</mo><mi>X'K</mi><mo>+</mo><mi>KL</mi><mo>)</mo>
                     <mo>=</mo>
                 </math>
                 <span style="font-size: x-large;">
@@ -499,8 +503,8 @@
         <script type="text/javascript">
             function Clock(){
                 let now = new Date();
-                document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + now.getMonth().toString() + "/" + now.getDate().toString();
-                document.getElementById("clock2r").innerHTML = now.getHours().toString() + ":" + now.getMinutes().toString();
+                document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
+                document.getElementById("clock2r").innerHTML = now.getHours().toString().padStart(2,'0') + ":" + now.getMinutes().toString().padStart(2,'0');
             }
             Clock();
             setInterval('Clock()',5000);
