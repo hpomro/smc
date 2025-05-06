@@ -5,9 +5,6 @@
         <meta charset="utf-8">
         <title>SMC2025</title>
         <style>
-            h3{
-                font-size: x-large;
-            }
             #clock{
                 text-align: center;
                 position: fixed;
@@ -25,6 +22,13 @@
                 position: relative;
                 left: 220px;
             }
+
+            #news{
+                visibility: visible;
+            }
+            #CurrentContest{
+                visibility: hidden;
+            }
         </style>
     </head>
 </html>
@@ -38,10 +42,31 @@
 
         <div id="news" style="background-color: rgba(255, 192, 203, 0.9);">
             <h2>-- News --</h2>
-            <p><b>SMC017</b> が開催されます</p>
+            <!-- <p><b>SMC017</b> が開催されます</p>
             <p>日時: 2025/5/1 ; 19:30~21:00</p>
             <p>開催場所: LINEグループ</p>
-            <u><i><p id="CountDown"></p></i></u>
+            <u><i><p id="CountDown"></p></i></u> -->
+            <p>(None)</p>
+        </div>
+        <div style="position: relative;">
+            <a href="">
+                <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
+                    <span>
+                        <h2>Current Contest</h2>
+                        <h3></h3>
+                        <u><p>Click here to jump to the Question Page</p></u>
+                    </span>
+                </div>
+            </a>
+
+            <div style="height: 180px; width: 49%; position: absolute; left: 51%; background-color: rgba(175, 252, 59, 0.9);">
+                <h2>Next Contest</h2>
+                <!-- <h3></h3>
+                <p>Day: 2025/?/? ; Time: 19:30~21:00
+                    <br>Answering Type: Number Only</p> -->
+                
+            </div>
+            <div style="height: 200px;"></div>
         </div>
 
         <hr>
@@ -58,19 +83,19 @@
             </div>
             <div class="smc_n_description">
                 <br>
-                <li>非典型問題を意識して作った。</li>
+                <li>非典型問題を意識して作られた。</li>
                 <li>難易度は高めと思われる。</li>
             </div>
             
 
-            <!-- <div class="smc_n" style="top: 220px;">
+            <div class="smc_n" style="top: 220px;">
                 <h3>SMC 017</h3>
                 <p>2025/5/1(Thu)</p>
+                <p>(準備中)</p>
                 <p></p>
-                <p></p>
-            </div> -->
+            </div>
 
-        </div> 
+        </div>
     </div>
 
     <!-- CLOCK -->
