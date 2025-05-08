@@ -42,11 +42,14 @@
 
         <div id="news" style="background-color: rgba(255, 192, 203, 0.9);">
             <h2>-- News --</h2>
-            <!-- <p><b>SMC017</b> が開催されます</p>
-            <p>日時: 2025/5/1 ; 19:30~21:00</p>
-            <p>開催場所: LINEグループ</p>
-            <u><i><p id="CountDown"></p></i></u> -->
-            <p>(None)</p>
+            <p><b>Suken Algorithm Contest 001</b> が開催されます</p>
+            <p>日時: 2025/5/15(Thu) ; 19:30~21:00</p>
+            <p>開催場所: 特設サイト</p>
+            <p>詳しくは <a href="SAC001/announcement.html">こちら</a></p>
+            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLSelFCsZ-y9bbEElmLZcSE-CzB8rIOxgOODTQD_73YubfHlKtw/viewform?usp=header" target="_blank">
+                参加登録フォーム(Googleフォーム)</a></p>
+            <u><i><p>開始まで あと<span id="CountDown" style="font-size: x-large;"></span></p></i></u>
+            <!-- <p>(None)</p> -->
         </div>
         <div style="position: relative;">
             <a href="">
@@ -61,9 +64,9 @@
 
             <div style="height: 180px; width: 49%; position: absolute; left: 51%; background-color: rgba(175, 252, 59, 0.9);">
                 <h2>Next Contest</h2>
-                <!-- <h3></h3>
-                <p>Day: 2025/?/? ; Time: 19:30~21:00
-                    <br>Answering Type: Number Only</p> -->
+                <h3>Suken Algorithm Contest 001</h3>
+                <p>Day: 2025/5/15 ; Time: 19:30~21:00
+                    <br>90分,短答式</p>
                 
             </div>
             <div style="height: 200px;"></div>
@@ -105,7 +108,7 @@
     </div>
 
     <script type="text/javascript">
-        const targetDay = new Date(2025, 5-1, 1, 19, 30);
+        const targetDay = new Date(2025, 5-1, 15, 19, 30);
         function Clock(){
             let now = new Date();
             document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
@@ -121,7 +124,7 @@
                 let idiffH = Math.floor(diffH);
                 str = idiffH.toString()+"H"+Math.floor((diffH-idiffH)*60).toString()+"M";
             }
-            document.getElementById("CountDown").innerHTML = "あと "+str;
+            document.getElementById("CountDown").innerHTML = str;
         }
         Clock();
         CountDown();
