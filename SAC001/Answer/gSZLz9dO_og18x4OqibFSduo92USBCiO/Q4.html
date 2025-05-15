@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Q4 - Pow</title>
+        <link href="../../../common.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Q4 -Pow</h1>
+
+        <div>
+            <div class="question">
+                <p class="sentence">
+                    <math><msup><mn>2</mn><mn>100</mn></msup></math>
+                    を1000で割った余りを求めよ。なお,0以上1000未満の整数で答えること。
+                </p>
+            </div>
+        </div>
+
+        <h2>Answer</h2>
+        <div>
+            <p class="sentence"><span class="answer">&nbsp;376&nbsp;</span></p>
+        </div>
+
+        <h2>Key</h2>
+        <div class="borderSolid">
+            <p class="sentence"><b>繰り返し二乗法</b></p>
+        </div>
+
+        <h2>Description</h2>
+
+        <p>
+            <math>
+                <msup><mn>2</mn><mn>100</mn></msup><mo>=</mo><msup><mrow><mo>(</mo><msup><mn>2</mn><mn>10</mn></msup><mo>)</mo></mrow><mn>10</mn></msup>
+                <mo>=</mo><msup><mn>1024</mn><mn>10</mn></msup>
+            </math>
+        </p><p>
+            <math>
+                <msup><mn>1024</mn><mn>10</mn></msup><mo>≡</mo><msup><mn>24</mn><mn>10</mn></msup><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+            </math>
+        </p>
+
+        <br>
+
+        <p><math>
+                <msup><mn>24</mn><mn>1</mn></msup><mo>≡</mo><mn>24</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+        </math></p>
+        <p><math>
+                <msup><mn>24</mn><mn>2</mn></msup><mo>≡</mo><mn>576</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+        </math></p>
+        <p><math>
+                <msup><mn>24</mn><mn>4</mn></msup><mo>≡</mo><msup><mn>576</mn><mn>2</mn></msup><mo>≡</mo><mn>776</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+        </math></p>
+        <p><math>
+                <msup><mn>24</mn><mn>8</mn></msup><mo>≡</mo><msup><mn>776</mn><mn>2</mn></msup><mo>≡</mo><mn>176</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+        </math></p>
+
+        <br>
+
+        <p>
+            <math>
+                <msup><mn>24</mn><mn>10</mn></msup>
+                <mo>≡</mo><msup><mn>24</mn><mn>2</mn></msup><mo>&times;</mo><msup><mn>24</mn><mn>8</mn></msup>
+                <mo>≡</mo><mn>576</mn><mo>&times;</mo><mn>176</mn>
+                <mo>≡</mo><mn>376</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+            </math>
+        </p>
+
+        <p>よって,&nbsp;
+            <math>
+                <msup><mn>2</mn><mn>100</mn></msup><mo>≡</mo><mn>376</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+            </math>
+        </p>
+
+        <p class="final_answer">(答) 376</p>
+
+        <br>
+
+        <h2>別解</h2>
+        <p><math><msup><mn>2</mn><mn>1</mn></msup><mo>≡</mo><mn>2</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <p><math><msup><mn>2</mn><mn>2</mn></msup><mo>≡</mo><mn>4</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <p><math><msup><mn>2</mn><mn>4</mn></msup><mo>≡</mo><mn>16</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <p><math><msup><mn>2</mn><mn>8</mn></msup><mo>≡</mo><mn>256</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <p><math><msup><mn>2</mn><mn>16</mn></msup><mo>≡</mo><mn>536</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <p><math><msup><mn>2</mn><mn>32</mn></msup><mo>≡</mo><mn>296</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <p><math><msup><mn>2</mn><mn>64</mn></msup><mo>≡</mo><mn>616</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo></math></p>
+        <br>
+        <p>
+            <math>
+                <msup><mn>2</mn><mn>100</mn></msup>
+                <mo>≡</mo><msup><mn>2</mn><mn>64</mn></msup><mo>&times;</mo><msup><mn>2</mn><mn>32</mn></msup><mo>&times;</mo><msup><mn>2</mn><mn>4</mn></msup>
+                <mo>≡</mo><mn>616</mn><mo>&times;</mo><mn>296</mn><mo>&times;</mo><mn>16</mn>
+                <mo>≡</mo><mn>376</mn><mo>(</mo><mi>mod</mi><mo></mo><mn>1000</mn><mo>)</mo>
+            </math>
+        </p>
+
+        <p class="final_answer">(答) 376</p>
+    </body>
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy;&nbsp;KUNIKO SUKEN</p>
+
+        <a href="answer.html">
+            <div style="font-size: larger; background-color: rgb(0, 0, 0, 0.7); color: white; text-align: center; width: 100px; height: 50px;
+            position: fixed; right: 10px; bottom: 40px;">
+                <p>BACK</p>
+            </div>
+        </a>
+    </footer>
+</html>
