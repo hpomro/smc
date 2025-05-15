@@ -27,7 +27,8 @@
                 visibility: visible;
             }
             #CurrentContest{
-                visibility: hidden;
+                visibility: visible;
+                border: dashed 5px;
             }
         </style>
     </head>
@@ -51,13 +52,16 @@
             <u><i><p>開始まで あと<span id="CountDown" style="font-size: x-large;"></span></p></i></u>
             <!-- <p>(None)</p> -->
         </div>
+
         <div style="position: relative;">
-            <a href="">
+
+            <!-- Current Contest -->
+            <a href="SAC001/Question/IuQJW7DcE49XGPiM/question.html">
                 <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
                     <span>
                         <h2>Current Contest</h2>
-                        <h3></h3>
-                        <u><p>Click here to jump to the Question Page</p></u>
+                        <h3>Suken Algorithm Contest 001</h3>
+                        <u><p style="color: blue;"><span style="font-size: large; font-weight: bold;">Click here</span> to jump to the Question Page</p></u>
                     </span>
                 </div>
             </a>
