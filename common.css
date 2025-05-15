@@ -1,0 +1,72 @@
+.difficulty_1{
+    font-size: large;
+    font-weight: bold;
+    color: rgb(43, 43, 43);
+}
+.difficulty_2{
+    font-size: large;
+    font-weight: bold;
+    color: gray;
+}
+.difficulty_3{
+    font-size: large;
+    font-weight: bold;
+    color: rgb(255, 230, 0);
+}
+.difficulty_4{
+    font-size: large;
+    font-weight: bold;
+    color: red;
+}
+.difficulty_5{
+    font-size: large;
+    font-weight: bold;
+    color: blue;
+}
+.difficulty_6{
+    font-size: large;
+    font-weight: bold;
+    color: blueviolet;
+}
+
+.question{
+    border: dashed 1px;
+}
+.sentence{
+    position: relative;
+    left: 10px;
+    width: 96%;
+}
+.borderSolid{
+    border: solid 1px;
+}
+table{
+    text-align: center; position: relative; left: 10px; width: 600px;
+    border: solid 2px;
+}
+table th{
+    border: solid 2px;
+}
+table td{
+    border: solid 1px;
+}
+.answer{
+    font-size: larger;
+    font-weight: bold;
+    /* background-color: black;
+    color: white; */
+    text-decoration: underline;
+}
+.answer2{
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.final_answer{
+    font-size: large;
+    font-weight: bold;
+    text-decoration: underline;
+}
+mfrac{
+    font-size: larger;
+}
