@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Q3 -Amusement Park</title>
+        <link href="../../../common.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Q3 -Amusement Park</h1>
+
+        <div>
+            <div class="question">
+                <p class="sentence">
+                    <i>アル氏</i>は遊園地<i>Hex</i>に来ている。遊園地<i>Hex</i>にはアトラクションが図のように7つ存在し,
+                    隣接するアトラクションとの間に道があって,その道のみを通って別のアトラクションに行くことができる。各アトラクション間の移動にかかる時間
+                    (以下,<b>移動時間</b>)は図の通りである。いま,<i>アル氏</i>はアトラクションAにいる。アトラクションB~Gをちょうど一回ずつ
+                    回ってアトラクションAに戻るとき,<b>移動時間</b>の合計の最小値を求めよ。
+                </p>
+                <img src="../../Question/IuQJW7DcE49XGPiM/SAC001-AmusementPark.png" width="500px" style="position: relative; left: 20%;" alt="Gragh">
+            </div>
+        </div>
+
+        <h2>Answer</h2>
+        <div>
+            <p class="sentence"><span class="answer">&nbsp;21&nbsp;</span></p>
+        </div>
+
+        <h2>Key</h2>
+        <div class="borderSolid">
+            <p class="sentence"><b>いつGを訪れるか</b></p>
+        </div>
+
+        <h2>Description</h2>
+
+        <p>
+            B~Gのどの頂点も一度しか訪れることができないので,
+            Gに寄らない場合を考えると,
+            回り方は次の2通り。<br>
+            ① A→B→C→D→E→F→A<br>
+            ② A→F→E→D→C→B→A<br>
+        </p>
+
+        <p>
+            Gに寄る場合を考えると,
+            上の→の1つをを→G→で置き換えればよいので,
+            回り方は,<br>
+            <math><mn>6</mn><mo>&times;</mo><mn>2</mn><mo>=</mo><mn>12</mn></math>(通り)。
+        </p>
+        <p>移動時間については①,②で違いはない。</p>
+
+        <p>
+            X→G→Yとおく。<br>
+            XYでアトラクションX,Y間の移動時間を表すものとすると,<br>
+            X,Yは(XG+GY)-XYが最小となるように選べばよい。
+        </p>
+
+        <p>よって,D,Eの間でGを訪れると移動時間(の合計)は最短になる。</p>
+
+        <p>以上から,移動時間(の合計)の最小値を求めよ。,A→B→C→D→G→E→F→Aの順で回るとき,最小値21を取る。</p>
+        
+        <p class="final_answer">(答) 21</p>
+    </body>
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy;&nbsp;KUNIKO SUKEN</p>
+
+        <a href="answer.html">
+            <div style="font-size: larger; background-color: rgb(0, 0, 0, 0.7); color: white; text-align: center; width: 100px; height: 50px;
+            position: fixed; right: 10px; bottom: 40px;">
+                <p>BACK</p>
+            </div>
+        </a>
+    </footer>
+</html>
