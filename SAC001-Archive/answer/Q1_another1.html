@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Q1 - Binary Multiplication</title>
+        <link href="../../common.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Q1 - Binary Multiplication (別解)</h1>
+        <div class="question">
+            <p class="sentence">
+                <math>
+                    <msub><mn>10100110</mn><mo>(2)</mo></msub>
+                    <mo>&times;</mo>
+                    <msub><mn>10011010</mn><mo>(2)</mo></msub>
+                </math>
+                を計算し,<b>16進法で</b>答えよ。
+                <!-- <br>なお,先頭の文字を0にせず,アルファベットは大文字を用いること。
+                <br>※<math><msub><mi>N</mi><mn>(2)</mn></msub></math>は数値Nが2進数であることを示す。 -->
+            </p>
+        </div>
+
+        <h2>Answer</h2>
+        <div>
+            <p class="sentence"><span class="answer">&nbsp;63DC&nbsp;</span></p>
+        </div>
+
+        <h2>Key</h2>
+        <div class="borderSolid">
+            <p class="sentence"><b>10進法を経由</b></p>
+        </div>
+
+        <h2>Description</h2>
+        <p>※<math><msub><mi>N</mi><mn>(m)</mn></msub></math>(mは10進数)は数値Nがm進数であることを示す。</p>
+
+        <p>
+            <math>
+                <msub><mn>10100110</mn><mo>(2)</mo></msub>
+                <mo>=</mo><msub><mn>166</mn><mo>(10)</mo></msub>
+            </math>
+            <br>
+            <math>
+                <msub><mn>10011010</mn><mo>(2)</mo></msub>
+                <mo>=</mo><msub><mn>154</mn><mo>(10)</mo></msub>
+            </math>
+        </p>
+        <p>よって,
+            <br>
+            <math>
+                <msub><mn>10100110</mn><mo>(2)</mo></msub>
+                <mo>&times;</mo>
+                <msub><mn>10011010</mn><mo>(2)</mo></msub>
+                <mo>=</mo>
+                <msub><mn>166</mn><mo>(10)</mo></msub>
+                <mo>&times;</mo>
+                <msub><mn>154</mn><mo>(10)</mo></msub>
+                <mo>=</mo>
+                <msub><mn>25564</mn><mo>(10)</mo></msub>
+                <mo>=</mo>
+                <msub><mn>63DC</mn><mo>(16)</mo></msub>
+            </math>
+        </p>
+
+        <p class="answer2">(答) 63DC</p>
+    </body>
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy;&nbsp;KUNIKO SUKEN</p>
+
+        <a href="answer.html">
+            <div style="font-size: larger; background-color: rgb(0, 0, 0, 0.7); color: white; text-align: center; width: 100px; height: 50px;
+            position: fixed; right: 10px; bottom: 40px;">
+                <p>BACK</p>
+            </div>
+        </a>
+    </footer>
+</html>

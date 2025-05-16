@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Q7 -Sum of Sums of Divisors</title>
+        <link href="../../common.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Q7 -Sum of Sums of Divisors</h1>
+
+        <div>
+            <div class="question">
+                <p class="sentence">
+                    正の整数nの正の約数の総和をf(n)とする。<br>
+                    f(2025)+f(2・2025)+f(3・2025)+・・・+f(9・2025)+f(10・2025)
+                    の値を求めよ。
+                </p>
+            </div>
+        </div>
+
+        <h2>Answer</h2>
+        <div>
+            <p class="sentence"><span class="answer">&nbsp;282057&nbsp;</span></p>
+        </div>
+
+        <h2>Key</h2>
+        <div class="borderSolid">
+            <p class="sentence"><b>まとめて計算</b></p>
+        </div>
+
+        <h2>Description</h2>
+
+        <p>
+            正整数n,mが互いに素であるとき,
+            <math>
+                <mi>f</mi><mo>(</mo><mi>n</mi><mi>m</mi><mo>)</mo><mo>=</mo>
+                <mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>&InvisibleTimes;</mo>
+                <mi>f</mi><mo>(</mo><mi>m</mi><mo>)</mo>
+            </math>
+        </p>
+
+        <p>
+            pが素数,kが正整数のとき,
+            <math>
+                <mi>f</mi><mo>(</mo><msup><mi>p</mi><mi>k</mi></msup><mo>)</mo>
+                <mo>=</mo>
+                <msup><mi>p</mi><mn>0</mn></msup><mo>+</mo>
+                <msup><mi>p</mi><mn>1</mn></msup><mo>+</mo>
+                <msup><mi>p</mi><mn>2</mn></msup><mo>+</mo>
+                <mi>・・・</mi>
+                <mo>+</mo>
+                <msup><mi>p</mi><mi>k</mi></msup>
+            </math>
+        </p>
+        <!-- <p>
+            <math>
+                <mi>f</mi><mo>(</mo><mn>1</mn><mo>)</mo><mo>=</mo><mn>1</mn>
+            </math>
+        </p> -->
+        <p>よって,
+            <math>
+                <mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo>
+                <mo>=</mo>
+                <mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo>
+                <mo>&InvisibleTimes;</mo>
+                <mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo>
+                <mo>=</mo>
+                <mn>121</mn><mo>&times;</mo><mn>31</mn><mo>=</mo><mn>1751</mn>
+            </math>
+        </p>
+
+        <br>
+
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo>></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>2</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&InvisibleTimes;</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>=</mo><mn>3</mn><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>3</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>5</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>4</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&InvisibleTimes;</mo><mi>f</mi><mo>(</mo><msup><mn>2</mn><mn>2</mn></msup><mo>)</mo><mo>=</mo><mn>7</mn><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>5</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>3</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>6</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&InvisibleTimes;</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>5</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac> <mo>=</mo><mn>3</mn><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>5</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>7</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&InvisibleTimes;</mo><mi>f</mi><mo>(</mo><mn>7</mn><mo>)</mo><mo>=</mo><mn>8</mn><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>8</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&InvisibleTimes;</mo><mi>f</mi><mo>(</mo><msup><mn>2</mn><mn>3</mn></msup><mo>)</mo><mo>=</mo><mn>15</mn><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>9</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>6</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac></math></p>
+        <p><math><mi>f</mi><mo>(</mo><mn>2025</mn><mo>&times;</mo><mn>10</mn><mo>)</mo><mo>=</mo><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo><mo>&InvisibleTimes;</mo><mi>f</mi><mo>(</mo><mn>2</mn><mo>)</mo><mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>3</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac> <mo>=</mo><mn>3</mn><mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo> <mo>&times;</mo><mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>3</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac></math></p>
+
+        <br>
+        <p>よって,(与式)
+            <math>
+                <mo>=</mo>
+                <mi>f</mi><mo>(</mo><mn>2025</mn><mo>)</mo>
+                <mo>&times;</mo>
+                
+                <mo>{</mo>
+                <mn>34</mn><mo>+</mo>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>5</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>&times;</mo><mn>4</mn><mo>+</mo>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>6</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>+</mo>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>3</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>&times;</mo><mn>4</mn>
+                <mo>}</mo>
+            </math>
+        </p>
+
+        <br>
+
+        <p>
+            <math>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>5</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>=</mo>
+                <mn>1</mn><mo>+</mo>
+                <mfrac><mrow><msup><mn>3</mn><mn>5</mn></msup></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+            </math>
+        </p>
+        <p>
+            <math>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>6</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>=</mo>
+                <mn>1</mn><mo>+</mo>
+                <mfrac><mrow><msup><mn>3</mn><mn>5</mn></msup><mo>+</mo><msup><mn>3</mn><mn>6</mn></msup></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+            </math>
+        </p>
+        <p>
+            <math>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>5</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>&times;</mo><mn>4</mn><mo>+</mo>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>6</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                
+                <mo>=</mo>
+                <mn>5</mn><mo>+</mo>
+                <mfrac><mrow><msup><mn>3</mn><mn>5</mn></msup><mo>(</mo><mn>4</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>3</mn><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+            
+                <mo>=</mo>
+                <mn>5</mn><mo>+</mo>
+                <mfrac><mn>1944</mn><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                
+            </math>
+        </p>
+        
+        <p>
+            <math>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>3</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>=</mo>
+                <mn>1</mn><mo>+</mo>
+                <mfrac><mrow><msup><mn>5</mn><mn>3</mn></msup></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac>
+            </math>
+        </p>
+        <p>
+            <math>
+                <mfrac><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>3</mn></msup><mo>)</mo></mrow><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>&times;</mo><mn>4</mn><mo>=</mo>
+                <mn>4</mn><mo>+</mo>
+                <mfrac><mn>500</mn><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac>
+            </math>
+        </p>
+
+        <br>
+
+        <p>
+            したがって,(与式)
+            <math>
+                <mo>=</mo><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo>
+                <mo>&InvisibleTimes;</mo>
+                <mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo>
+                <mo>&times;</mo>
+                
+                <mo>{</mo>
+                <mn>43</mn><mo>+</mo>
+                <mfrac><mn>1944</mn><mrow><mi>f</mi><mo>(</mo><msup><mn>3</mn><mn>4</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>+</mo>
+                <mfrac><mn>500</mn><mrow><mi>f</mi><mo>(</mo><msup><mn>5</mn><mn>2</mn></msup><mo>)</mo></mrow></mfrac>
+                <mo>}</mo>
+            </math>
+        </p>
+        <p>
+            <math>
+                <mo>=</mo>
+                <mn>121</mn><mo>&times;</mo><mn>31</mn><mo>&times;</mo><mn>43</mn><mo></mo><mo>+</mo>
+                <mn>31</mn><mo>&times;</mo><mn>1944</mn><mo></mo><mo>+</mo>
+                <mn>121</mn><mo>&times;</mo><mn>500</mn>
+            </math>
+        </p>
+        <p>
+            <math><mo>=</mo><mn>121</mn><mo>&times;</mo><mn>1833</mn>
+            <mo>+</mo><mn>31</mn><mo>&times;</mo><mn>1944</mn></math>
+        </p>
+        <p><math><mo>=</mo><mn>121</mn><mo>&times;</mo><mn>1833</mn>
+            <mo>+</mo><mn>31</mn><mo>&times;</mo><mn>1833</mn>
+            <mo>+</mo><mn>31</mn><mo>&times;</mo><mn>111</mn></math>
+        </p>
+        <p><math>
+            <mo>=</mo><mn>1833</mn><mo>&times;</mo><mn>152</mn><mo>+</mo><mn>31</mn><mo>&times;</mo><mn>111</mn>
+        </math></p>
+        <p><math><mo>=</mo><mn>278616</mn><mo>+</mo><mn>3441</mn></math></p>
+        <p><math><mo>=</mo><mn>282057</mn></math></p>
+
+        <p class="final_answer">(答) 282057</p>
+    </body>
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy;&nbsp;KUNIKO SUKEN</p>
+
+        <a href="answer.html">
+            <div style="font-size: larger; background-color: rgb(0, 0, 0, 0.7); color: white; text-align: center; width: 100px; height: 50px;
+            position: fixed; right: 10px; bottom: 40px;">
+                <p>BACK</p>
+            </div>
+        </a>
+    </footer>
+</html>

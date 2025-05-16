@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Q2 -Cube Root</title>
+        <link href="../../common.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Q2 -Cube Root</h1>
+
+        <div>
+            <div class="question">
+                <p class="sentence">
+                    <math>
+                        <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                    </math>
+                    (すなわち,3391641の3乗根)
+                    を10進法の小数で表したとき,その小数第一位を四捨五入した値を求めよ。
+                </p>
+            </div>
+        </div>
+
+        <h2>Answer</h2>
+        <div>
+            <p class="sentence"><span class="answer">&nbsp;150&nbsp;</span></p>
+        </div>
+
+        <h2>Key</h2>
+        <div class="borderSolid">
+            <p class="sentence"><b>二分探索</b></p>
+        </div>
+
+        <h2>Description</h2>
+        <p>
+            <math>
+                <msup><mn>10</mn><mn>6</mn></msup><mo>&lt;</mo><mn>3391641</mn><mo>&lt;</mo><mn>8</mn><mo>&times;</mo><msup><mn>10</mn><mn>6</mn></msup>
+            </math>
+            から,<br>
+            <math>
+                <msup><mn>10</mn><mn>2</mn></msup><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>2</mn><mo>&times;</mo><msup><mn>10</mn><mn>2</mn></msup>
+            </math>
+            <br>
+            すなわち,<br>
+            <math>
+                <mn>100</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>200</mn>
+            </math>
+            <br>
+            ここで,
+            <math><msup><mn>150</mn><mn>3</mn></msup><mo>=</mo><mn>3375000</mn><mo>&lt;</mo><mn>3391641</mn></math>
+            から,
+            <br>
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>200</mn>
+            </math>
+            <br>
+            また,
+            <math><msup><mn>170</mn><mn>3</mn></msup><mo>=</mo><mn>4913000</mn><mo>&gt;</mo><mn>3391641</mn></math>
+            から,
+            <br>
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>170</mn>
+            </math>
+            <br>また,
+            <math><msup><mn>160</mn><mn>3</mn></msup><mo>=</mo><mn>4096000</mn><mo>&gt;</mo><mn>3391641</mn></math>
+            から,
+            <br>
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>160</mn>
+            </math>
+        </p>
+
+        <p>
+            続いて1の位。<br>
+            <math><mi>k</mi></math>を実数とすると,<br>
+            <math>
+                <msup><mrow><mo>(</mo><mn>150</mn><mo>+</mo><mi>k</mi><mo>)</mo></mrow><mn>3</mn></msup>
+                <mo>=</mo>
+                <msup><mn>150</mn><mn>3</mn></msup>
+                <mo>+</mo>
+                <mn>3</mn><mo>&times;</mo><msup><mn>150</mn><mn>2</mn></msup><mo>&times;</mo><mi>k</mi>
+                <mo>+</mo>
+                <mn>3</mn><mo>&times;</mo><mn>150</mn><mo>&times;</mo><msup><mi>k</mi><mn>2</mn></msup>
+                <mo>+</mo>
+                <msup><mi>k</mi><mn>3</mn></msup>
+
+                <mo>=</mo>
+                <mn>3375000</mn><mo>+</mo><mn>67500</mn><mo>&InvisibleTimes;</mo><mi>k</mi>
+                <mo>+</mo><mn>450</mn><mo>&InvisibleTimes;</mo><msup><mi>k</mi><mn>2</mn></msup>
+                <mo>+</mo><msup><mi>k</mi><mn>3</mn></msup>
+            </math>
+
+            <br>
+            これを利用して,
+            <math>
+                <msup><mn>155</mn><mn>3</mn></msup><mo>=</mo><mn>3723875</mn><mo>&gt;</mo><mn>3391641</mn>
+            </math>
+            <br>
+            よって,
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>155</mn>
+            </math>
+
+            <br>また,
+            <math>
+                <msup><mn>152</mn><mn>3</mn></msup><mo>=</mo><mn>3511808</mn><mo>&gt;</mo><mn>3391641</mn>
+            </math><br>
+            よって,
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>152</mn>
+            </math>
+            
+            <br>また,
+            <math>
+                <msup><mn>151</mn><mn>3</mn></msup><mo>=</mo><mn>3442951</mn><mo>&gt;</mo><mn>3391641</mn>
+            </math><br>
+            よって,
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>151</mn>
+            </math>
+        </p>
+
+        <p>
+            いよいよ最後。<br>
+            <math>
+                <msup><mn>150.5</mn><mn>3</mn></msup><mo>=</mo><mn>3408862.625</mn><mo>&gt;</mo><mn>3391641</mn>
+            </math><br>
+            よって,
+            <math>
+                <mn>150</mn><mo>&lt;</mo>
+                <msup><mo></mo><mn>3</mn></msup><msqrt><mn>3391641</mn></msqrt>
+                <mo>&lt;</mo><mn>150.5</mn>
+            </math>
+        </p>
+
+        <p class="final_answer">(答) 150</p>
+        
+    </body>
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy;&nbsp;KUNIKO SUKEN</p>
+
+        <a href="answer.html">
+            <div style="font-size: larger; background-color: rgb(0, 0, 0, 0.7); color: white; text-align: center; width: 100px; height: 50px;
+            position: fixed; right: 10px; bottom: 40px;">
+                <p>BACK</p>
+            </div>
+        </a>
+    </footer>
+</html>

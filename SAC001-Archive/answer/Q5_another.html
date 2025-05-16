@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Q5 -Cat and Stairs</title>
+        <link href="../../common.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>Q5 -Cat and Stairs</h1>
+
+        <div>
+            <div class="question">
+                <p class="sentence">
+                猫の<i>ゴリズム君</i>が全<b>8段</b>の階段を上る。
+                <br>ただし,<i>ゴリズム君</i>は一回の動作で <b>1段または2段または3段</b> の階段を上ることができる。
+                <br>ただし,以下の動作はできない。
+                </p>
+                <li class="sentence">6段目にいるときに3段上る。</li>
+                <li class="sentence">7段目にいるときに3段上る。</li>
+                <li class="sentence">7段目にいるときに2段上る。</li>
+                <p class="sentence">
+                    最初<i>ゴリズム君</i>が0段目にいるとき,8段の階段を上り切る動作の方法は何通りあるか。ただし,通過する段があってもよい。
+                </p>
+            </div>
+        </div>
+
+        <h2>Answer</h2>
+        <div>
+            <p class="sentence"><span class="answer">&nbsp;81&nbsp;</span></p>
+        </div>
+
+        <h2>Key</h2>
+        <div class="borderSolid">
+            <p class="sentence"><b>場合の数</b></p>
+        </div>
+
+        <h2>Description</h2>
+
+        <p>1段上る動作をk回,2段上る動作をl回,3段上る動作をm回行うとする。</p>
+        <p>(k,l,m)の値の組に対する上り方は
+            <math>
+                <mfrac>
+                    <mrow><mo>(</mo><mi>k</mi><mo>+</mo><mi>l</mi><mo>+</mo><mi>m</mi><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mi>k</mi><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mi>l</mi><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mi>m</mi><mo>!</mo></mrow>
+                </mfrac>
+            </math>
+            通りある。
+        </p>
+        <p>
+            <math><mi>k</mi><mo>+</mo><mn>2</mn><mo>&InvisibleTimes;</mo><mi>l</mi><mo>+</mo><mn>3</mn><mo>&InvisibleTimes;</mo><mi>m</mi><mo>=</mo><mn>8</mn></math>
+        </p>
+        <p>
+            (1) m=0のとき<br>
+            <math><mi>k</mi><mo>+</mo><mn>2</mn><mo>&InvisibleTimes;</mo><mi>l</mi><mo>=</mo><mn>8</mn></math><br>
+            これを解いて(k,l)=(8,0),(6,1),(4,2),(2,3),(0,4)<br>
+            よってm=の0ときの上り方は,<br>
+            <math>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>8</mn><mo>+</mo><mn>0</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>8</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>0</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>6</mn><mo>+</mo><mn>1</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>6</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>1</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>4</mn><mo>+</mo><mn>2</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>4</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>2</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>2</mn><mo>+</mo><mn>3</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>2</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>3</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>0</mn><mo>+</mo><mn>4</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>0</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>4</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mn>1</mn><mo>+</mo><mn>7</mn><mo>+</mo><mn>15</mn><mo>+</mo><mn>10</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>34</mn>
+            </math>
+        </p>
+        <p>
+            (2) m=1のとき<br>
+            <math><mi>k</mi><mo>+</mo><mn>2</mn><mo>&InvisibleTimes;</mo><mi>l</mi><mo>=</mo><mn>5</mn></math><br>
+            これを解いて(k,l)=(5,0),(3,1),(1,2)<br>
+            よってm=1のときの上り方は,<br>
+            <math>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>5</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>5</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>0</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>3</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>1</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>3</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>1</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><mn>1</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>1</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>2</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mn>6</mn><mo>+</mo><mn>20</mn><mo>+</mo><mn>12</mn><mo>=</mo><mn>38</mn>
+            </math>
+        </p>
+
+        <p>
+            (3) m=2のとき<br>
+            <math><mi>k</mi><mo>+</mo><mn>2</mn><mo>&InvisibleTimes;</mo><mi>l</mi><mo>=</mo><mn>2</mn></math><br>
+            これを解いて(k,l)=(0,1),(2,0)<br>
+            よってm=2のときの上り方は,<br>
+            <math>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo>+</mo><mn>2</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>0</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>1</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>2</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>+</mo>
+                <mfrac>
+                    <mrow><mo>(</mo><mn>2</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>2</mn><mo>)</mo><mo>!</mo></mrow>
+                    <mrow><mn>2</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>0</mn><mo>!</mo><mo>&InvisibleTimes;&nbsp;</mo><mn>2</mn><mo>!</mo></mrow>
+                </mfrac>
+                <mo>=</mo>
+                <mn>3</mn><mo>+</mo><mn>6</mn><mo>=</mo><mn>9</mn>
+            </math>
+        </p>
+
+        <p>以上から,求める場合の数は,
+            <math><mn>34</mn><mo>+</mo><mn>38</mn><mo>+</mo><mn>9</mn><mo>=</mo><mn>81</mn></math>
+            (通り)。
+        </p>
+
+        <p class="final_answer">(答) 81(通り)</p>
+        
+    </body>
+    <footer>
+        <hr>
+        <p style="text-align: center;">&copy;&nbsp;KUNIKO SUKEN</p>
+
+        <a href="answer.html">
+            <div style="font-size: larger; background-color: rgb(0, 0, 0, 0.7); color: white; text-align: center; width: 100px; height: 50px;
+            position: fixed; right: 10px; bottom: 40px;">
+                <p>BACK</p>
+            </div>
+        </a>
+    </footer>
+</html>
