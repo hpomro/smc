@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>SMC 018</title>
+    <style>
+        body{
+            width: 90%;
+            position: relative;
+            left: 5%;
+            background-color: rgb(232, 254, 247);
+        }
+        .surrounded_dashed{
+            border: dashed 2px;
+        }
+        .surrounded_solid{
+            border: solid 2px;
+        }
+        .content{
+            width: 90%;
+            position: relative;
+            left: 5%;
+        }
+        .inline{
+            display: inline;
+        }
+        #hint{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suken Math Contest 018</h1>
+
+    <h2>諸リンク</h2>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLScbOAH7WSDh6SHH6WS1Krmy8AKxXEj_C_QkomDgUVlrVvpABw/viewform?usp=header" target="_blank"
+        >提出フォーム</a>&ThickSpace;※大問ごとに提出しても小問ごとに提出してもよい。同じ問題への解答は最後に送信したものが採点対象。</p>
+    <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd7zbrnP68Z0ND3sjSZ2xVmjXErEX8iKeSLg9AdAGSlFCT8Bw/viewform?usp=header" target="_blank"
+        >質問フォーム</a></p>
+    <!-- <p><a href="">暫定ランキング</a></p> -->
+
+    <h2>訂正欄</h2>
+    <p>現時点での訂正はなし</p>
+
+    <h2>注意</h2>
+    <div class="surrounded_solid"><div class="content">
+    <p>
+        <li>今回はすべて<b>記述式</b>である。</li>
+        <li>無理数に関する不等式を用いる場合は,証明をつけること。
+            <br>(例えば,<math><mn>2</mn><mo>&lt;</mo><mi>e</mi><mi>(自然対数の底)</mi><mo>&lt;</mo><mn>3</mn></math>を用いるときは証明する必要がある)</li>
+        <li>解をすべて求める問題では,示した解以外の解が存在しないことも証明すること。</li>
+        <li>真偽を答える問題では,真と答える場合には証明をし,偽と答える場合には反例を少なくとも1つ示すこと。</li>
+
+        <li>証明中に背理法を用いてもよい。</li>
+
+        <li>xy平面における格子点は,x座標,y座標がともに整数である点を指すものとする。</li>
+        <li>文章中の数値は特に断りのない限り10進数である。</li>
+        <li>問題文中の記号&leq;,&geq;はそれぞれ≦,≧と同じ意味で使われている。</li>
+    </p></div></div>
+
+    <h2>ヒント</h2>
+    <button onclick="open_hint()">ヒントを開く</button>
+    <div class="surrounded_solid" id="hint">
+        <div class="content">
+            <h4>二項定理</h4>
+            <p>
+                <math><mi>a</mi><mo>,</mo><mi>b</mi></math>を実数,<math><mi>n</mi></math>を正の整数とすると,
+                <br><math>
+                    <msup><mrow><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo></mrow><mi>n</mi></msup>
+                    <mo>=</mo>
+                    <msub><mo></mo><mi>n</mi></msub><msub><mi>C</mi><mn>0</mn></msub><msup><mi>a</mi><mi>n</mi></msup><msup><mi>b</mi><mn>0</mn></msup><mo>+</mo>
+                    <msub><mo></mo><mi>n</mi></msub><msub><mi>C</mi><mn>1</mn></msub><msup><mi>a</mi><mi>n-1</mi></msup><msup><mi>b</mi><mn>1</mn></msup><mo>+</mo>
+                    <msub><mo></mo><mi>n</mi></msub><msub><mi>C</mi><mn>2</mn></msub><msup><mi>a</mi><mi>n-2</mi></msup><msup><mi>b</mi><mn>2</mn></msup><mo>+</mo>
+                    <mo>...</mo><mo>+</mo>
+                    <msub><mo></mo><mi>n</mi></msub><msub><mi>C</mi><mi>n-1</mi></msub><msup><mi>a</mi><mn>1</mn></msup><msup><mi>b</mi><mi>n-1</mi></msup><mo>+</mo>
+                    <msub><mo></mo><mi>n</mi></msub><msub><mi>C</mi><mi>n</mi></msub><msup><mi>a</mi><mn>0</mn></msup><msup><mi>b</mi><mi>n</mi></msup>
+                </math>
+            </p>
+            <h4>数学的帰納法</h4>
+            <p>
+                正の整数nについての命題がすべてのnについて成り立つ
+                <br>&DoubleLeftRightArrow;<br>1について成り立つ <br>かつ<br> kについて成り立つ(と仮定する)ならばk+1について成り立つ(k:正の整数)
+            </p>
+            <p>
+                [拡張]
+                数列<math><mi>a</mi></math>についての命題がすべての <math><msub><mi>a</mi><mi>i</mi></msub></math>について成り立つ
+                <br>&DoubleLeftRightArrow;<br><math><msub><mi>a</mi><mn>1</mn></msub></math>について成り立つ <br>かつ<br><math><msub><mi>a</mi><mi>k</mi></msub></math>について成り立つならば<math><msub><mi>a</mi><mi>k+1</mi></msub></math>について成り立つ(k:正の整数)
+            </p>
+            <p>
+                (例)
+                数列<math><mi>a</mi></math>を<math><msub><mi>a</mi><mn>1</mn></msub><mo>=</mo><mi>3</mi></math>&nbsp;,&nbsp;<math><msub><mi>a</mi><mi>k+1</mi></msub><mo>=</mo><msub><mi>a</mi><mi>k</mi></msub><mo>+</mo><mn>1</mn><mo>(</mo><mi>k</mi><mi>は</mi><mn>3</mn><mi>以上の整数</mi><mo>)</mo></math>
+                と定義すると,
+                <br>3以上の整数nについての命題がすべてのnについて成り立つ
+                <br>&DoubleLeftRightArrow;<br>3について成り立つ <br>かつ<br> kについて成り立つならばk+1について成り立つ(k:3以上の整数)
+            </p>
+        </div>
+    </div>
+    <button onclick="close_hint()">ヒントを閉じる</button>
+    <br><br>
+    
+    <hr>
+
+    <h2>問0 - Irrational</h2><p>[50点]</p>
+    <div>
+        <p>以下の命題が真であることを証明せよ。</p>
+        <div class="surrounded_dashed">
+            <div class="content">
+                <p>
+                    <math><mi>a</mi><mo>,</mo><mi>b</mi></math>が異なる素数 &DoubleRightArrow; <math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>は無理数
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <h2>問1 - Tag</h2><p>[計150点]</p>
+    <div>
+        <p>
+            Abstract氏(解答中では"A"または"甲"でよい)とBool氏(解答中では"B"または"乙"でよい)がxy平面上で鬼ごっこをする。原点Oと点(0,1)と距離及び原点Oと点(1,0)の距離を1mとする。
+            <br>
+            時刻tがあって,t=0のとき,Abstract氏,Bool氏はともに原点O上にいる。
+        </p>
+        <p>
+            Abstract氏は以下のような行動をとる。
+        </p>
+        <div class="surrounded_dashed">
+            <div class="content">
+                <p>1. t=0のときに行動2へ進む。</p>
+                <p>2. 以下の行動のいずれかを行う。
+                    <li>2m/sの速さでyの正の方向に1mだけ移動する。</li>
+                    <li>1m/sの速さでxの正の方向に1mだけ移動する。</li>
+                </p>
+                <p>3. 行動2に戻る</p>
+            </div>
+        </div>
+        <p>
+            Bool氏は以下のような行動をとる。
+        </p>
+        <div class="surrounded_dashed">
+            <div class="content">
+                <p>1. 原点O上でt&lt;8の間動かずに待つ。t=8になったとき,行動2へ進む。</p>
+                <p>2. 3m/sの速さで任意の方向に任意の距離移動する。</p>
+                <p>3. 行動2に戻る</p>
+            </div>
+        </div>
+
+        <p><b>(1)</b>&nbsp;t=10のとき,Abstract氏がいる場所として考えられる点はいくつあるか。答えにいたるまでの過程も記述せよ。[50点]</p>
+        <p><b>(2)</b>&nbsp;t=10のとき,Abstract氏,Bool氏がそれぞれどんな行動をとってもBool氏はAbstract氏に追いつけないことを証明せよ。
+        <br>ただし,Bool氏は勘でAbstract氏のt=10のときの位置を当てて直線的に移動することもできる点に注意せよ。<br>[100点]</p>
+    </div>
+
+    <h2>問2 - I AM Bigger</h2><p>[計200点]</p>
+    <div>
+        <p>
+            以下の命題Aについて,次の問に答えよ。
+        </p>
+        <div class="surrounded_dashed">
+            <p class="content">
+                [命題A]
+                <br>
+                <math><mi>n</mi><mo>&lt;</mo><mi>m</mi></math>を満たす正の整数<math><mi>n</mi><mo>,</mo><mi>m</mi></math>について,
+
+                <br>&ThickSpace;&ThickSpace;&ThickSpace;&ThickSpace;<math><mn>3</mn><mo>&leq;</mo><mi>n</mi><mo>&DoubleRightArrow;</mo><msup><mi>n</mi><mi>m</mi></msup><mo>&gt;</mo><msup><mi>m</mi><mi>n</mi></msup></math>
+                <br>が成り立つ。
+            </p>
+        </div>
+
+        <p><b>(1)</b>&nbsp;命題Aは真であることを証明せよ。[100点]</p>
+
+        <p>
+            <b>(2)</b>&nbsp;
+            <math><mi>p</mi><mo>,</mo><mi>q</mi></math>
+            は正の整数で<math><mi>p</mi><mo>&lt;</mo><mi>q</mi></math>
+            とする。
+            <br>
+            <math><mi>p</mi><mo>,</mo><mi>q</mi></math>についての方程式<math><msup><mi>p</mi><mi>q</mi></msup><mo>=</mo><msup><mi>q</mi><mi>p</mi></msup></math>
+            の解をすべて求めよ。ただし,この小問では,命題Aが真であることを証明なしに用いてよい。答えにいたるまでの過程も記述せよ。[50点]
+        </p>
+
+        <p>
+            <b>(3)</b>&nbsp;
+            この命題の逆<br>(
+                <math><mi>n</mi><mo>&lt;</mo><mi>m</mi></math>を満たす正の整数<math><mi>n</mi><mo>,</mo><mi>m</mi></math>について,
+                <math><msup><mi>n</mi><mi>m</mi></msup><mo>&gt;</mo><msup><mi>m</mi><mi>n</mi></msup><mo>&DoubleRightArrow;</mo><mn>3</mn><mo>&leq;</mo><mi>n</mi></math>
+                が成り立つ。
+            )<br>は真か。答えにいたるまでの過程も記述せよ。[50点]
+        </p>
+    </div>
+
+
+    <script>
+        function open_hint(){
+            document.getElementById("hint").style.display="block";
+        }
+        function close_hint(){
+            document.getElementById("hint").style.display="none";
+        }
+    </script>
+</body>
+</html>
