@@ -51,7 +51,6 @@
         <li>無理数に関する不等式を用いる場合は,証明をつけること。
             <br>(例えば,<math><mn>2</mn><mo>&lt;</mo><mi>e</mi><mi>(自然対数の底)</mi><mo>&lt;</mo><mn>3</mn></math>を用いるときは証明する必要がある)</li>
         <li>解をすべて求める問題では,示した解以外の解が存在しないことも証明すること。</li>
-        <li>真偽を答える問題では,真と答える場合には証明をし,偽と答える場合には反例を少なくとも1つ示すこと。</li>
 
         <li>証明中に背理法を用いてもよい。</li>
 
@@ -119,7 +118,7 @@
         <p>
             Abstract氏(解答中では"A"または"甲"でよい)とBool氏(解答中では"B"または"乙"でよい)がxy平面上で鬼ごっこをする。原点Oと点(0,1)と距離及び原点Oと点(1,0)の距離を1mとする。
             <br>
-            時刻tがあって,t=0のとき,Abstract氏,Bool氏はともに原点O上にいる。
+            時刻tがあって,t=0[s]のとき,Abstract氏,Bool氏はともに原点O上にいる。
         </p>
         <p>
             Abstract氏は以下のような行動をとる。
@@ -139,34 +138,38 @@
         </p>
         <div class="surrounded_dashed">
             <div class="content">
-                <p>1. 原点O上でt&lt;8の間動かずに待つ。t=8になったとき,行動2へ進む。</p>
+                <p>1. 原点O上でt&lt;8[s]の間動かずに待つ。t=8[s]になったとき,行動2へ進む。</p>
                 <p>2. 3m/sの速さで任意の方向に任意の距離移動する。</p>
                 <p>3. 行動2に戻る</p>
             </div>
         </div>
+    
+        <p>ただし,移動は連続的に行われているものとする。例えば,原点Oから1m/sの速さで
+            点(1,0)に移動するとき,0.5秒後には点(0.5,0)にいるものとする。
+        </p>
 
-        <p><b>(1)</b>&nbsp;t=10のとき,Abstract氏がいる場所として考えられる点はいくつあるか。答えにいたるまでの過程も記述せよ。[50点]</p>
-        <p><b>(2)</b>&nbsp;t=10のとき,Abstract氏,Bool氏がそれぞれどんな行動をとってもBool氏はAbstract氏に追いつけないことを証明せよ。
-        <br>ただし,Bool氏は勘でAbstract氏のt=10のときの位置を当てて直線的に移動することもできる点に注意せよ。<br>[100点]</p>
+        <p><b>(1)</b>&nbsp;t=10[s]のとき,Abstract氏がいる場所として考えられる点はいくつあるか。答えにいたるまでの過程も記述せよ。[50点]</p>
+        <p><b>(2)</b>&nbsp;0[s]&leq;t&leq;10[s]のとき,Abstract氏,Bool氏がそれぞれどんな行動をとってもBool氏はAbstract氏に追いつけないことを証明せよ。
+        <br>ただし,Bool氏は数秒後のAbstract氏の位置を勘で当てて直線的に移動することもできる点に注意せよ。<br>[100点]</p>
     </div>
 
     <h2>問2 - I AM Bigger</h2><p>[計200点]</p>
     <div>
         <p>
-            以下の命題Aについて,次の問に答えよ。
+            以下の命題Xについて,次の問に答えよ。
         </p>
         <div class="surrounded_dashed">
             <p class="content">
-                [命題A]
+                [命題X]
                 <br>
-                <math><mi>n</mi><mo>&lt;</mo><mi>m</mi></math>を満たす正の整数<math><mi>n</mi><mo>,</mo><mi>m</mi></math>について,
+                <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>を満たすすべての正の整数<math><mi>a</mi><mo>,</mo><mi>b</mi></math>について,
 
-                <br>&ThickSpace;&ThickSpace;&ThickSpace;&ThickSpace;<math><mn>3</mn><mo>&leq;</mo><mi>n</mi><mo>&DoubleRightArrow;</mo><msup><mi>n</mi><mi>m</mi></msup><mo>&gt;</mo><msup><mi>m</mi><mi>n</mi></msup></math>
+                <br>&ThickSpace;&ThickSpace;&ThickSpace;&ThickSpace;<math><mn>3</mn><mo>&leq;</mo><mi>a</mi><mo>&DoubleRightArrow;</mo><msup><mi>a</mi><mi>b</mi></msup><mo>&gt;</mo><msup><mi>b</mi><mi>a</mi></msup></math>
                 <br>が成り立つ。
             </p>
         </div>
 
-        <p><b>(1)</b>&nbsp;命題Aは真であることを証明せよ。[100点]</p>
+        <p><b>(1)</b>&nbsp;命題Xは真であることを証明せよ。[100点]</p>
 
         <p>
             <b>(2)</b>&nbsp;
@@ -175,21 +178,21 @@
             とする。
             <br>
             <math><mi>p</mi><mo>,</mo><mi>q</mi></math>についての方程式<math><msup><mi>p</mi><mi>q</mi></msup><mo>=</mo><msup><mi>q</mi><mi>p</mi></msup></math>
-            の解をすべて求めよ。ただし,この小問では,命題Aが真であることを証明なしに用いてよい。答えにいたるまでの過程も記述せよ。[50点]
+            の解をすべて求めよ。ただし,この小問では,命題Xが真であることを証明なしに用いてよい。答えにいたるまでの過程も記述せよ。[50点]
         </p>
 
         <p>
             <b>(3)</b>&nbsp;
-            この命題の逆<br>(
-                <math><mi>n</mi><mo>&lt;</mo><mi>m</mi></math>を満たす正の整数<math><mi>n</mi><mo>,</mo><mi>m</mi></math>について,
-                <math><msup><mi>n</mi><mi>m</mi></msup><mo>&gt;</mo><msup><mi>m</mi><mi>n</mi></msup><mo>&DoubleRightArrow;</mo><mn>3</mn><mo>&leq;</mo><mi>n</mi></math>
+            命題Xの逆<br>(
+                <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>を満たすすべての正の整数<math><mi>a</mi><mo>,</mo><mi>b</mi></math>について,
+                <math><msup><mi>a</mi><mi>b</mi></msup><mo>&gt;</mo><msup><mi>b</mi><mi>a</mi></msup><mo>&DoubleRightArrow;</mo><mn>3</mn><mo>&leq;</mo><mi>a</mi></math>
                 が成り立つ。
-            )<br>は真か。答えにいたるまでの過程も記述せよ。[50点]
+            )<br>は真か。
+            ただし,真と答える場合には証明をし,偽と答える場合には反例となる(a,b)の値の範囲をすべて求めること。[50点]
         </p>
     </div>
 
-
-    <script>
+    <script type="text/javascript">
         function open_hint(){
             document.getElementById("hint").style.display="block";
         }
