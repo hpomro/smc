@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>問3 - 数学的帰納法</title>
+    <link rel="stylesheet" href="../smc018.css" type="text/css">
+</head>
+<body>
+    <h1>問3 - I AM Bigger</h1>
+    <h2>問題</h2>
+    <div>
+        <p>
+            以下の命題Xについて,次の問に答えよ。
+        </p>
+        <div class="surrounded_dashed">
+            <p class="content">
+                [命題X]
+                <br>
+                <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>を満たすすべての正の整数<math><mi>a</mi><mo>,</mo><mi>b</mi></math>について,
+
+                <br>&ThickSpace;&ThickSpace;&ThickSpace;&ThickSpace;<math><mn>a</mn><mo>&geq;</mo><mi>3</mi><mo>&DoubleRightArrow;</mo><msup><mi>a</mi><mi>b</mi></msup><mo>&gt;</mo><msup><mi>b</mi><mi>a</mi></msup></math>
+                <br>が成り立つ。
+            </p>
+        </div>
+
+        <p><b>(1)</b>&nbsp;命題Xは真であることを証明せよ。[100点]</p>
+
+        <p>
+            <b>(2)</b>&nbsp;
+            <math><mi>p</mi><mo>,</mo><mi>q</mi></math>
+            は<b>正の整数</b>で<math><mi>p</mi><mo>&lt;</mo><mi>q</mi></math>
+            とする。
+            <br>
+            <math><mi>p</mi><mo>,</mo><mi>q</mi></math>についての方程式<math><msup><mi>p</mi><mi>q</mi></msup><mo>=</mo><msup><mi>q</mi><mi>p</mi></msup></math>
+            の解をすべて求めよ。ただし,この小問では,命題Xが真であることを証明なしに用いてよい。答えにいたるまでの過程も記述せよ。[50点]
+        </p>
+
+        <p>
+            <b>(3)</b>&nbsp;
+                命題Xの逆は真か。真ならば証明し,偽ならば反例を一つ以上挙げよ。[50点]
+        </p>
+    </div>
+    <h2>答えのみ</h2>
+    <p>
+        (1) (略)<br>(2) (p,q)=(2,4)<br>(3) 偽(反例は略)
+    </p>
+    <h2>解説 ~数学的帰納法~</h2>
+
+    <h3>(1)簡易解答</h3>
+    <iframe src="問2(1)簡易解答.pdf" frameborder="0" width="80%" height="800px"></iframe>
+
+    <h3>(2)</h3>
+    <p>p=1のとき,(左辺)=1,(右辺)=q&gt;1より等式は成り立たない。</p>
+    <p>p&geq;3のとき,命題Xは真であるため,(左辺)&gt;(右辺)より等式は成り立たない。</p>
+    <h4>p=2のとき</h4>
+    <p>q=3のとき,等式は成り立たない。<br>q=4のとき等式は成り立つ。</p>
+    <p>q&geq;5のとき</p>
+    <div class="surrounded_dashed"><div class="content">
+        qが5以上の整数のとき,<math><msup><mn>2</mn><mi>q</mi></msup><mo>&gt;</mo><msup><mi>q</mi><mn>2</mn></msup></math>
+        であることを示す。<br>
+        数学的帰納法で示す。q=5のとき成立する。<br>
+        q=k(kは5以上の整数)のとき成立すると仮定すると,q=k+1でも成立することを示す。<br>
+        数学的帰納法の仮定から,<math><msup><mi>2</mi><mn>k</mn></msup><mo>&gt;</mo><msup><mi>k</mi><mn>2</mn></msup></math>
+        <br>
+        <math><msup><mi>2</mi><mn>k+1</mn></msup><mo>=</mo><mn>2</mn><mo>&times;</mo><msup><mi>2</mi><mn>k</mn></msup><mo>&gt;</mo><mn>2</mn><mo>&InvisibleTimes;</mo><msup><mi>k</mi><mn>2</mn></msup></math>
+        <br>
+        <math><mi>k</mi><mo>&geq;</mo><mn>5</mn></math>から,<math><mn>1</mn><mo>&leq;</mo><mfrac><mi>k</mi><mn>5</mn></mfrac></math><br>
+        <math><msup><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></msup><mo>&leq;</mo><msup><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mfrac><mi>k</mi><mn>5</mn></mfrac><mo>)</mo></mrow><mn>2</mn></msup>
+        <mo>=</mo><msup><mrow><mo>(</mo><mfrac><mn>6</mn><mn>5</mn></mfrac><mo>&InvisibleComma;</mo><mi>k</mi><mo>)</mo></mrow><mn>2</mn></msup><mo>&lt;</mo><mn>2</mn><mo>&InvisibleTimes;</mo><msup><mi>k</mi><mn>2</mn></msup>
+        </math>
+        <br>よって,<math><msup><mi>2</mi><mn>k+1</mn></msup><mo>&gt;</mo><msup><mrow><mo>(</mo><mi>k</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mn>2</mn></msup></math>
+    </div></div>
+    <p>以上から,解はp=2,q=4のみである。</p>
+
+    <h3>(3)</h3>
+    <p>命題Xの逆の真偽は,命題Xの裏</p>
+    <div class="surrounded_dashed">
+        <p class="content">
+            [命題Xの裏]
+            <br>
+            <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>を満たすすべての正の整数<math><mi>a</mi><mo>,</mo><mi>b</mi></math>について,
+
+            <br>&ThickSpace;&ThickSpace;&ThickSpace;&ThickSpace;<math><mn>a</mn><mo>&lt;</mo><mi>3</mi><mo>&DoubleRightArrow;</mo><msup><mi>a</mi><mi>b</mi></msup><mo>&leq;</mo><msup><mi>b</mi><mi>a</mi></msup></math>
+            <br>が成り立つ。
+        </p>
+    </div>
+    <p>a=1のとき成立。</p>
+    <h4>a=2のとき</h4>
+    <p>b=3,4のとき成立。</p>
+    <p>b&geq;5のとき,(2)の証明から
+    <math><msup><mi>a</mi><mi>b</mi></msup><mo>&gt;</mo><msup><mi>b</mi><mi>a</mi></msup></math>
+    となって命題Xの裏は成立しない。</p>
+    <p>よって命題Xの裏は偽。ゆえに命題Xの逆も偽。</p>
+    反例としてはa=2,b&geq;5を満たす整数a,bの組を一つ以上答えればよい。
+</body>
+</html>
