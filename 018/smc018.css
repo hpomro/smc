@@ -1,0 +1,20 @@
+body{
+    width: 90%;
+    position: relative;
+    left: 5%;
+    background-color: rgb(244, 246, 225);
+}
+.surrounded_dashed{
+    border: dashed 2px;
+}
+.surrounded_solid{
+    border: solid 2px;
+}
+.content{
+    width: 90%;
+    position: relative;
+    left: 5%;
+}
+mfrac{
+    font-size: 120%;
+}
