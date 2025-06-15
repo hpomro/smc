@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../smc018.css" type="text/css">
+    <title>問1 - 解法1</title>
+</head>
+<body>
+    <h2>問題</h2>
+
+    <h2>解答・解説</h2>
+
+    <h3>解法1 そのまま2乗</h3>
+    <p>背理法を用いて,
+        a,bが異なる素数かつ
+        <math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>
+        が有理数であると仮定して矛盾を導く。
+    </p>
+    <p>
+        この仮定のもとでは,<math><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup></math>
+        も有理数である。<br>
+        <math><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup>
+        <mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>から<br>
+        <math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt><mo>=</mo><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><mi>a</mi><mo>-</mo><mi>b</mi></math>・・・(＊)
+        <br>a,bは有理数だから,(＊)の右辺は有理数である。
+        左辺が無理数であることを示す。
+    </p>
+    <h4>[補題] a,bが異なる素数のとき,<math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>は無理数である。</h4>
+    <div class="surrounded_dashed">
+        <div class="content">
+            <p>背理法を用いて,a,bが異なる素数かつ<math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>が有理数であると仮定すると,
+            <br><math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>は正であるため,互いに素である正の整数p,qを用いて
+            <math><mfrac><mrow><mi>q</mi></mrow><mrow><mi>p</mi></mrow></mfrac></math>と表すことができる。
+            </p>
+            <p>よって,<math><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi><mo>=</mo><mfrac><mrow><msup><mi>q</mi><mn>2</mn></msup></mrow><mrow><msup><mi>p</mi><mn>2</mn></msup></mrow></mfrac></math>
+            すなわち,<math><msup><mi>p</mi><mn>2</mn></msup><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi><mo>=</mo><msup><mi>q</mi><mn>2</mn></msup></math>
+            <br>a,b,p,qは整数だから,<math><msup><mi>q</mi><mn>2</mn></msup></math>はaの倍数である。よって,qもaの倍数である。したがって,q=ak(k:正の整数)とおき,両辺をaで割ると,a,bは互いに素であるので<math><msup><mi>p</mi><mn>2</mn></msup></math>もaの倍数であるため,pもaの倍数であり,p,qが互いに素であることと矛盾する。
+            </p>
+            <p>したがって,a,bが異なる素数のとき,<math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>は無理数である。</p>
+        </div>
+    </div>
+    <p>よって,(＊)の左辺は無理数である。定義より有理数かつ無理数である数は存在しないので,矛盾が示された。</p>
+    <p>したがって,a,bが異なる素数ならば<math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>は無理数である</p>
+    
+    <h3>解法2 移項して2乗</h3>
+    <p>背理法を用いて,
+        a,bが異なる素数かつ
+        <math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>
+        が有理数であると仮定して矛盾を導く。
+    </p>
+    <p><math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>&gt;</mo><mn>0</mn></math>から,<math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>=</mo><mi>r</mi></math>(rは正の有理数)とおくと,
+    <br><math><msqrt><mi>a</mi></msqrt><mo>=</mo><mi>r</mi><mo>-</mo><msqrt><mi>b</mi></msqrt></math>
+    <br>rは0でないから,両辺を2乗して整理すると,<math><mfrac><mrow><mi>a</mi><mo>-</mo><mi>b</mi><mo>+</mo><msup><mi>r</mi><mn>2</mn></msup></mrow><mrow><mn>2</mn><mo>&InvisibleTimes;</mo><mi>r</mi></mrow></mfrac><mo>=</mo><msqrt><mi>b</mi></msqrt></math>・・・(＊)
+    <br>ここで,(＊)の左辺は有理数である。右辺が無理数であることを示す。</p>
+    <h4>[補題] bが素数のとき,<math><msqrt><mi>b</mi></msqrt></math>は無理数である。</h4>
+    <div class="surrounded_dashed">
+        <div class="content">
+            <p>背理法を用いて,bが素数かつ<math><msqrt><mi>b</mi></msqrt></math>は有理数であると仮定すると,
+            <br><math><msqrt><mi>b</mi></msqrt><mo>&gt;</mo><mn>0</mn></math>から2つの互いに素である正の整数p,qを用いて
+            <math><msqrt><mi>b</mi></msqrt><mo>=</mo><mfrac><mrow><mi>q</mi></mrow><mrow><mi>p</mi></mrow></mfrac></math>
+            と表すことができる。
+            <br>両辺を2乗して整理すると,<math><msup><mi>p</mi><mn>2</mn></msup><mi>b</mi><mo>=</mo><msup><mi>q</mi><mn>2</mn></msup></math>
+            <br>b,p,qは整数だから,<math><msup><mi>q</mi><mn>2</mn></msup></math>はbの倍数である。よってqもbの倍数である。したがってq=bk(k:整数)とおき,
+            両辺をbで割ると,<math><msup><mi>p</mi><mn>2</mn></msup></math>はbの倍数であるためpもbの倍数である。
+            <br>これは,p,qが互いに素であることと矛盾する。
+            </p>
+            <p>ゆえに,bが素数のとき,<math><msqrt><mi>b</mi></msqrt></math>は無理数である。</p>
+        </div>
+    </div>
+    <p>よって,(＊)の右辺は無理数であることから矛盾が示された。</p>
+    <p>したがって,a,bが異なる素数ならば<math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>は無理数である</p>
+
+    <h3>解法3 積を有理数にする</h3>
+    <p>(作成中)</p>
+</body>
+</html>
