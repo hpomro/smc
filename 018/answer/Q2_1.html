@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../smc018.css" type="text/css">
+    <title>問2 - Tag</title>
+    <style>
+        table{
+            border: solid 1px;
+        }
+        th{
+            border: solid 1px;
+        }
+        td{
+            border: solid 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>問2 - Tag</h1>
+    <h2>問題</h2>
+    <button onclick="close_question()">問題文を開閉</button>
+    <div id="question">
+        <p>
+            AとBがxy平面上で鬼ごっこをする。
+            Aは逃げ子,Bは鬼である。
+            <br>原点Oと点(0,1)と距離及び原点Oと点(1,0)の距離を1mとする。
+            時刻tがあって,t=0[s]のとき,A,Bはともに原点O上にいる。
+        </p>
+        <p>
+            Aは以下のような行動をとる。
+        </p>
+        <div class="surrounded_dashed">
+            <div class="content">
+                <p>1. t=0のときに行動2へ進む。</p>
+                <p>2. 以下の行動のいずれかを行う。
+                    <li>2m/sの速さでyの正の方向に1mだけ移動する。</li>
+                    <li>1m/sの速さでxの正の方向に1mだけ移動する。</li>
+                </p>
+                <p>3. 行動2に戻る</p>
+            </div>
+        </div>
+        <p>
+            Bは以下のような行動をとる。
+        </p>
+        <div class="surrounded_dashed">
+            <div class="content">
+                <p>1. 原点O上でt&lt;8[s]の間動かずに待つ。t=8[s]になったとき,行動2へ進む。</p>
+                <p>2. 3m/sの速さで任意の方向に任意の距離移動する。</p>
+                <p>3. 行動2に戻る</p>
+            </div>
+        </div>
+    
+        <p>ただし,移動は連続的に行われているものとする。例えば,原点Oから1m/sの速さで
+            点(1,0)に移動するとき,0.5秒後には点(0.5,0)にいるものとする。
+        </p>
+
+        <p><b>(1)</b>&nbsp;t=10[s]のとき,Aがいる場所として考えられる点はいくつあるか。</p>
+        <p><b>(2)</b>&nbsp;0[s]&leq;t&leq;10[s]のとき,A,Bがそれぞれどんな行動をとってもBはAに追いつけないことを証明せよ。
+        ただし,Bは数秒後のAの位置を勘で当てて直線的に移動することもできる点に注意せよ。</p>
+    </div>
+    <button onclick="close_question()" id="question_open_close_2">問題文を開閉</button>
+
+    <!-- 解答編 -->
+
+    <h2>答えのみ</h2>
+    <p>(1) 21個</p>
+    <p>(2) (略)</p>
+
+    <h2>解説</h2>
+    <h3>(1)</h3>
+    <p>[定義] x座標,y座標がともに整数である点を格子点,x座標の2倍,y座標がともに整数であって格子点でない点を<b>半格子点</b>と呼ぶこととする。</p>
+
+    <p>2tが整数のとき,Aは格子点または半格子点にいる(t=0から0.5秒ごとに見るとAは0.5mの移動か1mの移動しかしないため)。</p>
+    <h4>[補題1] t秒後にAは直線2x+y=2t上にいる。</h4>
+    <button onclick="lemma_open(1,1)">証明</button>
+    <div class="surrounded_dashed" id="1_lemma1">
+        <div class="content">
+            xの正の方向への移動を&rightarrow;,yの正の方向への移動を&uparrow;と表す。
+            t=0のとき,Aは直線2x+y=2t上にいる。
+            <p>t秒後に格子点(x,y)(ただし2x+y=2tと仮定)にいるときの次の移動のしかた</p>
+            <table>
+                <tr><th>0.5秒の使い方</th><th>到着する点の種類</th><th>途中の点について</th></tr>
+                <tr><td>&rightarrow;(0.5m)</td><td>半格子点</td><td>(t+&Delta;t)秒後にいる点(x,y+2&Delta;t)は直線2x+y=2t上にある(0&leq;&Delta;t&leq;0.5)。</td></tr>
+                <tr><td>&uparrow;(1m)</td><td>格子点</td><td>(t+&Delta;t)秒後にいる点(x+&Delta;t,y)は直線2x+y=2t上にある(0&leq;&Delta;t&leq;0.5)。</td></tr>
+            </table>
+            <p>t秒後に半格子点(x,y)(ただし2x+y=2t)にいるときの次の移動のしかた</p>
+            <table>
+                <tr><th>0.5秒の使い方</th><th>到着する点の種類</th><th>途中の点について</th></tr>
+                <tr><td>&rightarrow;(0.5m)</td><td>格子点</td><td>(t+&Delta;t)秒後にいる点(x+&Delta;t,y)は直線2x+y=2t上にある(0&leq;&Delta;t&leq;0.5)。</td></tr>
+            </table>
+
+            <p>よって,数学的帰納法から,t秒後にAは直線2x+y=2t上にいることが示された。</p>
+        </div>
+    </div>
+
+    <h4>[補題2] t秒後(ただし2tは整数)にAは直線2x+y=2t上(ただし0&leq;x&leq;t)の点のうちどの格子点または半格子点にもいる可能性がある。</h4>
+    <button onclick="lemma_open(1,2)">証明</button>
+    <div class="surrounded_dashed" id="1_lemma2">
+        <div class="content">
+            <p>原点Oからt秒(ただし2tは整数)で点P(x,y)(ただし2x+y=2t&DoubleLeftRightArrow;x+y/2=t)へ行くことを考える。</p>
+            <p><b>点Pが格子点のとき</b></p><p>&rightarrow;をx回(計x秒),&uparrow;をy回(計y/2秒)行うことで到達可能(行動の順番は任意)。</p>
+            <p><b>点Pが半格子点のとき</b></p><p>&rightarrow;を[x](=x-0.5)回(計(x-0.5)秒),&uparrow;をy回(計y/2秒)行い(行動の順番は任意),&rightarrow;を1回行っている途中(0.5秒)に到達する。</p>
+            <p>したがって,t秒後(ただし2tは整数)にAは直線2x+y=2t上(ただし0&leq;x&leq;t)の点のうちどの格子点または半格子点にもいる可能性がある。</p>
+        </div>
+    </div>
+
+    <p>以上から,Aが10秒後にいる可能性のある地点は,直線2x+y=20の0&leq;x&leq;10の部分上の半格子点の数を数えて21個。
+    </p>
+
+    <h3>(2)</h3>
+    <p>0&leq;&leq;t&lt;8のとき,Bが原点にいることはないのでBはAに追いつけない。</p>
+    <h4>[補題] 8&leq;t&leq;10のとき,A,Bの距離としてありうる最小値は常に0より大きい。</h4>
+    <button onclick="lemma_open(2,1)">証明</button>
+    <div class="surrounded_dashed" id="2_lemma1">
+        <div class="content">
+            <p>t秒後におけるA,Bの距離としてありうる最小値をd(t)とする。</p>
+            <p>(d(t)の導出は作成中)</p>
+            <p><math><mi>d</mi><mo>(</mo><mi>t</mi><mo>)</mo><mo>=</mo>
+            <mfrac><mrow><mo>(</mo><mrow><mn>2</mn><mo>&InvisibleTimes;</mo><msqrt><mn>5</mn></msqrt><mo>-</mo><mn>15</mn></mrow><mo>)</mo><mo>&InvisibleTimes;</mo><mi>t</mi><mo>+</mo><mn>120</mn></mrow><mrow><mn>5</mn></mrow></mfrac>
+            <mo>&geq;</mo><mi>d</mi><mo>(</mo><mn>10</mn><mo>)</mo><mo>=</mo><mn>2</mn><mo>(</mo><msqrt><mn>20</mn></msqrt><mo>-</mo><mn>3</mn><mo>)</mo><mo>&gt;</mo><mn>0</mn></math></p>
+        </div>
+    </div>
+    <p>以上から,
+        </b>&nbsp;0[s]&leq;t&leq;10[s]のとき,A,Bがそれぞれどんな行動をとってもBはAに追いつけない。
+    </p>
+
+    <h3>(2) 別解</h3>
+    <p>10秒後までにA,Bのいる可能性のある領域は共通部分をもたないことを示せばよい。</p>
+    <p>t&lt;8のとき,明らかに共通部分をもたない。</p>
+    <p>t&geq;8の場合を考える。</p>
+    <p>(1)より,Aはt秒後に直線2x+y=2t上にいる。</p>
+    <p>Bは最大で原点からの距離が3(t-8)の地点までしか行くことができないので,Bは原点を中心とする半径
+        3(t-8)
+        の円(方程式は<math><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>2</mn></msup><mo>=</mo>
+        <mn>9</mn><mo>&InvisibleTimes;</mo><msup><mrow><mo>(</mo><mi>t</mi><mo>-</mo><mn>8</mn><mo>)</mo></mrow><mn>2</mn></msup></math>)の周および内部にいる。
+    </p>
+    <p>これらを連立してxについての方程式をつくると,
+        <math><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mi>4</mi><mo>&InvisibleTimes;</mo><msup><mrow><mo>(</mo><mi>t</mi><mo>-</mo><mi>x</mi><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><mn>9</mn><mo>&InvisibleTimes;</mo><msup><mrow><mo>(</mo><mi>t</mi><mo>-</mo><mn>8</mn><mo>)</mo></mrow><mn>2</mn></msup>
+        </math>
+        <br><math><mo>&DoubleLeftRightArrow;</mo><mn>5</mn><mo>&InvisibleTimes;</mo><msup><mi>x</mi><mn>2</mn></msup><mo>-</mo><mn>8</mn><mo>&InvisibleTimes;</mo><mi>t</mi><mo>&InvisibleTimes;</mo><mi>x</mi>
+        <mo>-</mo><mn>5</mn><mo>&InvisibleTimes;</mo><msup><mi>t</mi><mn>2</mn></msup><mo>+</mo><mn>144</mn><mo>&InvisibleTimes;</mo><mi>t</mi><mo>-</mo><mn>576</mn><mo>=</mo><mn>0</mn>
+        </math>
+    </p>
+    <p>これが実数解をもたない&DoubleLeftRightArrow;
+        <math><mn>41</mn><mo>&InvisibleTimes;</mo><msup><mi>t</mi><mn>2</mn></msup><mo>-</mo><mn>720</mn><mo>&InvisibleTimes;</mo><mi>t</mi>
+        <mo>+</mo><mn>2880</mn><mo>&lt;</mo><mn>0</mn></math>
+        <br>
+        これは8&leq;t&leq;10のとき常に真である。
+    </p>
+    <p>よって,10秒後までにA,Bのいる可能性のある領域は共通部分をもたない。</p>
+
+    <p>以上から,
+        </b>&nbsp;0[s]&leq;t&leq;10[s]のとき,A,Bがそれぞれどんな行動をとってもBはAに追いつけない。
+    </p>
+
+    <script>
+        let question_show = true;
+        let lemma_status = [[false,false],[false,false]];
+        init();
+
+        function init(){
+            document.getElementById("question").style.display = "none";
+            document.getElementById("question_open_close_2").style.display = "none";
+            for (let question = 1; question <= 2; question++) {
+                for (let lemma = 1; lemma <= 2; lemma++) {
+                    document.getElementById(question+"_lemma"+lemma).style.display = "none";                    
+                }
+            }
+        }
+        function close_question() {
+            question_show ^= true;
+            if(question_show){
+                document.getElementById("question").style.display = "block";
+                document.getElementById("question_open_close_2").style.display = "block";
+            }else {
+                document.getElementById("question").style.display = "none";
+                document.getElementById("question_open_close_2").style.display = "none";
+            }
+        }
+        function lemma_open(question, lemma) {
+            lemma_status[question-1][lemma-1] ^= true;
+            if(lemma_status[question-1][lemma-1]){
+                document.getElementById(question+"_lemma"+lemma).style.display = "block";
+            }else{
+                document.getElementById(question+"_lemma"+lemma).style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

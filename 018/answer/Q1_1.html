@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="../smc018.css" type="text/css">
-    <title>問1 - 解法1</title>
+    <title>問1 - 背理法</title>
 </head>
 <body>
+    <h1>問1 - Irrational</h1>
     <h2>問題</h2>
+    <div>
+        <p>以下の命題が真であることを証明せよ。</p>
+        <div class="surrounded_dashed">
+            <div class="content">
+                <p>
+                    <math><mi>a</mi><mo>,</mo><mi>b</mi></math>が異なる素数 &DoubleRightArrow; <math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>は無理数
+                </p>
+            </div>
+        </div>
+    </div>
 
     <h2>解答・解説</h2>
 
@@ -22,8 +33,8 @@
         この仮定のもとでは,<math><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup></math>
         も有理数である。<br>
         <math><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup>
-        <mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>から<br>
-        <math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt><mo>=</mo><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><mi>a</mi><mo>-</mo><mi>b</mi></math>・・・(＊)
+        <mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><mn>2</mn><mo>&InvisibleTimes;</mo><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt></math>から<br>
+        <math><msqrt><mi>a</mi><mo>&InvisibleTimes;</mo><mi>b</mi></msqrt><mo>=</mo><mfrac><mrow><msup><mrow><mo>(</mo><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt><mo>)</mo></mrow><mn>2</mn></msup><mo>-</mo><mi>a</mi><mo>-</mo><mi>b</mi></mrow><mrow><mn>2</mn></mrow></mfrac></math>・・・(＊)
         <br>a,bは有理数だから,(＊)の右辺は有理数である。
         左辺が無理数であることを示す。
     </p>
@@ -70,7 +81,7 @@
         </div>
     </div>
     <p>よって,(＊)の右辺は無理数であることから矛盾が示された。</p>
-    <p>したがって,a,bが異なる素数ならば<math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>は無理数である</p>
+    <p>したがって,a,bが異なる素数ならば<math><msqrt><mi>a</mi></msqrt><mo>+</mo><msqrt><mi>b</mi></msqrt></math>は無理数である。</p>
 
     <h3>解法3 積を有理数にする</h3>
     <p>(作成中)</p>
