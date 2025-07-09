@@ -70,3 +70,29 @@ table td{
 mfrac{
     font-size: larger;
 }
+ol.list_parentheses{
+    padding: 0 0 0 2em;
+    margin: 0;
+}
+ol.list_parentheses li{
+    list-style-type: none;
+    list-style-position: inside;
+    counter-increment: cnt;
+    margin: 0.5em;
+}
+ol.list_parentheses li:before{
+    display: marker;
+    content: "(" counter(cnt) ") ";
+}
+body{
+    width: 90%;
+    position: relative;
+    left: 4%;
+}
+.indent{
+    position: relative;
+    left: 4em;
+}
+ol li{
+    margin: 1em;
+}
