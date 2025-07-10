@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../common.css" type="text/css">
+    <link rel="stylesheet" href="answer.css" type="text/css">
+    <title>SMC019 Q1</title>
+</head>
+<body>
+    <h1>SMC019 Q1</h1>
+    
+    <h2>問題</h2>
+    <p>\(x\)についての4次方程式\(x^4+x^3+x^2+x+1=0\)について,以下の問いに答えよ。</p>
+    <p>
+        <ol class="list_parentheses">
+            <li>実数解を<b>もたない</b>ことを示せ。</li>
+            <li>4つの複素数解の和と積をそれぞれ求めよ。</li>
+            <li>\( \cos 36 &deg;\)の値を求めよ。</li>
+            <li>4つの複素数解をすべて求めよ。</li>
+        </ol>
+        &LeftAngleBracket;自作問題&RightAngleBracket;
+    </p>
+
+    <h2>方針</h2>
+    <h3>解法1</h3>
+    <p>与方程式の両辺に\((x-1)\)をかけて得る方程式\(x^5-1=0\) すなわち\(x^5=1\)について考える。</p>
+    <h3>解法2</h3>
+    <p>相反方程式として解く。</p>
+    <h3>解法3</h3>
+    <p>それぞれ独立に解く。</p>
+
+    <h2>解説(解法1)</h2>
+    <p>
+        \(x^5-1=(x-1)(x^4+x^3+x^2+x+1)\)より,与方程式の解は方程式\(x^5=1\)の解でもある。
+        <ol class="list_parentheses">
+            <li><span class="question">実数解をもたないことを示せ。</span>
+            <br>&rightarrow;\(x=1\)は方程式\(x^5=1\)の解であり,関数\(y=x^5\)は単調増加であるため,方程式\(x^5=1\)の実数解は\(x=1\)のみである。
+            一方,\(x=1\)は与方程式の解ではないため,与方程式は実数解をもたない。
+            </li>
+
+            <li><span class="question">4つの複素数解の和と積をそれぞれ求めよ。</span>
+            <br>&rightarrow;与方程式の4つの複素数解を\(&alpha;,&beta;,&gamma;,&delta;\)とすると,すべての複素数\(x\)について,
+            $$x^4+x^3+x^2+x+1=(x-&alpha;)(x-&beta;)(x-&gamma;)(x-&delta;)$$が成り立つ。
+            <br>両辺の係数を比較して,\(&alpha;+&beta;+&gamma;+&delta;=-1\)(1次の項),<br>\(&alpha;&beta;&gamma;&delta;=1\)(定数項)
+            <br>ゆえに,4つの複素数の和は-1,積は1</li>
+
+            <li><span class="question">\( \cos 36 &deg;\)の値を求めよ。</span><br>&rightarrow;
+            \(\theta=36&deg;\)とすると,\(2\theta+3\theta=180&deg;\)から,\(\cos2\theta=\cos(180&deg;-3\theta)=-\cos3\theta\)
+            <br>2倍角,3倍角の公式より,\(2\cos^2\theta-1=-(-4\cos^3\theta+3\cos\theta)\)
+            <br>すなわち$$4\cos^3\theta-2\cos^2\theta-3\cos\theta+1=0$$
+            \(\cos\theta=1\)のとき等式は成り立つので,因数定理より因数分解して,
+            $$(\cos\theta-1)(4\cos^2\theta+2\cos\theta-1)=0$$
+            よって, \(\cos\theta=1,\dfrac{1\pm\sqrt{5}}{4}\)
+            <br>\(\theta=36&deg;\)より\(0\lt\cos\theta\lt1\)であるので, \(\cos\theta=\dfrac{1+\sqrt{5}}{4}\)(条件を満たす\(\cos\theta\)がただ一つ存在することから適する)
+            <br>したがって, \(\cos36&deg;=\dfrac{1+\sqrt{5}}{4}\)
+            <br>※別解あり
+        </li>
+            <li><span class="question">4つの複素数解をすべて求めよ。</span><br>&rightarrow;
+            (1)より与方程式の解は方程式\(x^5=1\)の4つの虚数解である。すなわち,1の4つの虚数5乗根である。
+            <br>\(x=r(\cos\theta+i\sin\theta)\)(\(r>0,0\leq\theta\lt2\pi,i\)は虚数単位)とおき,ド・モアブルの定理を用いて計算すると,
+            <br>\(r=1,\cos5\theta=1\)(ただし\(\theta\neq0\))
+            <br>よって,求める解は
+            $$x=\cos\dfrac{2}{5}\pi+i\sin\dfrac{2}{5}\pi,$$
+            $$x=\cos\dfrac{4}{5}\pi+i\sin\dfrac{4}{5}\pi,$$
+            $$x=\cos\dfrac{6}{5}\pi+i\sin\dfrac{6}{5}\pi,$$
+            $$x=\cos\dfrac{8}{5}\pi+i\sin\dfrac{8}{5}\pi$$
+            (3)より\(\cos\dfrac{\pi}{5}=\dfrac{1+\sqrt{5}}{4}\)なので,これを利用して計算する。(略)
+            </li>
+        </ol>
+    </p>
+
+    <h2>解説(解法3)※(1)のみ</h2>
+    <p>
+        (1) 実数解を<b>もたない</b>ことを示せ。<br>
+        (左辺)\(=x^4+x^3+x^2+x+1=x^2\left(x+\dfrac{1}{2}\right)^2+\dfrac{3}{4}\left(x+\dfrac{2}{3}\right)^2+\dfrac{2}{3}\)
+        <br>\(x\)が実数のとき,(左辺)\(\gt0\)となるため,与方程式は実数解をもたない。
+    </p>
+
+    <hr>
+    <p style="text-align: center;">&copy;Kuniko-Suken Math Contest</p>
+</body>
+</html>

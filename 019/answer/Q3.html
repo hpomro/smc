@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../common.css" type="text/css">
+    <link rel="stylesheet" href="answer.css" type="text/css">
+    <title>SMC019 Q3</title>
+</head>
+<body>
+    <h1>SMC019 Q3</h1>
+
+    <h2>問題</h2>
+    <p>
+        \(p^3+q^3=r^3\)を満たす素数\(p,q,r\)の組は<b>存在しない</b>ことを示せ。ただし,<span style="font-family: serif">Fermat's Last Theorem</span>を証明なしに用いてはならない。
+        &LeftAngleBracket;自作問題&RightAngleBracket;
+    </p>
+
+    <h2>解説</h2>
+    <p>
+        左辺を因数分解して,
+        $$(p+q)(p^2-pq+q^2)=r^3$$
+    </p>
+
+    <hr>
+    <h3>補題1</h3>
+    <p>\(p+q\leq p^2-pq+q^2\) を示す。</p>
+    <p>(右辺)-(左辺)\(=p^2-p(q+1)+q^2-q\)
+        <br>\(=\left(p-\dfrac{q+1}{2}\right)^2+\dfrac{-(q+1)^2+4q^2-4q}{4}\)
+        <br>\(=\left(p-\dfrac{q+1}{2}\right)^2+\dfrac{3q^2-6q-1}{4}\)
+        <br>\(=\left(p-\dfrac{q+1}{2}\right)^2+\dfrac{3(q-1)^2}{4}-1\)
+        <br>\(\geq-1\)
+    </p>
+    <p>等号が成り立つのは\(p=q=1\)のときのみだが,仮定より\(p,q\)は素数であるため等号は成立しない。
+        <br>また,\(p^2-p(q+1)+q^2-q\)は整数であるため, \(p^2-p(q+1)+q^2-q \geq0\)
+        <br>ゆえに$$p+q\leq p^2-pq+q^2$$
+    </p>
+    <hr>
+
+    <p>\(p^2-p(q+1)+q^2-q\)は整数で,また\(r\geq2\)より,
+        $$(p+q,p^2-pq+q^2)=(1,r^3),(r,r^2)$$
+        \(p+q\geq2+2=4\)より
+        $$(p+q,p^2-pq+q^2)=(r,r^2)$$
+        よって,
+        $$(p+q)^2=p^2-pq+q^2・・・(*)$$
+        ここで,
+        (左辺)-(右辺)\(=3pq\gt0 (\because p\gt0\land q\gt0)\)
+        したがって,\((*)\)を満たす素数\(p,q\)の組は存在しない。
+    </p>
+    <p>以上から, \(p^3+q^3=r^3\)を満たす素数\(p,q,r\)の組は存在しない</p>
+
+
+    <hr>
+    <p style="text-align: center;">&copy;Kuniko-Suken Math Contest</p>
+</body>
+</html>

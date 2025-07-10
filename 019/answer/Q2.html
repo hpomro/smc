@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../common.css" type="text/css">
+    <link rel="stylesheet" href="answer.css" type="text/css">
+    <title>SMC019 Q2</title>
+</head>
+<body>
+    <h1>SMC019 Q2</h1>
+
+    <h2>問題</h2>
+    <p>
+        空間内に3つの定点\(O,A,B\)があり,\(OA=OB=1\)を満たす。ただし,3点\(O,A,B\)は一直線上になく,どの2点も一致しない。
+        線分\(AB\)の中点を\(M\)とする。動点\(P\)は\(OP=1,PM=AM\)を満たすように動く。
+        このとき,常に\(PM⊥OM\)となることを示せ。
+        &LeftAngleBracket;自作問題&RightAngleBracket;
+    </p>
+
+    <h2>解説</h2>
+    <p>
+        $$\overrightarrow{OP}=\overrightarrow{OM}+\overrightarrow{MP}$$
+        両辺のベクトルの大きさの2乗は等しいから,$$|\overrightarrow{OP}|^2=|\overrightarrow{OM}+\overrightarrow{MP}|^2$$
+        よって,$$|\overrightarrow{OP}|^2=2\overrightarrow{OM}\cdot\overrightarrow{MP}+|\overrightarrow{OM}|^2+|\overrightarrow{MP}|^2$$
+        仮定より,MP=AMだから,$$|\overrightarrow{OP}|^2=2\overrightarrow{OM}\cdot\overrightarrow{MP}+|\overrightarrow{OM}|^2+|\overrightarrow{AM}|^2$$
+        点Mは線分ABの中点で,また,\(\overrightarrow{AM}=\overrightarrow{OM}-\overrightarrow{OA}\)だから,$$|\overrightarrow{OP}|^2=2\overrightarrow{OM}\cdot\overrightarrow{MP}+|\frac{\overrightarrow{OA}+\overrightarrow{OB}}{2}|^2+|\frac{\overrightarrow{OB}-\overrightarrow{OA}}{2}|^2$$
+        よって,$$|\overrightarrow{OP}|^2=2\overrightarrow{OM}\cdot\overrightarrow{MP}+\frac{|\overrightarrow{OA}|^2+|\overrightarrow{OB}|^2}{2}$$
+        仮定より,\(OP=OA=OB=1\)だから,$$1^2=2\overrightarrow{OM}\cdot\overrightarrow{MP}+\frac{1^2+1^2}{2}$$
+        したがって,$$\overrightarrow{OM}\cdot\overrightarrow{MP}=0$$
+        ゆえに,$$\overrightarrow{OM}\perp\overrightarrow{MP}$$
+        すなわち,$$PM\perp OM$$
+    </p>
+
+    <hr>
+    <p style="text-align: center;">&copy;Kuniko-Suken Math Contest</p>
+</body>
+</html>

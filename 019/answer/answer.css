@@ -1,0 +1,15 @@
+body{
+            font-family: sans-serif;
+}
+h1{
+    text-align: center;
+}
+h2{
+    background-color: rgb(232, 245, 179);
+}
+.question{
+    background-color: aquamarine;
+}
+ol li{
+    margin: 2em;
+}

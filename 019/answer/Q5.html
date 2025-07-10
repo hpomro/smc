@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../common.css" type="text/css">
+    <link rel="stylesheet" href="answer.css" type="text/css">
+    <title>SMC019 Q5</title>
+</head>
+<body>
+    <h1>SMC019 Q5</h1>
+    
+    <h2>問題</h2>
+    <p>
+        次の不定積分を計算せよ。
+        $$\int( x\tan x - \log |\cos x|) dx $$
+    </p>
+
+    <h2>解説</h2>
+    <p>
+        $$\int( x\tan x - \log |\cos x|) dx $$
+        $$=\int\left\{x\times(- \log |\cos x|)'+ x'\times(- \log |\cos x|)\right\}dx$$
+        $$=\int\left\{(-x\log |\cos x|)'\right\}dx$$
+        $$=-x\log |\cos x|+C$$
+        (\(C\)は積分定数)
+    </p>
+
+    <hr>
+    <p>
+        補足1
+        $$\int \tan x dx$$
+        $$=\int \dfrac{\sin x}{\cos x} dx $$
+        $$=\int \dfrac{-(\cos x)'}{\cos x} dx $$
+        $$=\int -\log |\cos x| dx $$
+    </p>
+    <hr>
+    <p>
+        補足2
+        $$ \dfrac{d}{dx} \log f(x) = \dfrac{f'(x)}{f(x)} $$
+    </p>
+
+    <hr>
+    <p style="text-align: center;">&copy;Kuniko-Suken Math Contest</p>
+</body>
+</html>
