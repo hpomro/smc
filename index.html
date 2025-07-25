@@ -24,13 +24,13 @@
             }
 
             #news{
-                display: none;
+                display: block;
             }
             #nextContest{
                 visibility: hidden;
             }
             #CurrentContest{
-                visibility: hidden;
+                visibility: visible;
                 border: dashed 5px;
             }
         </style>
@@ -46,10 +46,10 @@
 
         <div id="news" style="background-color: rgba(255, 192, 203, 0.9); ">
             <h2>-- News --</h2>
-            <p><b>Suken Math Contest 019</b> が開催されます</p>
-            <p>日時: 2025/7/9(Wed) ; 19:30~21:00</p>
-            <p>詳しくは <a href="019/SMC019Announcement.html">こちら</a></p>
-            <p>参加登録 : <a href="https://forms.gle/1iV52866kRARwCkUA"
+            <p><b>Suken Math Contest 020</b> が開催されます</p>
+            <p>日時: 2025/7/25(Fri) ; 19:30~21:00</p>
+            <p>詳しくは <a href="020/SMC020-Announcement.pdf">こちら</a></p>
+            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLScu7CJuQ-OF9C5CmnFRm36BtE4-FTTjVF0mwq_eCYM1R7MewA/viewform?usp=header"
                  target="_blank">
                 参加登録フォーム(Googleフォーム)</a></p>
             <u><i><p>開始まで あと<span id="CountDown" style="font-size: x-large;"></span></p></i></u>
@@ -60,11 +60,11 @@
 
             <!-- Current Contest -->
             <p>時間になったら↙ここにリンクが出ます</p>
-            <a href="019/question/index.html">
+            <a href="020/question/index.html">
                 <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
                     <span>
                         <h2>Current Contest</h2>
-                        <h3>Suken Math Contest 019</h3>
+                        <h3>Suken Math Contest 020</h3>
                         <u><p style="color: blue;"><span style="font-size: large; font-weight: bold;">Click here</span> to jump to the Question Page</p></u>
                     </span>
                 </div>
@@ -72,7 +72,7 @@
 
             <div id="nextContest" style="height: 180px; width: 49%; position: absolute; left: 51%; background-color: rgba(175, 252, 59, 0.9);">
                 <h2>Next Contest</h2>
-                <h3>Suken Math Contest 019</h3>
+                <h3>Suken Math Contest 020</h3>
                 <p>Day: 2025/7/9 ; Time: 19:30~21:00
                     <br>90分,記述式</p>
             </div>
@@ -123,9 +123,9 @@
             </div>
 
             <div class="smc_n" style="top: 840px;">
-                <h3>SMC 019</h3>
+                <h3>SMC 020</h3>
                 <p>2025/7/9(Wed)</p>
-                <p><a href="019/question/index.html" target="_blank">問題・解説/Question & Answer</a></p>
+                <p><a href="020/question/index.html" target="_blank">問題・解説/Question & Answer</a></p>
                 <p></p>
             </div>
 
@@ -139,7 +139,7 @@
     </div>
 
     <script type="text/javascript">
-        const targetDay = new Date(2025, 7-1, 9, 19, 30);
+        const targetDay = new Date(2025, 7-1, 25, 19, 30);
         function Clock(){
             let now = new Date();
             document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
