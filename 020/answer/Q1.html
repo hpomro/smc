@@ -1,0 +1,84 @@
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../common.css" type="text/css">
+    <title>Q1-Pi</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        h2{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Q1 Pi</h1>
+    
+    <h2>問題</h2>
+    <h3>(1)</h3>
+    <p>円周率の定義を答えよ。</p>
+    <h3>(2)</h3>
+    <p>\(\sin^2 7.5&deg;\)の値(厳密値)を求めよ。</p>
+    <h3>(3)</h3>
+    <p>\(\pi \gt 3.13\)を示せ。(\(\pi\)は円周率)</p>
+    <p>ただし、
+        \(278.2^2 = 77395.24 \) , \( 1.7321^2 = 3.00017041\)を用いてよい。
+    </p>
+    <p>&LeftAngleBracket;自作問題&RightAngleBracket;</p>
+
+    <h2>解説</h2>
+    <h3>(1) 円周率の定義を答えよ。</h3>
+    <p>円の直径に対する円周の長さの比率。</p>
+
+    <h3>(2) \(\sin^2 \dfrac{\pi}{24}\)の値を求めよ。</h3>
+    <hr>
+    <h4>半角の公式</h4>
+    <p>$$ \cos^2 \dfrac{\theta}{2} = \dfrac{1 + \cos \theta}{2} $$</p>
+    <hr>
+    <p>半角の公式より$$ \cos^2 \dfrac{\pi}{12} = \dfrac{1 + \cos \dfrac{\pi}{6}}{2} $$</p>
+    <p>\(\cos \dfrac{\pi}{12} \gt 0\)から
+        $$ \cos \dfrac{\pi}{12} = \sqrt{\dfrac{1 + \dfrac{\sqrt{3}}{2}}{2}} = \sqrt{\dfrac{4 + 2\sqrt{3}}{8}} = \dfrac{\sqrt{3}+1}{2\sqrt{2}} = \dfrac{\sqrt{6}+\sqrt{2}}{4} $$
+    </p>
+    <p>半角の公式より$$ \cos^2 \dfrac{\pi}{24} = \dfrac{1 + \cos \dfrac{\pi}{12}}{2} = \dfrac{4+\sqrt{6}+\sqrt{2}}{8} $$</p>
+    <p>\(\sin^2 \dfrac{\pi}{24} + \cos^2 \dfrac{\pi}{24} = 1\)から
+        $$ \sin^2 \dfrac{\pi}{24} = 1 - \cos^2 \dfrac{\pi}{24} = \dfrac{4-\sqrt{6}-\sqrt{2}}{8} $$</p>
+    <p>(答) \(\dfrac{4-\sqrt{6}-\sqrt{2}}{8}\)</p>
+
+    <h3>(3) \(\pi \gt 3.13\)を示せ。</h3>
+    <h4>補題1. \(n \geq 3\)を満たすすべての整数nについて、\(n \sin \dfrac{\pi}{n} \lt \pi\)が成り立つ。</h4>
+    <hr>
+    <p>\(∠A=\theta(0\lt\theta\lt\pi)\),\(∠B=\pi\),\(AC=1\)の\(△ABC\)において、半直線\(AB\)上に\(AD=AC\)を満たす点\(D\)をとる。
+        <br>扇形\(ADC\)の弧の長さを\(l_1\)とすると、\(l_1 = \theta\)
+        <br>線分\(BC\)の長さを\(l_2\)とすると、\(l_2 = \sin \theta\)
+        <br>\(l_1 \gt l_2\)から、$$ \sin \theta \lt \theta $$
+    </p>
+    <p>これに\(\theta = \dfrac{\pi}{n}\)(\(n\)は3以上の整数で、\(0\lt\theta\lt\pi\)を満たす)を代入すると、$$ \sin \dfrac{\pi}{n} \lt \dfrac{\pi}{n} $$
+        <br>すなわち $$ n \sin \dfrac{\pi}{n} \lt \pi $$
+    </p>
+    <hr>
+    <p>\(0 \lt n \sin \dfrac{\pi}{n} \lt \pi\)から$$ n^2 \sin^2 \dfrac{\pi}{n} \lt \pi^2 ・・・(＊)$$</p>
+    <p>これに\(n=24\)を代入すると、$$ \pi^2 \gt 24^2 \sin^2 \dfrac{\pi}{24} = 24^2 \times \dfrac{4-\sqrt{6}-\sqrt{2}}{8} = 72(4-\sqrt{6}-\sqrt{2})$$</p>
+    <hr>
+    <p>ここで、\(72(4-\sqrt{6}-\sqrt{2}) \gt 3.13^2\)を示す。</p>
+    <p>$$ (左辺)-(右辺) = 72\times 4 - 3.13^2 -72(\sqrt{6}+\sqrt{2}) = 278.2031 -72(\sqrt{6}+\sqrt{2}) $$</p>
+    <p>ここで、$$ 278.2031^2 \gt 278.2^2 = 77395.24 $$</p>
+    <p>$$ \{72(\sqrt{6}+\sqrt{2})\}^2 = 72^2 \times 4 (2+\sqrt{3}) \lt 72^2 \times 4 \times 3.7321 = 77388.8256 $$
+        (∵\( 1.7321^2 = 3.00017041\)より\(\sqrt{3}\lt 1.7321\))</p>
+    <p>よって、$$ 278.2031^2 \gt \{72(\sqrt{6}+\sqrt{2})\}^2 $$</p>
+    <p>両辺は正だから、 $$ 278.2031 -72(\sqrt{6}+\sqrt{2}) \gt 0 $$</p>
+    <p>したがって、$$ 72(4-\sqrt{6}-\sqrt{2}) \gt 3.13^2\ $$</p>
+    <hr>
+    <p>(＊)から、$$ \pi^2 \gt 3.13^2 $$</p>
+    <p>両辺は正だから、$$ \pi \gt 3.13 $$</p>
+    <p>(証明完了)</p>
+
+</body>
+<footer>
+    <hr>
+    <p style="text-align: center;">&copy; 2025 Kuniko-Suken Math Contest</p>
+</footer>

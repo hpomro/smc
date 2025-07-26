@@ -1,0 +1,82 @@
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="../../common.css" type="text/css">
+    <title>Q2-Equal_Division</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+        h2{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Q2 Equal Division</h1>
+    <h2>問題</h2>
+    <p>下の図形は次の条件を満たす。</p>
+    <img src="../question/geogebra-export.png" alt="図" width="95%">
+    <p style="font-size: small;">使用ツール:Geogebra</p>
+    </p>
+        <li>四角形\(ABCD\)は長方形である</li>
+        <li>点\(A,F\)を両端とする曲線は点\(E\)を中心とする半円の弧である</li>
+        <li>領域\(Q\)の面積と領域\(R\)の面積の和は領域\(P\)の面積と等しい</li>
+        <li>\(AB = AE = 1\)</li>
+    </p>
+    <p>線分\(AF\)(両端を含む)上を通る1本の直線で長方形\(ABCD\)の面積を2等分する。</p>
+    <p>分割されてできる2つの図形のうち、点\(B\)を含むほうを領域\(S\)とする。</p>
+    <p>このとき、領域\(P\)、領域\(S\)の共通部分の面積としてありうる<b>最大値</b>を求めよ。</p>
+
+    <h2>解答</h2>
+    <p>長方形\(ABCD\)の面積を2等分する直線を\(l\)とする。</p>
+    <h3>補題1. 長方形の面積を2等分する直線は長方形の対角線の交点(\(G\)とする)を通る。</h3>
+    <hr>
+    <h4>証明</h4>
+    <p>(作成中)</p>
+    <p></p>
+    <hr>
+    <h3>補題2. 領域\(P\)、領域\(S\)の共通部分の面積が最大になるのは直線\(l\)が点\(F\)を通るときである。</h3>
+    <hr>
+    <h4>証明</h4>
+    <p>(作成中)</p>
+    <hr>
+    <p>領域\(P\)、領域\(S\)の共通部分の面積が最大になるときについて考える。</p>
+    <p>領域\(P,Q,R\)の境界である曲線を\(m\)とする。</p>
+    <p>直線\(l\)と曲線\(m\)の交点を\(H\)とし、点\(E\)と点\(H\)を結ぶ。</p>
+    <p>\(∠HFE = \theta\) (\(0\lt\theta\lt\dfrac{\pi}{2}\))とすると、\(∠HEA = 2\theta\)</p>
+    <p>点\(G\)から直線\(AD\)におろした垂線と直線\(AD\)との交点を\(I\)とする。</p>
+
+    <img src="Q2.png" alt="解説用の図" width="95%">
+
+    <p>このとき、領域\(P\)、領域\(S\)の共通部分の面積は$$ \dfrac{1}{2}\times 2\theta + \dfrac{1}{2} \sin (\pi - 2\theta) 
+        = \theta + \dfrac{1}{2} \sin 2\theta
+        = \theta + \sin \theta \cos \theta 
+        = \theta + \tan \theta \cos^2 \theta $$</p>
+    <p>条件から、長方形\(ABCD\)の面積は領域\(P\)の面積\(\dfrac{\pi}{2}\)の2倍だから\(AD=\pi\)</p>
+    <p>直角三角形\(GIF\)に注目して$$ \tan \theta = \dfrac{\dfrac{1}{2}}{2-\dfrac{\pi}{2}} 
+        = \dfrac{1}{4-\pi} ・・・(＊)$$</p>
+    <p>\(\tan^2 \theta + 1 = \dfrac{1}{\cos^2 \theta}\)から$$ \dfrac{1}{\cos^2 \theta} = 1 + \tan^2 \theta
+        = \dfrac{{(4-\pi)}^2+1}{{(4-\pi)}^2}
+        $$
+    </p>
+    <p>$$ \cos^2 \theta = \dfrac{{(4-\pi)}^2}{{(4-\pi)}^2+1}
+        $$</p>
+    <p>(＊)から$$ \tan \theta \cos^2 \theta = \dfrac{{(4-\pi)}^2}{{(4-\pi)}^3 +(4-\pi)}
+        $$</p>
+    <p>(＊)から$$ \theta = \arctan \dfrac{1}{4-\pi} (∵0\lt\theta\lt\dfrac{\pi}{2})
+        $$</p>
+    <p>ゆえに、領域\(P\)、領域\(S\)の共通部分の面積の最大値は
+        $$ \arctan \dfrac{1}{4-\pi} + \dfrac{{(4-\pi)}^2}{{(4-\pi)}^3 +(4-\pi)} ・・・(答)
+        $$
+    </p>
+    <p>ちなみに、\(\theta  ≒ 49&deg; \)</p>
+</body>
+<footer>
+    <hr>
+    <p style="text-align: center;">&copy; 2025 Kuniko-Suken Math Contest</p>
+</footer>
