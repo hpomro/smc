@@ -19,18 +19,19 @@
             }
             .smc_n_description{
                 text-align: left;
-                position: relative;
+                position: absolute;
                 left: 220px;
+                width: 400px;
             }
 
             #news{
-                display: none;
+                display: block;
             }
             #nextContest{
-                visibility: hidden;
+                visibility: visible;
             }
             #CurrentContest{
-                visibility: hidden;
+                visibility: visible;
                 border: dashed 5px;
             }
         </style>
@@ -46,13 +47,13 @@
 
         <div id="news" style="background-color: rgba(255, 192, 203, 0.9); ">
             <h2>-- News --</h2>
-            <p><b>Suken Math Contest 020</b> が開催されます</p>
-            <p>日時: 2025/7/25(Fri) ; 19:30~21:00</p>
-            <p>詳しくは <a href="020/SMC020-Announcement.pdf">こちら</a></p>
-            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLScu7CJuQ-OF9C5CmnFRm36BtE4-FTTjVF0mwq_eCYM1R7MewA/viewform?usp=header"
-                 target="_blank">
+            <h3>Suken Math Contest 021 が開催されます</h3>
+            <p>日時: 2025/9/18(Thu) ; 19:30~21:00</p>
+            <p>詳しくは <a href="./021/SMC021-Announcement.pdf">こちら</a></p>
+            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLSeASf_46RjliribQxM6Ttax-r1YsblRtr_i4TwWiaWbhav0kg/viewform?usp=header"
+                target="_blank">
                 参加登録フォーム(Googleフォーム)</a></p>
-            <u><i><p>開始まで あと<span id="CountDown" style="font-size: x-large;"></span></p></i></u>
+            <u><i><p><span id="CountDown" style="font-size: x-large;"></span></p></i></u>
             <!-- <p>(None)</p> -->
         </div>
 
@@ -60,11 +61,11 @@
 
             <!-- Current Contest -->
             <p>時間になったら↙ここにリンクが出ます</p>
-            <a href="020/question/index.html">
+            <a href="021/question/SMC021-問題.pdf">
                 <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
                     <span>
                         <h2>Current Contest</h2>
-                        <h3>Suken Math Contest 020</h3>
+                        <h3>Suken Math Contest 021</h3>
                         <u><p style="color: blue;"><span style="font-size: large; font-weight: bold;">Click here</span> to jump to the Question Page</p></u>
                     </span>
                 </div>
@@ -72,8 +73,8 @@
 
             <div id="nextContest" style="height: 180px; width: 49%; position: absolute; left: 51%; background-color: rgba(175, 252, 59, 0.9);">
                 <h2>Next Contest</h2>
-                <h3>Suken Math Contest 020</h3>
-                <p>Day: 2025/7/9 ; Time: 19:30~21:00
+                <h3>Suken Math Contest 021</h3>
+                <p>Day: 2025/9/18 ; Time: 19:30~21:00
                     <br>90分,記述式</p>
             </div>
             
@@ -127,12 +128,21 @@
                 <p>2025/7/9(Wed)</p>
                 <p><a href="019/question/index.html" target="_blank">問題・解説/Question & Answer</a></p>
             </div>
+            <div class="smc_n_description" style="top: 840px;">
+                <br>
+                <li>様々なジャンルをそろえた。</li>
+                <li>おすすめはQ4。</li>
+            </div>
 
             <div class="smc_n" style="top: 1060px;">
                 <h3>SMC 020</h3>
                 <p>2025/7/25(Fri)</p>
                 <p><a href="020/question/index.html" target="_blank">問題/Question</a></p>
                 <p><a href="020/answer/index.html" target="_blank">解説/Answer</a></p>
+            </div>
+            <div class="smc_n_description" style="top: 1060px;">
+                <br>
+                <li>7/22円周率の日にちなんで円周率の評価と円がらみの図形問題。</li>
             </div>
 
         </div>
@@ -145,7 +155,7 @@
     </div>
 
     <script type="text/javascript">
-        const targetDay = new Date(2025, 7-1, 25, 19, 30);
+        const targetDay = new Date(2025, 9-1, 18, 19, 30);
         function Clock(){
             let now = new Date();
             document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
@@ -161,11 +171,20 @@
                 let idiffH = Math.floor(diffH);
                 str = idiffH.toString()+"H"+Math.floor((diffH-idiffH)*60).toString()+"M";
             }
-            document.getElementById("CountDown").innerHTML = str;
+            document.getElementById("CountDown").innerHTML = diffH>=0 ? "開始まで あと"+str:"終了";
+        }
+        function ShowQuestionLink() {
+            let now = new Date();
+            let diffH = (targetDay - now)/1000 /60 /60;
+            if(diffH<0.05) {
+                document.getElementById("CurrentContest").style.visibility = "visible";
+            }
         }
         Clock();
         CountDown();
+        ShowQuestionLink();
         setInterval('Clock()',5000);
         setInterval('CountDown()',5000);
+        setInterval('ShowQuestionLink()',5000)
     </script>
 </body>
