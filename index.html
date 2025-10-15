@@ -28,7 +28,7 @@
                 display: block;
             }
             #nextContest{
-                visibility: visible;
+                visibility: hidden;
             }
             #CurrentContest{
                 visibility: hidden;
@@ -47,10 +47,10 @@
 
         <div id="news" style="background-color: rgba(255, 192, 203, 0.9); ">
             <h2>-- News --</h2>
-            <h3>Suken Math Contest 021 が開催されます</h3>
-            <p>日時: 2025/9/18(Thu) ; 19:30~21:00</p>
-            <p>詳しくは <a href="./021/SMC021-Announcement.pdf">こちら</a></p>
-            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLSeASf_46RjliribQxM6Ttax-r1YsblRtr_i4TwWiaWbhav0kg/viewform?usp=header"
+            <h3>Suken Math Contest 022 が開催されます</h3>
+            <p>日時: 2025/10/15(Wed) ; 19:30~21:00</p>
+            <!-- <p>詳しくは <a href="./021/SMC021-Announcement.pdf">こちら</a></p> -->
+            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-vO-wJiiz08JjVWHpkLZAlpaAxpqGglr1pu0wlp6IBcx9PQ/viewform?usp=header"
                 target="_blank">
                 参加登録フォーム(Googleフォーム)</a></p>
             <u><i><p><span id="CountDown" style="font-size: x-large;"></span></p></i></u>
@@ -61,11 +61,12 @@
 
             <!-- Current Contest -->
             <p>時間になったら↙ここにリンクが出ます</p>
-            <a href="021/question/SMC021-問題.pdf">
+            <a href="022/question.pdf">
                 <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
                     <span>
                         <h2>Current Contest</h2>
-                        <h3>Suken Math Contest 021</h3>
+                        <h3>Suken Math Contest 022</h3>
+                        <p>遅れてすみません</p>
                         <u><p style="color: blue;"><span style="font-size: large; font-weight: bold;">Click here</span> to jump to the Question Page</p></u>
                     </span>
                 </div>
@@ -155,7 +156,7 @@
     </div>
 
     <script type="text/javascript">
-        const targetDay = new Date(2025, 9-1, 18, 19, 30);
+        const targetDay = new Date(2025, 10-1, 15, 19, 30);
         function Clock(){
             let now = new Date();
             document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
@@ -171,7 +172,7 @@
                 let idiffH = Math.floor(diffH);
                 str = idiffH.toString()+"H"+Math.floor((diffH-idiffH)*60).toString()+"M";
             }
-            document.getElementById("CountDown").innerHTML = diffH>=0 ? "開始まで あと"+str:"終了";
+            document.getElementById("CountDown").innerHTML = diffH>=0 ? "開始まで あと"+str:("0分");
         }
         function ShowQuestionLink() {
             let now = new Date();
