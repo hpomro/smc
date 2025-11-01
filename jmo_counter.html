@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>JMOカウントダウン</title>
+</head>
+<body>
+    <p>JMO予選まで</p>
+    <p>あと
+    <span id="countdown1" style="font-size:x-large;"></span></p>
+    <script>
+        const target = new Date(2025, 11-1, 16, 13, 0);
+        Timer();
+        function Timer(){
+            let now = new Date();
+            let left_sec = Math.floor((target.getTime() - now.getTime())/1000);
+            let left_min = Math.floor(left_sec/60);
+            let left_hours = Math.floor(left_min/60);
+            let left_days = Math.floor(left_hours/24);
+            document.getElementById("countdown1").innerHTML = `${left_days}日${left_hours%24}時間${left_min%60}分${left_sec%60}秒`;
+        }
+        setInterval('Timer()', 1000);
+    </script>
+</body>
+</html>
