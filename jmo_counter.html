@@ -7,18 +7,21 @@
     <title>JMOカウントダウン</title>
 </head>
 <body>
-    <p>JMO予選まで</p>
+    <p>第37回JMO予選まで</p>
     <p>あと
     <span id="countdown1" style="font-size:x-large;"></span></p>
     <script>
-        const target = new Date(2025, 11-1, 16, 13, 0);
+        function myfloor(x) {
+            return x >= 0 ? Math.floor(x) : Math.ceil(x);
+        }
+        const target = new Date(2026, 11-1, 15, 13, 0);
         Timer();
         function Timer(){
             let now = new Date();
-            let left_sec = Math.floor((target.getTime() - now.getTime())/1000);
-            let left_min = Math.floor(left_sec/60);
-            let left_hours = Math.floor(left_min/60);
-            let left_days = Math.floor(left_hours/24);
+            let left_sec = myfloor((target.getTime() - now.getTime())/1000);
+            let left_min = myfloor(left_sec/60);
+            let left_hours = myfloor(left_min/60);
+            let left_days = myfloor(left_hours/24);
             document.getElementById("countdown1").innerHTML = `${left_days}日${left_hours%24}時間${left_min%60}分${left_sec%60}秒`;
         }
         setInterval('Timer()', 1000);
