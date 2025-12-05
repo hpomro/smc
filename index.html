@@ -11,6 +11,9 @@
                 right: 30px;
                 top: 10px;
                 font-size: large;
+                /* border: solid 1px black; */
+                width: 100px;
+                background-color: rgba(128, 128, 128, 0.311);
             }
             .smc_n{
                 border: solid 2px #000;
@@ -23,12 +26,18 @@
                 left: 220px;
                 width: 400px;
             }
+            .clickable a{
+                text-decoration: none;
+            }
+            .clickable:hover{
+                text-decoration: underline;
+            }
 
             #news{
                 display: block;
             }
             #nextContest{
-                visibility: hidden;
+                visibility: visible;
             }
             #CurrentContest{
                 visibility: hidden;
@@ -47,30 +56,31 @@
 
         <div id="news" style="background-color: rgba(255, 192, 203, 0.9); ">
             <h2>-- News --</h2>
-            <h3>Suken Math Contest 022 が開催されます</h3>
-            <p>日時: 2025/10/15(Wed) ; 19:30~21:00</p>
+            <h3>Suken Math Contest 023 が開催されます</h3>
+            <p>日時: 2025/12/9(Tue) ; 19:30~21:00</p>
             <!-- <p>詳しくは <a href="./021/SMC021-Announcement.pdf">こちら</a></p> -->
-            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLSe-vO-wJiiz08JjVWHpkLZAlpaAxpqGglr1pu0wlp6IBcx9PQ/viewform?usp=header"
+            <p>参加登録 : <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh8ayF9Yz1VhLlSxcYuPY9cB1GmsYfuOfdvNn9HlEF_QHqRg/viewform?usp=header"
                 target="_blank">
                 参加登録フォーム(Googleフォーム)</a></p>
             <u><i><p><span id="CountDown" style="font-size: x-large;"></span></p></i></u>
             <!-- <p>(None)</p> -->
         </div>
 
-        <div style="position: relative;">
+        <div style="position: relative; display: none;">
 
             <!-- Current Contest -->
             <p>時間になったら↙ここにリンクが出ます</p>
-            <a href="022/question.pdf">
-                <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
-                    <span>
-                        <h2>Current Contest</h2>
-                        <h3>Suken Math Contest 022</h3>
-                        <p>遅れてすみません</p>
-                        <u><p style="color: blue;"><span style="font-size: large; font-weight: bold;">Click here</span> to jump to the Question Page</p></u>
-                    </span>
-                </div>
-            </a>
+            <div>
+                <a href="022/question.pdf" style="text-decoration: none; color: black;">
+                    <div id="CurrentContest" style="height: 180px; width: 49%; position: absolute; background-color: rgb(255, 255, 0, 0.9);">
+                        <span>
+                            <h2>Current Contest</h2>
+                            <h3>Suken Math Contest 022</h3>
+                            <p style="color: blue; text-decoration: underline;"><span style="font-size: large; font-weight: bold;">Click here</span> to jump to the Question Page</p>
+                        </span>
+                    </div>
+                </a>
+            </div>
 
             <div id="nextContest" style="height: 180px; width: 49%; position: absolute; left: 51%; background-color: rgba(175, 252, 59, 0.9);">
                 <h2>Next Contest</h2>
@@ -80,6 +90,22 @@
             </div>
             
             <div style="height: 200px;"></div>
+        </div>
+
+        <div class="clickable" style="
+            background-color: chartreuse;
+            border: solid 3px black;
+        ">
+            <a href="./023/TopAndCaution.html" style="color: black;">
+                <h2>次のコンテスト / Next Contest</h2>
+                <span style="font-size: large;">
+                    <p>Suken Math Contest 023</p>
+                    <p>日時/Date : 2025/12/9 (Dec 9th in 2025)
+                        <br>19:30 ~ 21:00 (from 7:30pm to 9:00pm)
+                    </p>
+                </span>
+                <p>ここをクリックするとSMC023ページに飛びます</p>
+            </a>
         </div>
 
         <hr>
@@ -156,7 +182,7 @@
     </div>
 
     <script type="text/javascript">
-        const targetDay = new Date(2025, 10-1, 15, 19, 30);
+        const targetDay = new Date(2025, 12-1, 9, 19, 30);
         function Clock(){
             let now = new Date();
             document.getElementById("clock1r").innerHTML = now.getFullYear().toString() + "/" + (now.getMonth()+1).toString() + "/" + now.getDate().toString();
