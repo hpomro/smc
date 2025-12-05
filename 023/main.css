@@ -1,0 +1,38 @@
+table {
+    border: solid 1px;
+}
+table th {
+    border: solid 1px;
+    padding: 10px;
+}
+table td {
+    border: solid 1px;
+    padding: 10px;
+}
+.center {
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+main{
+    position: absolute;
+    width: 85%;
+    left: 5%;
+}
+ol.list_parentheses{
+    padding: 0 0 0 2em;
+}
+ol.list_parentheses li{
+    list-style-type: none;
+    list-style-position: inside;
+    counter-increment: cnt;
+    margin: 0.5em;
+}
+ol.list_parentheses li:before{
+    display: marker;
+    content: "(" counter(cnt) ") ";
+}
+.ans {
+    border: solid 2px black;
+}
