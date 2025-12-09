@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../header.css" type="text/css">
+    <link rel="stylesheet" href="../main.css" type="text/css">
+    <title>Expansion of the Capacity - 解説</title>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="../TopAndCaution.html">トップ/諸注意<br>Top and Cautions</a></li>
+                    <li><a href="../Questions.html">問題<br>Questions</a></li></li>
+                    <li><a href="../Clarifications.html">質問<br>Clarifications</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf8jugGyq8GwGgp8EuVGjW7XG1Xc25enp366W2GoU-88jDHyA/viewform?usp=header" target="_blank">
+                        提出<br>Submission
+                        </a></li>
+                    <li><a href="../hints/hints.html">ヒント<br>Hints</a></li>
+                    <li><a href="../answer/index.html">解説<br>Explanation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+    <h1>Expansion of the Capacity</h1>
+    <h2>問題</h2>
+    <p>この問題では、\(\log_3 2=0.631,\log_3 5=1.465\)とみなしてよいものとします。</p>
+    <p>カラスの<i>REDOX</i>は場に \(10\) 個の空の箱を用意し、東西に一列に並べました。一つの箱にはボールを一つ入れることができます。
+        <br>これから、次の操作が \(2025^{11}\) 回行われます。
+        <ol>
+            <li>もし場にある箱のうち四分の三以上にボールが入っているならば、場にある箱の数の半分
+            (ただし、小数点以下は切り捨て)だけ列の東側に空の箱を一列に追加する。
+            追加した場合、箱の拡張を一回行ったということとする。</li>
+            <li>猫の<i>CPP</i>が最も西にある空の箱に一つにボールを一つ入れる。</li>
+        </ol>
+        ただし、1,2を合わせて一回の操作とします。
+        <br>\(2025^{11}\) 回の操作で、カラスの<i>REDOX</i>は合計で何回箱の拡張を行っていますか。
+    </p>
+
+    <h2>問題情報</h2>
+    <p>出題者作</p>
+    <p>ネタの参考: <a href="https://docs.oracle.com/javase/jp/8/docs/api/java/util/ArrayList.html" target="_blank">Java - ArrayList</a></p>
+    <p>難易度: 5 / 5<!-- TODO --></p>
+
+    <h2>解答・解説</h2>
+    <p>答 : 202回</p>
+    <p>※// ~ は答案に書く必要はありません。</p>
+    <p>
+        \(n\)回箱の拡張を行った直後の箱の個数を\(a_n\)とし、\(a_0=10\)とする。
+        以下、\(n\)は非負整数とする。
+        <br>
+        条件から\(a_{n+1}=\left\lfloor\dfrac{3}{2}a_n\right\rfloor\)であるから、
+        <br>
+        $$
+        \begin{equation}
+            a_{n+1} =
+            \left\{ \,
+            \begin{aligned}
+                &\dfrac{3}{2} a_n - \dfrac{1}{2} &(a_nが奇数のとき) \\
+                &\dfrac{3}{2} a_n &(a_nが偶数のとき) \\
+            \end{aligned}
+            \right.
+        \end{equation}
+        $$
+        が成立する。
+        <br>
+    </p>
+    <p style="color: blue;">↑10点</p>
+    <p>
+        ここで、実数列\(\{b_n\}\)を次のように定義する。
+        $$
+            b_0 = 10, b_{n+1} = \dfrac{3}{2} b_n - \dfrac{1}{2} 
+        $$
+        また、実数列\(\{c_n\}\)を次のように定義する。
+        $$
+            c_0 = 10, c_{n+1} = \dfrac{3}{2} c_n 
+        $$
+    </p>
+    <hr>
+    <p>補題1. \(n\geqq1\)のとき、\(b_n \lt a_n\)が成り立つ。<br>
+        [証明]<br>
+        (1) \(n=1\)のとき、\(b_1=\frac{29}{2},a_1=15\)であるので補題1は成り立つ。<br>
+        (2) \(n=k\)のとき補題1が成り立つと仮定すると、<br>
+            数学的帰納法の仮定から\(b_{k+1}=\dfrac{3}{2}b_{k}-\dfrac{1}{2}\lt\dfrac{3}{2}a_{k}-\dfrac{1}{2}\leqq a_{k+1}\)が成り立つので、
+            \(n=k+1\)のとき補題1は成り立つ。<br>
+        (1),(2)から、補題1は示された。
+    </p>
+    <hr>
+    <p>補題2. \(n\geqq2\)のとき、\(a_n \lt c_n\)が成り立つ。<br>
+        [証明]<br>
+        (1) \(n=1\)のとき、\(a_2=22,c_2=\frac{45}{2}\)であるので補題2は成り立つ。<br>
+        (2) \(n=k\)のとき補題1が成り立つと仮定すると、<br>
+            数学的帰納法の仮定から\(c_{k+1}=\dfrac{3}{2}c_{k}\gt\dfrac{3}{2}a_{k}\geqq a_{k+1}\)が成り立つので、
+            \(n=k+1\)のとき補題2は成り立つ。<br>
+        (1),(2)から、補題2は示された。
+    </p>
+    <hr>
+    <p>補題1、補題2から、すべての2以上の整数\(n\)について\(b_n\lt a_n\lt c_n\)が成り立つ。・・・(＊)</p>
+    <p style="color: blue;">↑20点</p>
+    
+    <p>\({b_n}\)の一般項を求める。<br>
+        \(b_{n+1} = \dfrac{3}{2} b_n - \dfrac{1}{2}\)は\(b_{n+1}-1=\dfrac{3}{2}\left(b_n-1\right)\)と変形でき、\(b_0-1=9\)であるので、
+        \(b_n-1=9\times\left(\dfrac{3}{2}\right)^n\)である。したがって、\(b_n=9\times\left(\dfrac{3}{2}\right)^n+1\)である。
+    </p>
+    <p style="color: blue;">↑10点</p>
+    <p>\({c_n}\)の一般項を求める。<br>
+        \({c_n}\)は初項\(c_0=10\)、公比\(\frac{3}{2}\)の等比数列だから、\(c_n=10\times\left(\dfrac{3}{2}\right)^n\)
+    </p>
+    <p style="color: blue;">↑10点</p>
+    <p style="color: green;">// \(a_n\lt 2025^{11} \lt a_{n+2}\)となる非負整数\(n\)を見つけたい。<br>
+    </p>
+    <p>\(c_n\lt 2025^{11}\)となる最大の非負整数\(n\)を求める。<br>
+        \(c_n=10\times\left(\dfrac{3}{2}\right)^n \gt 0\)だから、3を底とする\(c_n\lt 2025^{11}\)の両辺の対数をとると、<br>
+        $$ \log_3 10 + n \log_3 \dfrac{3}{2} \lt 11\log_3 2025 $$
+        $$ n \log_3 \dfrac{3}{2} \lt 11\log_3 2025 - \log_3 10 $$
+        $$ (1-\log_3 2)n \lt 11(4\log_3 3+2\log_3 5)-(\log_3 2+\log_3 5) = 44 -\log_3 2 +21\log_3 5 $$
+        \(1-\log_3 2\gt0\)から
+        $$ n \lt \dfrac{44-\log_3 2+21\log_3 5}{1-\log_3 2} = \dfrac{44-0.631+21\times1.465}{1-0.631}= 200.90・・・ $$
+        したがって、\(c_{200}\lt2025^{11}\lt c_{201}\)が成り立つ。
+    </p>
+    <p style="color: blue;">↑15点</p>
+    <p>\(b_n-1\gt 2025^{11}\)となる最小の非負整数\(n\)を求める。<br>
+        \(b_n=9\times\left(\dfrac{3}{2}\right)^n+1\)だから、3を底とする\(b_n-1\gt 2025^{11}(\gt0)\)の両辺の対数をとると、<br>
+        $$ \log_3 9 + n\log_3 \dfrac{3}{2} \gt 11\log_3 2025 $$
+        $$ n\log_3 \dfrac{3}{2} \gt 11\log_3 2025 - \log_3 9 $$
+        $$ (1-\log_3 2)n \gt 11(4\log_3 3+2\log_3 5)-2 = 42+22\log_3 5 $$
+        \(1-\log_3 2\gt0\)から
+        $$ n \gt \dfrac{42+22\log_3 5}{1-\log_3 2} = \dfrac{42+22\times1.465}{1-0.631} = 201.16・・・ $$
+        したがって、\(b_{201}-1\lt2025^{11}\lt b_{202}-1\lt b_{202}\)が成り立つ。
+    </p>
+    <p style="color: blue;">↑15点</p>
+    <p>
+        (＊)から、次の不等式が成り立つ。
+        $$ a_{200} \lt c_{200} \lt 2025^{11} \lt b_{202} \lt a_{202} $$
+    </p>
+    <hr>
+    <p>補題3. \(a_{201} \lt 10\times\left(\dfrac{3}{2}\right)^{201}, 9\times\left(\dfrac{3}{2}\right)^{202} \lt a_{202}\)<br>
+        [証明]<br>
+        (＊)から、\(a_{201}\lt c_{201} = 10\times\left(\dfrac{3}{2}\right)^{201},9\times\left(\dfrac{3}{2}\right)^{202} = b_{202}-1\ \lt b_{202} \lt a_{202}\)<br>
+        <!-- また、\(10\times\left(\dfrac{3}{2}\right)^{201}\gt0 , 9\times\left(\dfrac{3}{2}\right)^{202}\gt0,\dfrac{9\times\left(\dfrac{3}{2}\right)^{202}}{10\times\left(\dfrac{3}{2}\right)^{201}} = \dfrac{9}{10}\times\dfrac{3}{2} \gt1\)から、<br> -->
+        <!-- \(10\times\left(\dfrac{3}{2}\right)^{201} \lt 9\times\left(\dfrac{3}{2}\right)^{202}\)<br> -->
+        したがって補題3は示された。
+
+    </p>
+    <hr>
+    <p>補題4. \(9\times\left(\dfrac{3}{2}\right)^{201} \lt 2025^{11} \lt 10\times\left(\dfrac{3}{2}\right)^{201}\)<br>
+        [証明]<br>
+        $$ \log_3 9\times\left(\dfrac{3}{2}\right)^{201} = 2 + 201\times(1-\log_3 2) = 76.169 $$
+        $$ \log_3 2025^{11} = 11( 4 + 2\log_3 5 ) = 76.23 $$
+        $$ \log_3 10\times\left(\dfrac{3}{2}\right)^{201} = \log_3 2 + \log_3 5 + 201\times(1-\log_3 2) = 76.265 $$
+        よって、\(\log_3 9\times\left(\dfrac{3}{2}\right)^{201} \lt \log_3 2025^{11} \lt \log_3 10\times\left(\dfrac{3}{2}\right)^{201}\)<br>
+        底3は1より大きいから、\(9\times\left(\dfrac{3}{2}\right)^{201} \lt 2025^{11} \lt 10\times\left(\dfrac{3}{2}\right)^{201}\)
+    </p>
+    <hr>
+    <p>
+        また、補題3,4から、
+        <!-- ここで、\(a_{201}\leqq 2025^{11}\),\(a_{201}\gt 2025^{11}\)のいずれかが成り立つ。<br> -->
+        <!-- (1) \(a_{201}\gt 2025^{11}\)であると仮定すると、 -->
+        $$ \dfrac{3}{4}a_{201}\lt \dfrac{3}{4}\times 10\times\left(\dfrac{3}{2}\right)^{201} \lt 9\times\left(\dfrac{3}{2}\right)^{201} \lt 2025^{11} $$
+        $$ \dfrac{3}{4}a_{202}\gt \dfrac{3}{4}\times 9\times\left(\dfrac{3}{2}\right)^{202} = \dfrac{3}{4}\times 9\times \dfrac{3}{2} \times\left(\dfrac{3}{2}\right)^{201} \gt 10 \times\left(\dfrac{3}{2}\right)^{201} \gt 2025^{11}  $$
+        よって、
+        $$ \dfrac{3}{4} a_{201} \lt 2025^{11} \lt \dfrac{3}{4} a_{202} ・・・ (＊＊)$$
+    </p>
+    <p style="color: blue;">↑30点</p>
+    <p>
+        したがって、\(2025^{11}\)回の操作が終わったときにはすでに202回目の箱の拡張が行われており、また203回目の箱の拡張はまだ行われていない。
+        <br>
+        ゆえに、\(2025^{11}\) 回の操作で、カラスの<i>REDOX</i>は合計で<b>202回</b>箱の拡張を行っている。
+    </p>
+    <p style="color: blue;">↑10点</p>
+    <p>END</p>
+    <img src="./figures/Q2_small.png" width="98%" alt="数直線の画像">
+    <p>↑対数目盛です; \(a_{201}'=\dfrac{3}{4}a_{201},a_{202}'=\dfrac{3}{4}a_{202}\)です</p>
+    <h2>出題者コメント</h2>
+    <p>ポイント<br>
+        実数の等比数列で挟んで対数を使うことが重要でした。
+        <br>
+        不等式の推移率を使いこなすことも大切でした。
+    </p>
+    <p>
+        いろいろ
+        <ul>
+            <li>数直線をかくとわかりやすいです。</li>
+            <li>(＊＊)を証明するために頑張ったわけです。</li>
+            <li>\(a_{201}\)と\(2025^{11}\)の大小関係を求める必要はありません。</li>
+            <li>底が3の対数を使うこともあるのですね。</li>
+        </ul>
+    </p>
+    <p>裏話
+        <ul>
+            <li>最初\(2025^{2}\)にしていましたが、33回計算すれば答えられてしまう(愚直な解法で制限時間内に解けてしまう)ので変更しました。</li>
+        </ul>
+    </p>
+    <h2>解答者コメント</h2>
+    </main>
+</body>
+</html>

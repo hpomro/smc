@@ -34,7 +34,7 @@ ol.list_parentheses li:before{
     content: "(" counter(cnt) ") ";
 }
 .ans {
-    border: solid 2px black;
+    border: solid 2px red;
 }
 @media print {
     .no-print {

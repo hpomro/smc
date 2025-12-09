@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="../header.css" type="text/css">
+    <link rel="stylesheet" href="../main.css" type="text/css">
+    <title>ヒント集</title>
+    <style>
+        .surrounded {
+            border: solid 1px #000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="../TopAndCaution.html">トップ/諸注意<br>Top and Cautions</a></li>
+                    <li><a href="../Questions.html">問題<br>Questions</a></li></li>
+                    <li><a href="../Clarifications.html">質問<br>Clarifications</a></li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf8jugGyq8GwGgp8EuVGjW7XG1Xc25enp366W2GoU-88jDHyA/viewform?usp=header" target="_blank">
+                        提出<br>Submission
+                        </a></li>
+                    <li><a href="../hints/hints.html">ヒント<br>Hints</a></li>
+                    <li><a href="../answer/index.html">解説<br>Explanation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1 class="center">SMC023 - ヒント集</h1>
+        <h2>問1</h2>
+        <h3>a</h3>
+        <div>
+            <button onclick="changeVisibility('hint1-a-1')">ヒント1</button>
+            <p id="hint1-a-1" style="visibility: hidden;">6で割って3余ることの必要十分条件を考えましょう。3の倍数判定法が参考になります。</p>
+        </div>
+        <h3>b</h3>
+        <div>
+            <button onclick="changeVisibility('hint1-b-1')">ヒント1</button>
+            <p id="hint1-b-1" style="visibility: hidden;">長方形を見つけましょう。</p>
+        </div>
+        <h3>c</h3>
+        <div>
+            <button onclick="changeVisibility('hint1-c-1')">ヒント1</button>
+            <p id="hint1-c-1" style="visibility: hidden;">1は勝手にかけてもよいです。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint1-c-2')">ヒント2</button>
+            <p id="hint1-c-2" style="visibility: hidden;">\(a = \sqrt{x}\)とおいてみましょう。</p>
+        </div>
+        <h2>問2</h2>
+        <p>[出題者解]</p>
+        <div>
+            <button onclick="changeVisibility('hint2-1')">ヒント1</button>
+            <p id="hint2-1" style="visibility: hidden;">箱の数の遷移だけを追いましょう。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint2-2')">ヒント2</button>
+            <p id="hint2-2" style="visibility: hidden;">床関数は評価しにくいので二つの数列で挟みましょう。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint2-3')">ヒント3</button>
+            <p id="hint2-3" style="visibility: hidden;">大小関係の分かった値を数直線上にプロットしましょう。</p>
+        </div>
+
+
+        <h2>問3</h2>
+        <p>(1)</p>
+        <div>
+            <button onclick="changeVisibility('hint3-1-1')">ヒント</button>
+            <p id="hint3-1-1" style="visibility: hidden;">逆から足してみましょう。</p>
+        </div>
+        <p>(2)</p>
+        <p>[出題者解]</p>
+        <div>
+            <button onclick="changeVisibility('hint3-2-1')">ヒント1</button>
+            <p id="hint3-2-1" style="visibility: hidden;">pは奇素数です。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint3-2-2')">ヒント2</button>
+            <p id="hint3-2-2" style="visibility: hidden;">ド・モルガンの法則を使いましょう。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint3-2-3')">ヒント3</button>
+            <p id="hint3-2-3" style="visibility: hidden;">\(p\)の倍数は\(pk\)(\(k\)は整数)とおくことができます。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint3-2-4')">ヒント4</button>
+            <p id="hint3-2-4" style="visibility: hidden;">連立方程式では足したり引いたりするとうまくいきました。</p>
+        </div>
+        <div>
+            <button onclick="changeVisibility('hint3-2-5')">ヒント5</button>
+            <p id="hint3-2-5" style="visibility: hidden;">任意の正の整数\(n\)と正の実数\(r\)について\(\lfloor n+r\rfloor = n+\lfloor r\rfloor\)が成り立ちます。</p>
+        </div>
+        <script>
+            function changeVisibility(id) {
+                
+                let target = document.getElementById(id);
+                if (target.style.visibility == "hidden") {
+                    target.style.visibility = "visible";
+                } else {
+                    target.style.visibility = "hidden";
+                }
+            }
+        </script>
+    </main>
+</body>
+</html>
