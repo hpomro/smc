@@ -45,3 +45,6 @@ ol.list_parentheses li:before{
 .new-section {
     break-before: page;
 }
+.point {
+    color: rgb(176, 82, 71);
+}
